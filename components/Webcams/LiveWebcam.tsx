@@ -6,7 +6,7 @@ type LiveWebcamProps = {};
 const LiveWebcam: React.FC<LiveWebcamProps> = () => {
     return (
         <iframe
-            src={'http://77.158.167.18:8080/mjpg/video.mjpg'}
+            src={'/webcam-proxy/live'}
             className="webcam"
             allow="autoplay"
             scrolling="no"
