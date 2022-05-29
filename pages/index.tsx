@@ -17,6 +17,9 @@ import MainTabs from '../components/layout/MainTabs';
 const Home: NextPage = () => {
     return (
         <div className={styles.rootContainer}>
+            <Head>
+                <title>Puy de dôme Parapente</title>
+            </Head>
             {/* <MainTabs /> */}
             <div className={styles.mainContainer}>
                 <div className={styles.mesureContainer}>
