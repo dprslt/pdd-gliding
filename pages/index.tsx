@@ -12,10 +12,12 @@ import MeteovergneWebcam from '../components/Webcams/MeteovergneWebcam';
 import OrcinesWebcam from '../components/Webcams/OrcinesWebcam';
 import SommetWebcam from '../components/Webcams/SommetWebcam';
 import styles from '../styles/Home.module.scss';
+import MainTabs from '../components/layout/MainTabs';
 
 const Home: NextPage = () => {
     return (
         <div className={styles.rootContainer}>
+            {/* <MainTabs /> */}
             <div className={styles.mainContainer}>
                 <div className={styles.mesureContainer}>
                     <h2>Mesures en direct</h2>
