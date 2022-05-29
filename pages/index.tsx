@@ -13,10 +13,25 @@ import OrcinesWebcam from '../components/Webcams/OrcinesWebcam';
 import SommetWebcam from '../components/Webcams/SommetWebcam';
 import styles from '../styles/Home.module.scss';
 import MainTabs from '../components/layout/MainTabs';
+import Script from 'next/script';
 
 const Home: NextPage = () => {
     return (
         <div className={styles.rootContainer}>
+            <Script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=G-73X7PN0C86"
+                strategy="afterInteractive"
+            ></Script>
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){window.dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'G-73X7PN0C86');
+                    `}
+            </Script>
             <Head>
                 <title>Puy de dôme Parapente</title>
             </Head>
