@@ -10,7 +10,7 @@ type BlockForecastProps = {};
 
 const BlockForecast: React.FC<BlockForecastProps> = () => {
     return (
-        <div className={styles.mesureContainerColumns}>
+        <div className={'mesure-container--columns'}>
             <MesuresOPGC />
             <div>
                 <HolfuyResume />

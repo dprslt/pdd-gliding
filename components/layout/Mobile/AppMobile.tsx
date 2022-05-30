@@ -14,6 +14,9 @@ import MobileForecastTabs from './MobileForecastTabs';
 import TrainHourlySchedule from '../../Train/TrainHourlySchedule';
 import { TabPanel } from '../TabPanel';
 import MainTabs from './MainTabs';
+import HolfuyHistory from '../../MesuresHolfuy/HolfuyHistory';
+import HolfuyResume from '../../MesuresHolfuy/HolfuyResume';
+import MesuresOPGC from '../../MesuresOPGC/MesuresOPGC';
 
 type AppMobileProps = {};
 
@@ -27,7 +30,10 @@ const AppMobile: React.FC<AppMobileProps> = () => {
         <div className="mobile-page">
             <div className="mobile-content">
                 <TabPanel value={value} index={0} className="mesures-tab-page">
-                    <BlockMesures />
+                    {/* <BlockMesures /> */}
+                    <MesuresOPGC />
+                    <HolfuyResume />
+                    <HolfuyHistory />
                 </TabPanel>
                 <TabPanel value={value} index={1} className="forecast-tab-page">
                     {/* <BlockForecast /> */}

@@ -6,14 +6,12 @@ type MesuresOPGCProps = {};
 
 const MesuresOPGC: React.FC<MesuresOPGCProps> = () => {
     return (
-        <div>
-            <img
-                src={'https://wwwobs.univ-bpclermont.fr/observ/chimie/PDD.jpeg'}
-                alt={'Balise OPGC'}
-                width={563}
-                height={325}
-            />
-        </div>
+        <img
+            src={'https://wwwobs.univ-bpclermont.fr/observ/chimie/PDD.jpeg'}
+            alt={'Balise OPGC'}
+            width={563}
+            height={325}
+        />
     );
 };
 

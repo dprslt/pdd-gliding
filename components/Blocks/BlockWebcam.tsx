@@ -12,7 +12,7 @@ type BlockWebcamProps = {};
 const BlockWebcam: React.FC<BlockWebcamProps> = () => {
     return (
         <div className="webcam-container">
-            <h2>Webcams</h2>
+            {/* <h2>Webcams</h2> */}
             <OrcinesWebcam />
             <SommetWebcam />
             <CezeauxWebcam />

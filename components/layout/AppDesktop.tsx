@@ -14,17 +14,17 @@ type AppDesktopProps = {};
 
 const AppDesktop: React.FC<AppDesktopProps> = () => {
     return (
-        <div>
-            <div className={styles.mainContainer}>
-                <div className={styles.mesureContainer}>
+        <div className="desktop-root-container">
+            <div className={'main-container'}>
+                <div className={'mesure-container'}>
                     <h2>Mesures en direct</h2>
+                    <BlockMesures />
                 </div>
-                <BlockMesures />
 
                 <h2>Prévisions</h2>
                 <BlockForecast />
 
-                <div className={styles.trainContainer}>
+                <div className={'train-container'}>
                     <h2>Horaires panoramique</h2>
                     <TrainHourlySchedule />
                 </div>

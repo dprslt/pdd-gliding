@@ -16,7 +16,7 @@ const HolfuyResume: React.FC<HolfuyResumeProps> = () => {
             src={`https://widget.holfuy.com/?station=1464&su=km/h&t=C&lang=fr&mode=${mode}`}
             style={
                 isTabletOrMobile
-                    ? { width: '200px', height: '550px' }
+                    ? { width: '200px', height: '500px' }
                     : { width: '580px', height: '250px' }
             }
         ></iframe>
