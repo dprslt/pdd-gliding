@@ -14,6 +14,7 @@ import SommetWebcam from '../components/Webcams/SommetWebcam';
 import styles from '../styles/Home.module.scss';
 import MainTabs from '../components/layout/MainTabs';
 import Script from 'next/script';
+import TrainHourlySchedule from '../components/Train/TrainHourlySchedule';
 
 const Home: NextPage = () => {
     return (
@@ -53,6 +54,10 @@ const Home: NextPage = () => {
                 <div className={styles.forecastContainer}>
                     <MeteoParapenteForecast />
                     <WindyForecast />
+                </div>
+                <div className={styles.trainContainer}>
+                    <h2>Horaires panoramique</h2>
+                    <TrainHourlySchedule />
                 </div>
             </div>
             <div className={styles.webcamsContainer}>

@@ -6,6 +6,7 @@ const nextConfig = {
             'www.orcines.fr',
             'wwwobs.univ-bpclermont.fr',
             'meteovergne.fr',
+            'www.panoramiquedesdomes.fr',
         ],
     },
     async rewrites() {
