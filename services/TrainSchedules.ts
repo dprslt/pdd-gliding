@@ -57,6 +57,66 @@ export const getDayTypeForADay = (
     return period.status;
 };
 
+export const getNextTrainForADay = (
+    day: Moment,
+    config: YearConfig
+): Moment | null => {
+    const type = getDayTypeForADay(day, config);
+
+    if (type === 'Closed') {
+    }
+
+    // Exit cases, if we're after the last train
+    switch (type) {
+        case 'Hourly':
+        case 'HourlyFiveDays':
+            if (day.isAfter(moment(day).hour(17).minute(0).second(0))) {
+                return null;
+            }
+            break;
+        case 'Fourty':
+            if (day.isAfter(moment(day).hour(19).minute(0).second(0))) {
+                return null;
+            }
+            break;
+        case 'Twenty':
+        case 'TwentyExtended':
+            if (day.isAfter(moment(day).hour(20).minute(0).second(0))) {
+                return null;
+            }
+            break;
+        // case Closed
+        default:
+            return null;
+    }
+
+    const clonedDay = moment(day).hour(9).minutes(0).seconds(0);
+    if (type === 'Hourly' || type === 'HourlyFiveDays') {
+        clonedDay.hour(10);
+    }
+
+    while (clonedDay.isBefore(day)) {
+        if (clonedDay.isAfter(day.endOf('day'))) {
+            throw new Error('Something went wrong');
+        }
+
+        switch (type) {
+            case 'Hourly':
+            case 'HourlyFiveDays':
+                clonedDay.add(1, 'hour');
+            case 'Fourty':
+                clonedDay.add(40, 'minutes');
+            case 'Twenty':
+            case 'TwentyExtended':
+                clonedDay.add(20, 'minutes');
+            // Should never occur but do not want to freeze the loop
+            default:
+                clonedDay.add(12, 'hour');
+        }
+    }
+    return clonedDay;
+};
+
 export const Schedule2022: YearConfig = {
     periods: [
         {

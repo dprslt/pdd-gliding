@@ -2,6 +2,7 @@ import moment from 'moment';
 import {
     foundCurrentPeriod,
     getDayTypeForADay,
+    getNextTrainForADay,
     Schedule2022,
 } from '../TrainSchedules';
 
@@ -84,5 +85,41 @@ describe('Testing getDayTypeForADay', () => {
         expect(getDayTypeForADay(moment('25/12/2022', 'L'), Schedule2022)).toBe(
             'Closed'
         );
+    });
+});
+
+describe('testing getNextTrainForADay', () => {
+    it('should return the 10AM train for a 5 January at 9am', () => {
+        expect(
+            getNextTrainForADay(
+                moment('05/01/2022 09:05', 'L LT'),
+                Schedule2022
+            )?.format
+        ).toBe(moment('05/01/2022 10:00', 'L LT').format);
+    });
+    it('should return the 18:20 train for a 13May at 18:05', () => {
+        expect(
+            getNextTrainForADay(
+                moment('13/05/2022 18:05', 'L LT'),
+                Schedule2022
+            )?.format
+        ).toBe(moment('13/05/2022 18:20', 'L LT').format);
+    });
+    it('should return the 15:20 train for a Twenty Day', () => {
+        expect(
+            getNextTrainForADay(
+                moment('27/07/2022 15:05', 'L LT'),
+                Schedule2022
+            )?.format
+        ).toBe(moment('27/07/2022 15:20', 'L LT').format);
+    });
+
+    it('should return null train for a 5 January at 6pm', () => {
+        expect(
+            getNextTrainForADay(
+                moment('05/01/2022 18:00', 'L LT'),
+                Schedule2022
+            )
+        ).toBe(null);
     });
 });
