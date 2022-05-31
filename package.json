@@ -6,6 +6,7 @@
         "dev": "next dev --port 4000",
         "build": "next build",
         "start": "next start --port 4004",
+        "test": "jest --watch",
         "lint": "next lint"
     },
     "dependencies": {
@@ -16,9 +17,13 @@
         "@fortawesome/free-solid-svg-icons": "^6.1.1",
         "@fortawesome/react-fontawesome": "^0.1.18",
         "@mui/material": "^5.8.1",
+        "@types/jest": "^27.5.1",
+        "jest": "^28.1.0",
+        "moment": "^2.29.3",
         "next": "12.1.6",
         "react": "18.1.0",
         "react-dom": "18.1.0",
+        "react-moment": "^1.1.2",
         "sass": "^1.52.1",
         "sharp": "^0.30.5"
     },
@@ -31,6 +36,7 @@
         "eslint-config-next": "12.1.6",
         "prettier": "^2.6.2",
         "prettier-eslint": "^15.0.1",
+        "ts-jest": "^28.0.3",
         "typescript": "4.7.2"
     }
 }
