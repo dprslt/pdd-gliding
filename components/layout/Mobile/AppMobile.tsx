@@ -17,6 +17,8 @@ import MainTabs from './MainTabs';
 import HolfuyHistory from '../../MesuresHolfuy/HolfuyHistory';
 import HolfuyResume from '../../MesuresHolfuy/HolfuyResume';
 import MesuresOPGC from '../../MesuresOPGC/MesuresOPGC';
+import TrainNextOneToday from '../../Train/TrainNextOneToday';
+import TrainsOfTheDay from '../../Train/TrainsOfTheDay';
 
 type AppMobileProps = {};
 
@@ -43,6 +45,8 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     <BlockWebcam />
                 </TabPanel>
                 <TabPanel value={value} index={3} className="train-tab-page">
+                    <TrainNextOneToday />
+                    <TrainsOfTheDay />
                     <TrainHourlySchedule />
                 </TabPanel>
             </div>

@@ -9,6 +9,8 @@ import BlockWebcam from '../Blocks/BlockWebcam';
 import styles from '../../styles/Home.module.scss';
 import BlockForecast from '../Blocks/BlockForecast';
 import BlockMesures from '../Blocks/BlockMesures';
+import TrainNextOneToday from '../Train/TrainNextOneToday';
+import TrainsOfTheDay from '../Train/TrainsOfTheDay';
 
 type AppDesktopProps = {};
 
@@ -26,6 +28,8 @@ const AppDesktop: React.FC<AppDesktopProps> = () => {
 
                 <div className={'train-container'}>
                     <h2>Horaires panoramique</h2>
+                    <TrainNextOneToday />
+                    <TrainsOfTheDay />
                     <TrainHourlySchedule />
                 </div>
             </div>
