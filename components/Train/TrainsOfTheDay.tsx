@@ -12,7 +12,6 @@ type TrainsOfTheDayProps = {};
 
 const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
     const nowMoment = useMoment();
-    nowMoment.hour(12);
 
     const [trains, setNextTrain] = useState<Array<Moment>>([]);
 
