@@ -88,6 +88,8 @@ a {
         text-align: left;
         width: 100%;
         border-bottom: solid 1px $lava-red;
+
+        margin-top: 0;
     }
 
     .mobile-content {
@@ -142,6 +144,48 @@ a {
 
 .train-tab-page {
     height: 100%;
+
+    padding: 0 1em;
+
+    .next-train {
+        text-align: center;
+        color: $lava-red;
+        font-weight: 600;
+        margin-top: 1em;
+    }
+
+    .train-of-day {
+        text-align: center;
+        margin-top: 1em;
+
+        ul {
+            padding: 0;
+            width: 50%;
+            margin: auto;
+            border: solid 1px $dark;
+            li {
+                list-style-type: none;
+                display: block;
+                font-weight: 700;
+                color: $lava-red;
+
+                &.missed {
+                    color: $grey;
+                    background-color: #e2e2e2;
+                }
+
+                padding: 0.2em 0;
+                border-bottom: solid 1px $dark;
+            }
+        }
+    }
+
+    .trainHourlySchedule {
+        // overflow-y: auto;
+        // overflow-x: visible;
+        max-width: 100%;
+        flex: 1;
+    }
 }
 
 .desktop-root-container {

@@ -19,14 +19,19 @@ const TrainNextOneToday: React.FC<TrainNextOneTodayProps> = () => {
         setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2022));
     }, [nowMoment]);
 
-    return nextTrain === null ? (
-        <p>Plus de train pour aujourd&apos;hui.</p>
-    ) : (
-        <p>
-            Prochain train{' '}
-            <ReactMoment fromNow date={nextTrain} local locale="fr" /> (
-            <ReactMoment date={nextTrain} format={'HH[h]mm'} />)
-        </p>
+    return (
+        <div className="next-train">
+            {nextTrain === null ? (
+                <p>Plus de train pour aujourd&apos;hui.</p>
+            ) : (
+                <p>
+                    Prochain train{' '}
+                    <ReactMoment fromNow date={nextTrain} local locale="fr" /> (
+                    <span></span>
+                    <ReactMoment date={nextTrain} format={'HH[h]mm'} />)
+                </p>
+            )}
+        </div>
     );
 };
 

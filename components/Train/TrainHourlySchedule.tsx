@@ -5,12 +5,14 @@ type TrainHourlyScheduleProps = {};
 
 const TrainHourlySchedule: React.FC<TrainHourlyScheduleProps> = () => {
     return (
-        <img
-            src="https://www.panoramiquedesdomes.fr/uploads/images/images/Horaires%202022.jpg"
-            alt="Horaires train heure par heure"
-            width={505}
-            height={458}
-        />
+        <div className="trainHourlySchedule">
+            <img
+                src="https://www.panoramiquedesdomes.fr/uploads/images/images/Horaires%202022.jpg"
+                alt="Horaires train heure par heure"
+                width={505}
+                height={458}
+            />
+        </div>
     );
 };
 

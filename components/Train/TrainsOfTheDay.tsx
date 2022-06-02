@@ -12,6 +12,7 @@ type TrainsOfTheDayProps = {};
 
 const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
     const nowMoment = useMoment();
+    nowMoment.hour(12);
 
     const [trains, setNextTrain] = useState<Array<Moment>>([]);
 
@@ -19,11 +20,16 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
         setNextTrain(getAllTrainsOfADay(nowMoment, PanoSchedule2022));
     }, [nowMoment]);
     return (
-        <div>
-            <h3>Trains de la journée</h3>
+        <div className="train-of-day">
+            <h2>Trains de la journée</h2>
             <ul>
                 {trains.map((train) => (
-                    <li key={train.format('HH:mm')}>
+                    <li
+                        key={train.format('HH:mm')}
+                        className={
+                            nowMoment.isAfter(train) ? 'missed' : 'active'
+                        }
+                    >
                         <ReactMoment date={train} format={'HH[h]mm'} />
                     </li>
                 ))}
