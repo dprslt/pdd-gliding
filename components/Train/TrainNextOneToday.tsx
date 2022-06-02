@@ -21,7 +21,7 @@ const TrainNextOneToday: React.FC<TrainNextOneTodayProps> = () => {
     ) : (
         <p>
             Prochain train dans <ReactMoment fromNow date={nextTrain} /> (
-            <ReactMoment date={nextTrain} format={"HH'h'mm"} />)
+            <ReactMoment date={nextTrain} format={'HH[h]mm'} />)
         </p>
     );
 };

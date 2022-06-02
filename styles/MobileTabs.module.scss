@@ -1,0 +1,27 @@
+@import './colors.scss';
+.mobileTabs {
+    :global(.MuiTabs-indicator) {
+        background-color: $dark;
+    }
+
+    :global(.MuiTab-root.Mui-selected) {
+        color: white;
+        background-color: $lava-red;
+    }
+    :global(.MuiTab-root) {
+        color: $lava-red;
+        background-color: white;
+    }
+}
+
+.mobileForecastTabs {
+    :global(.MuiTabs-indicator) {
+        background-color: $lava-red;
+        top: 0;
+    }
+
+    :global(.MuiTab-root.Mui-selected) {
+        color: $lava-red;
+        background-color: white;
+    }
+}

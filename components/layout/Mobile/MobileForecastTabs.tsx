@@ -6,6 +6,8 @@ import { TabPanel } from '../TabPanel';
 import MeteoParapenteForecast from '../../MeteoParapenteForecast/MeteoParapenteForecast';
 import WindyForecast from '../../WindyForecast/WindyForecast';
 
+import tabStyles from '../../../styles/MobileTabs.module.scss';
+
 type MobileForecastTabsProps = {};
 
 function a11yProps(index: number) {
@@ -33,7 +35,7 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
             <Tabs
                 value={value}
                 onChange={handleChange}
-                className={'forecast-tabs'}
+                className={tabStyles.mobileForecastTabs}
                 variant="fullWidth"
             >
                 <Tab label={'MétéoParapente'} {...a11yProps(0)} />
