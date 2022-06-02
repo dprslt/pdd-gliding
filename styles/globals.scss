@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import './colors.scss';
+
 html,
 body,
 #__next {
@@ -63,6 +66,30 @@ a {
 
     flex: 1;
 
+    h1 {
+        color: white;
+        background-color: $lava-red;
+        margin: 0 -1rem;
+        padding: 0.5rem;
+        text-align: center;
+        font-family: Nunito;
+        align-self: normal;
+        // font-variant: all-small-caps;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        // border-bottom: solid 1px $dark;
+        box-shadow: 2px 2px 7px #190d1775;
+    }
+
+    h2 {
+        color: $lava-red;
+        font-family: Nunito;
+        font-size: 1em;
+        text-align: left;
+        width: 100%;
+        border-bottom: solid 1px $lava-red;
+    }
+
     .mobile-content {
         height: 100%;
         overflow: auto;
@@ -101,6 +128,7 @@ a {
 .mesures-tab-page {
     align-items: safe center;
     padding: 1em;
+    padding-top: 0;
     img {
         width: 100%;
         height: auto;

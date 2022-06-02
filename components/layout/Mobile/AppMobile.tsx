@@ -33,18 +33,22 @@ const AppMobile: React.FC<AppMobileProps> = () => {
             <div className="mobile-content">
                 <TabPanel value={value} index={0} className="mesures-tab-page">
                     {/* <BlockMesures /> */}
+                    <h1>Balises</h1>
+                    <h2>OPGC</h2>
                     <MesuresOPGC />
+                    <h2>Holfuy PDD Nord (1464)</h2>
                     <HolfuyResume />
                     <HolfuyHistory />
                 </TabPanel>
                 <TabPanel value={value} index={1} className="forecast-tab-page">
-                    {/* <BlockForecast /> */}
                     <MobileForecastTabs />
                 </TabPanel>
                 <TabPanel value={value} index={2} className="webcam-tab-page">
+                    <h1>Webcam</h1>
                     <BlockWebcam />
                 </TabPanel>
                 <TabPanel value={value} index={3} className="train-tab-page">
+                    <h1>Horaires Panoramiques</h1>
                     <TrainNextOneToday />
                     <TrainsOfTheDay />
                     <TrainHourlySchedule />
