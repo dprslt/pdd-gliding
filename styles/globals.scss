@@ -154,67 +154,93 @@ a {
 
 .train-tab-page {
     height: 100%;
+}
 
-    .next-train {
-        text-align: center;
-        color: $lava-red;
-        font-weight: 600;
-        margin-top: 1em;
-    }
+.next-train {
+    text-align: center;
+    color: $lava-red;
+    font-weight: 600;
+    margin-top: 1em;
+}
 
-    .train-of-day {
-        text-align: center;
-        margin-top: 1em;
+.train-of-day {
+    text-align: center;
+    margin-top: 1em;
 
-        ul {
-            padding: 0;
-            width: 50%;
-            margin: auto;
-            border: solid 1px $dark;
-            li {
-                list-style-type: none;
-                display: block;
-                font-weight: 700;
-                color: $lava-red;
+    ul {
+        padding: 0;
+        width: 50%;
+        margin: auto;
+        border: solid 1px $dark;
+        li {
+            list-style-type: none;
+            display: block;
+            font-weight: 700;
+            color: $lava-red;
 
-                &.missed {
-                    color: $grey;
-                    background-color: #e2e2e2;
-                }
-
-                padding: 0.2em 0;
-                border-bottom: solid 1px $dark;
+            &.missed {
+                color: $grey;
+                background-color: #e2e2e2;
             }
+
+            padding: 0.2em 0;
+            border-bottom: solid 1px $dark;
         }
     }
+}
 
-    .trainHourlySchedule {
-        overflow-y: auto;
-        // overflow-x: visible;
-        max-width: 100%;
-        flex: 1;
-    }
+.trainHourlySchedule {
+    overflow-y: auto;
+    // overflow-x: visible;
+    max-width: 100%;
+    flex: 1;
 }
 
 .desktop-root-container {
     display: flex;
     flex-direction: row;
     .main-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex: 1;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // flex: 1;
 
         padding: 1em;
     }
 
+    h1 {
+        color: $lava-red;
+        // color: $dark;
+        font-family: Nunito;
+        font-size: 1em;
+        text-align: left;
+        border-bottom: solid 1px $lava-red;
+        align-self: stretch;
+        // font-variant: all-small-caps;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        // border-bottom: solid 1px $dark;
+    }
     h2 {
-        text-align: center;
+        color: $lava-red;
+        font-family: Nunito;
+        font-size: 1em;
+        text-align: left;
+        border-bottom: solid 1px $lava-red;
+        align-self: stretch;
+
+        margin-top: 0;
+        margin-left: 1em;
+        text-align: left;
     }
 
     .webcam-container {
         width: 25em;
         padding: 1em;
+
+        h2 {
+            margin-left: 0;
+        }
     }
 
     .mesure-container {

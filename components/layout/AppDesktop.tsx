@@ -19,15 +19,15 @@ const AppDesktop: React.FC<AppDesktopProps> = () => {
         <div className="desktop-root-container">
             <div className={'main-container'}>
                 <div className={'mesure-container'}>
-                    <h2>Mesures en direct</h2>
+                    <h1>Mesures en direct</h1>
                     <BlockMesures />
                 </div>
 
-                <h2>Prévisions</h2>
+                <h1>Prévisions</h1>
                 <BlockForecast />
 
                 <div className={'train-container'}>
-                    <h2>Horaires panoramique</h2>
+                    <h1>Horaires panoramique</h1>
                     <TrainNextOneToday />
                     <TrainsOfTheDay />
                     <TrainHourlySchedule />
