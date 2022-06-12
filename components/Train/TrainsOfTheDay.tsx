@@ -16,7 +16,11 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
     const [trains, setNextTrain] = useState<Array<Moment>>([]);
 
     useEffect(() => {
-        setNextTrain(getAllTrainsOfADay(nowMoment, PanoSchedule2022));
+        try {
+            setNextTrain(getAllTrainsOfADay(nowMoment, PanoSchedule2022));
+        } catch (e) {
+            console.error(e);
+        }
     }, [nowMoment]);
     return (
         <div className="train-of-day">

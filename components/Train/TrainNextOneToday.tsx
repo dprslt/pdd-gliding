@@ -16,7 +16,11 @@ const TrainNextOneToday: React.FC<TrainNextOneTodayProps> = () => {
     const [nextTrain, setNextTrain] = useState<Moment | null>(null);
 
     useEffect(() => {
-        setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2022));
+        try {
+            setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2022));
+        } catch (e) {
+            console.error(e);
+        }
     }, [nowMoment]);
 
     return (
