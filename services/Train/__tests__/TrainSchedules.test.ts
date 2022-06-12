@@ -166,3 +166,30 @@ describe('testing getNextTrainsOfADay', () => {
         ).toBe('2022 01 05 13:00');
     });
 });
+
+describe('Validate all days are filled for 2022', () => {
+    it('should work for all days', () => {
+        let time = moment('01/01/2022', 'L');
+        while (time.isSameOrBefore(moment('31/12/2022', 'L'))) {
+            getNextTrainForADay(time, PanoSchedule2022);
+            time = time.add(1, 'day');
+        }
+    });
+
+    it('should work for 2022-06-12T09:50:17+02:00 (Bug)', () => {
+        let time = moment('2022-06-12T09:50:17+02:00');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2022)?.format(
+                'YYYY MM DD HH:mm'
+            )
+        ).toBe('2022 06 12 10:20');
+    });
+    it('should work for now (Bug)', () => {
+        let time = moment();
+        expect(
+            getNextTrainForADay(time, PanoSchedule2022)?.format(
+                'YYYY MM DD HH:mm'
+            )
+        ).toBe('2022 06 12 10:20');
+    });
+});
