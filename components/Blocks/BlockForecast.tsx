@@ -1,6 +1,6 @@
 import React from 'react';
-import MeteoParapenteForecast from '../MeteoParapenteForecast/MeteoParapenteForecast';
-import WindyForecast from '../WindyForecast/WindyForecast';
+import MeteoParapenteForecast from '../Meteo/MeteoParapenteForecast/MeteoParapenteForecast';
+import WindyForecast from '../Meteo/WindyForecast/WindyForecast';
 import styles from '../../styles/Home.module.scss';
 
 type BlockForecastProps = {};

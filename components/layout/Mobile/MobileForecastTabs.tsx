@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tabs, Tab } from '@mui/material';
 import React from 'react';
 import { TabPanel } from '../TabPanel';
-import MeteoParapenteForecast from '../../MeteoParapenteForecast/MeteoParapenteForecast';
-import WindyForecast from '../../WindyForecast/WindyForecast';
+import MeteoParapenteForecast from '../../Meteo/MeteoParapenteForecast/MeteoParapenteForecast';
+import WindyForecast from '../../Meteo/WindyForecast/WindyForecast';
 
 import tabStyles from '../../../styles/MobileTabs.module.scss';
+import MeteoBlueMeteoGram from '../../Meteo/MeteoBlueForecasts/MeteoblueMeteogram';
 
 type MobileForecastTabsProps = {};
 
@@ -32,6 +33,10 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
             <TabPanel value={value} index={1} className="forecast-subtab">
                 <WindyForecast />
             </TabPanel>
+
+            <TabPanel value={value} index={2} className="forecast-subtab">
+                <MeteoBlueMeteoGram />
+            </TabPanel>
             <Tabs
                 value={value}
                 onChange={handleChange}
@@ -40,6 +45,7 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
             >
                 <Tab label={'MétéoParapente'} {...a11yProps(0)} />
                 <Tab label={'Windy'} {...a11yProps(1)} />
+                <Tab label={'Meteogram'} {...a11yProps(2)} />
             </Tabs>
         </>
     );
