@@ -20,6 +20,7 @@ import MesuresOPGC from '../../MesuresOPGC/MesuresOPGC';
 import TrainNextOneToday from '../../Train/TrainNextOneToday';
 import TrainsOfTheDay from '../../Train/TrainsOfTheDay';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 type AppMobileProps = {};
 
@@ -48,18 +49,31 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                         <h2>Holfuy PDD Nord (1464)</h2>
                         <HolfuyResume />
                         <HolfuyHistory />
+                        <Head>
+                            <title>Puy de dôme Parapente : Balises</title>
+                        </Head>
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={1} className="forecast-tab-page">
+                    <Head>
+                        <title>Puy de dôme Parapente : Météo</title>
+                    </Head>
+
                     <MobileForecastTabs />
                 </TabPanel>
                 <TabPanel value={value} index={2} className="webcam-tab-page">
+                    <Head>
+                        <title>Puy de dôme Parapente : Webcams</title>
+                    </Head>
                     <h1>Webcam</h1>
                     <div className="pageContent">
                         <BlockWebcam />
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={3} className="train-tab-page">
+                    <Head>
+                        <title>Puy de dôme Parapente : Train</title>
+                    </Head>
                     <h1>Horaires Panoramiques</h1>
                     <div className="pageContent">
                         <TrainNextOneToday />
