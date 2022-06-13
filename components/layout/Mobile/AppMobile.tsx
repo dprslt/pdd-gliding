@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Tabs, Tab } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import BlockForecast from '../../Blocks/BlockForecast';
 import BlockMesures from '../../Blocks/BlockMesures';
 import BlockWebcam from '../../Blocks/BlockWebcam';
@@ -19,15 +19,23 @@ import HolfuyResume from '../../MesuresHolfuy/HolfuyResume';
 import MesuresOPGC from '../../MesuresOPGC/MesuresOPGC';
 import TrainNextOneToday from '../../Train/TrainNextOneToday';
 import TrainsOfTheDay from '../../Train/TrainsOfTheDay';
+import { useRouter } from 'next/router';
 
 type AppMobileProps = {};
 
+const urls = ['wind', 'meteo', 'webcam', 'train'];
+
 const AppMobile: React.FC<AppMobileProps> = () => {
-    const [value, setValue] = React.useState(0);
+    const router = useRouter();
+    const indexQuery = router.query.index;
+    const stringValue = Array.isArray(indexQuery) ? indexQuery[0] : urls[0];
+    const value = urls.findIndex((v) => v === stringValue);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
+        // setValue(newValue);
+        router.push(`/${urls[newValue]}`);
     };
+
     return (
         <div className="mobile-page">
             <div className="mobile-content">

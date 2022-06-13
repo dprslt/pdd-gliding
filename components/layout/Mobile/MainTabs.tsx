@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Tabs, Tab } from '@mui/material';
+import { Router } from 'next/router';
 import React from 'react';
 
 import styles from '../../../styles/MobileTabs.module.scss';
