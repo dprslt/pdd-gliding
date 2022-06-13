@@ -41,7 +41,9 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
                 value={value}
                 onChange={handleChange}
                 className={tabStyles.mobileForecastTabs}
-                variant="fullWidth"
+                // variant="fullWidth"
+                variant="scrollable"
+                scrollButtons="auto"
             >
                 <Tab label={'MétéoParapente'} {...a11yProps(0)} />
                 <Tab label={'Windy'} {...a11yProps(1)} />
