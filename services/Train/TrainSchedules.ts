@@ -8,6 +8,7 @@ export type DayType =
     | 'Fourty'
     | 'Twenty'
     | 'TwentyExtended'
+    | 'TwentyExtendedOnThursday'
     | 'Closed';
 
 export type Period = {
@@ -51,6 +52,15 @@ export const getDayTypeOfADay = (time: Moment, config: YearConfig): DayType => {
         }
     }
 
+    if (period.status === 'TwentyExtendedOnThursday') {
+        // Closed on Monday and Thuesday
+        if (time.weekday() === 3) {
+            return 'TwentyExtended';
+        } else {
+            return 'TwentyExtended'
+        }
+    }
+
     return period.status;
 };
 
@@ -75,6 +85,7 @@ export const getAllTrainsOfADay = (
         case 'Twenty':
             return generateTwentySchedule(day);
         case 'TwentyExtended':
+        case 'TwentyExtendedOnThursday':
             return generateTwentyExtendedSchedule(day);
         default:
             return [];

@@ -2,9 +2,9 @@ import moment, { Moment } from 'moment';
 import React, { useEffect, useState } from 'react';
 import { default as ReactMoment } from 'react-moment';
 import { useMoment } from '../../hooks/useMoment';
-import { PanoSchedule2022 } from '../../services/Train/configs/2022';
 import { getNextTrainForADay } from '../../services/Train/TrainSchedules';
 import 'moment/locale/fr';
+import { PanoSchedule2023 } from '../../services/Train/configs/2023';
 
 moment.locale('fr');
 
@@ -17,7 +17,7 @@ const TrainNextOneToday: React.FC<TrainNextOneTodayProps> = () => {
 
     useEffect(() => {
         try {
-            setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2022));
+            setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2023));
         } catch (e) {
             console.error(e);
         }
