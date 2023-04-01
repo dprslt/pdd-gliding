@@ -1,0 +1,32 @@
+{
+    "name": "Puy de Dome Parapente - dprslt",
+    "short_name": "PDDP",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#a7001e",
+    "theme_color": "#a7001e",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/icone-pdd-32_x_32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "/icone-pdd-64_x_64.png",
+            "type": "image/png",
+            "sizes": "64x64",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icone-pdd-128_x_128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/icone-pdd-512_x_512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
