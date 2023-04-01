@@ -15,8 +15,7 @@
         {
             "src": "/icone-pdd-64_x_64.png",
             "type": "image/png",
-            "sizes": "64x64",
-            "purpose": "any maskable"
+            "sizes": "64x64"
         },
         {
             "src": "/icone-pdd-128_x_128.png",
@@ -26,7 +25,14 @@
         {
             "src": "/icone-pdd-512_x_512.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icone-pdd.png",
+            "type": "image/png",
+            "sizes": "2048x2048",
+            "purpose": "splashscreen"
         }
     ]
 }
