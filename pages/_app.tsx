@@ -5,6 +5,8 @@ import Script from 'next/script';
 import Head from 'next/head';
 import { useEffect } from 'react';
 
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
 function MyApp({ Component, pageProps }: AppProps) {
     useEffect(() => {
         if ('serviceWorker' in navigator) {
