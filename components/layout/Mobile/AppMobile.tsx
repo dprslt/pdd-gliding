@@ -39,6 +39,7 @@ const AppMobile: React.FC<AppMobileProps> = () => {
 
     return (
         <div className="mobile-page">
+            TEST UPDATE
             <div className="mobile-content">
                 <TabPanel value={value} index={0} className="mesures-tab-page">
                     {/* <BlockMesures /> */}
