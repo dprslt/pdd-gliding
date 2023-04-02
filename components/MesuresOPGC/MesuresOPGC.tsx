@@ -9,6 +9,9 @@ const MesuresOPGC: React.FC<MesuresOPGCProps> = () => {
         <img
             src={'https://wwwobs.univ-bpclermont.fr/observ/chimie/PDD.jpeg'}
             alt={'Balise OPGC'}
+            style={{
+                borderRadius: '1em',
+            }}
             width={563}
             height={325}
         />

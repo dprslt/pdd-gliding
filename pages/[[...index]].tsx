@@ -7,7 +7,7 @@ import { useMediaQuery } from '@mui/material';
 import AppMobile from '../components/layout/Mobile/AppMobile';
 
 const Home: NextPage = () => {
-    const isTabletOrMobile = useMediaQuery('(max-width: 700px)');
+    const isTabletOrMobile = useMediaQuery('(max-width: 820px)');
 
     return (
         <div className="root-container">
