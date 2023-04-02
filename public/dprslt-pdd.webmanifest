@@ -8,31 +8,39 @@
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "/icone-pdd-32_x_32.png",
+            "src": "pdd_icon_x48.png",
             "type": "image/png",
-            "sizes": "32x32"
+            "sizes": "48x48"
         },
         {
-            "src": "/icone-pdd-64_x_64.png",
+            "src": "pdd_icon_x72.png",
             "type": "image/png",
-            "sizes": "64x64"
+            "sizes": "72x72"
         },
         {
-            "src": "/icone-pdd-128_x_128.png",
+            "src": "pdd_icon_x96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "pdd_icon_x128.png",
             "type": "image/png",
             "sizes": "128x128"
         },
         {
-            "src": "/icone-pdd-512_x_512.png",
+            "src": "pdd_icon_x192.png",
             "type": "image/png",
-            "sizes": "512x512",
-            "purpose": "any maskable"
+            "sizes": "192x192"
         },
         {
-            "src": "/icone-pdd.png",
+            "src": "pdd_icon_x384.png",
             "type": "image/png",
-            "sizes": "2048x2048",
-            "purpose": "splashscreen"
+            "sizes": "384x384"
+        },
+        {
+            "src": "pdd_icon_x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
         }
     ]
 }
