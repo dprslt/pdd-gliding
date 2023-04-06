@@ -1,17 +1,43 @@
 @import './colors.scss';
+
+.mobileTabsBox {
+    // position: absolute;
+    // bottom: 0;
+    width: 100%;
+    height: 6em;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .mobileTabs {
     :global(.MuiTabs-indicator) {
-        background-color: $dark;
+        // background-color: $dark;
+        display: none;
     }
 
     :global(.MuiTab-root.Mui-selected) {
-        color: white;
-        background-color: $lava-red;
+        color: $onPrimary;
+        background-color: $primary;
+        // color: $lava-red;
     }
     :global(.MuiTab-root) {
-        color: $lava-red;
-        background-color: white;
+        // color: $lava-red;
+        color: $onPrimaryContainer;
+        background-color: transparent;
+        height: 4em;
+        min-width: 3em;
+        width: 6em;
+        font-size: 0.9em;
     }
+
+    border-radius: 4em;
+    // box-shadow: #afafaf 3px 3px 3px 2px;
+    background: $primaryContainer;
+    max-width: 90%;
+    // border: solid 3px white;
 }
 
 .mobileForecastTabs {

@@ -25,7 +25,10 @@ function a11yProps(index: number) {
 
 const MainTabs: React.FC<MainTabsProps> = ({ value, onChange }) => {
     return (
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box
+            sx={{ borderBottom: 1, borderColor: 'divider' }}
+            className={styles.mobileTabsBox}
+        >
             <Tabs
                 value={value}
                 onChange={onChange}

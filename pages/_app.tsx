@@ -1,11 +1,12 @@
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import '@fontsource/lato/300.css';
+import '@fontsource/lato/400.css';
+import '@fontsource/lato/700.css';
 import '../styles/globals.scss';
-import '../styles/mobilePage.scss';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import Head from 'next/head';
 import { useEffect } from 'react';
-
-import '@fortawesome/fontawesome-svg-core/styles.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
     useEffect(() => {

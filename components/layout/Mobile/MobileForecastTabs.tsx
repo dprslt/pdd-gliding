@@ -8,7 +8,10 @@ import WindyForecast from '../../Meteo/WindyForecast/WindyForecast';
 
 import tabStyles from '../../../styles/MobileTabs.module.scss';
 import MeteoBlueMeteoGram from '../../Meteo/MeteoBlueForecasts/MeteoblueMeteogram';
+import MeteoblueMultimodel from '../../Meteo/MeteoBlueForecasts/MeteoblueMultimodel';
 import { useRouter } from 'next/router';
+import MetOfficeLink from '../../links/MetOfficeUK';
+import MultiModelLink from '../../links/MeteoBlueMultimodel';
 
 type MobileForecastTabsProps = {};
 
@@ -19,7 +22,7 @@ function a11yProps(index: number) {
     };
 }
 
-const urls = ['meteoparapente', 'windy', 'meteoblue'];
+const urls = ['meteoparapente', 'windy', 'meteoblue', 'more'];
 
 const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
     const router = useRouter();
@@ -46,6 +49,16 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
             <TabPanel value={value} index={2} className="forecast-subtab">
                 <MeteoBlueMeteoGram />
             </TabPanel>
+            <TabPanel
+                value={value}
+                index={3}
+                className="forecast-subtab forecast-morelinks"
+            >
+                {/* <MeteoblueMultimodel /> */}
+                <h2>Pour aller plus loin</h2>
+                <MetOfficeLink />
+                <MultiModelLink />
+            </TabPanel>
             <Tabs
                 value={value}
                 onChange={handleChange}
@@ -57,6 +70,7 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
                 <Tab label={'MétéoParapente'} {...a11yProps(0)} />
                 <Tab label={'Windy'} {...a11yProps(1)} />
                 <Tab label={'Meteogram'} {...a11yProps(2)} />
+                <Tab label={'Plus..'} {...a11yProps(3)} />
             </Tabs>
         </>
     );

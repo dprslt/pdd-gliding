@@ -21,6 +21,10 @@ import TrainNextOneToday from '../../Train/TrainNextOneToday';
 import TrainsOfTheDay from '../../Train/TrainsOfTheDay';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import PageTitle from '../../Blocks/PageTitle';
+import SportAirLink from '../../links/SpotAirLink';
+import ParaveyronLink from '../../links/Paraveyron';
+import MetOfficeLink from '../../links/MetOfficeUK';
 
 type AppMobileProps = {};
 
@@ -33,25 +37,28 @@ const AppMobile: React.FC<AppMobileProps> = () => {
     const value = urls.findIndex((v) => v === stringValue);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        // setValue(newValue);
         router.push(`/${urls[newValue]}`);
     };
 
     return (
-        <div className="mobile-page">
+        <div className="mobile-app">
             <div className="mobile-content">
                 <TabPanel value={value} index={0} className="mesures-tab-page">
                     {/* <BlockMesures /> */}
-                    <h1>Balises</h1>
                     <div className="pageContent">
+                        <Head>
+                            <title>Puy de dôme Parapente : Balises</title>
+                        </Head>
+                        <PageTitle icon={faWind}>Balises</PageTitle>
                         <h2>OPGC</h2>
                         <MesuresOPGC />
                         <h2>Holfuy PDD Nord (1464)</h2>
                         <HolfuyResume />
                         <HolfuyHistory />
-                        <Head>
-                            <title>Puy de dôme Parapente : Balises</title>
-                        </Head>
+                        <h2>Pour aller plus loin</h2>
+                        <SportAirLink />
+                        <ParaveyronLink />
+                        {/* <MetOfficeLink /> */}
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={1} className="forecast-tab-page">
@@ -65,8 +72,8 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     <Head>
                         <title>Puy de dôme Parapente : Webcams</title>
                     </Head>
-                    <h1>Webcam</h1>
                     <div className="pageContent">
+                        <PageTitle icon={faCameraRetro}>Webcams</PageTitle>
                         <BlockWebcam />
                     </div>
                 </TabPanel>
@@ -74,8 +81,11 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     <Head>
                         <title>Puy de dôme Parapente : Train</title>
                     </Head>
-                    <h1>Horaires Panoramiques</h1>
                     <div className="pageContent">
+                        <PageTitle icon={faTrainTram}>
+                            Horaires Panoramiques
+                        </PageTitle>
+
                         <TrainNextOneToday />
                         <TrainsOfTheDay />
                         <TrainHourlySchedule />
