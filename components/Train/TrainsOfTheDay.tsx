@@ -27,7 +27,7 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
         }
     }, [nowMoment]);
 
-    const [showMissed, setShowMissed] = useState(nextTrain === null);
+    const [showMissed, setShowMissed] = useState(false);
 
     return (
         <div className="train-of-day">
@@ -40,6 +40,9 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
                     <FontAwesomeIcon icon={showMissed ? faEyeSlash : faEye} />
                 </button>
             </h2>
+            {!showMissed && nextTrain === null && (
+                <p>Plus de train pour aujourd&apos;hui.</p>
+            )}
             <ul>
                 {trains.map((train) => {
                     const isMissed = nowMoment.isAfter(train);

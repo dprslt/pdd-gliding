@@ -25,9 +25,7 @@ const TrainNextOneToday: React.FC<TrainNextOneTodayProps> = () => {
 
     return (
         <div className="next-train">
-            {nextTrain === null ? (
-                <p>Plus de train pour aujourd&apos;hui.</p>
-            ) : (
+            {nextTrain === null ? null : (
                 <p>
                     Prochain train{' '}
                     <ReactMoment fromNow date={nextTrain} local locale="fr" /> (
