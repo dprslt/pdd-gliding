@@ -47,8 +47,8 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     <Head>
                         <title>Puy de dôme Parapente : Balises</title>
                     </Head>
-                    <PageTitle icon={faWind}>Balises</PageTitle>
                     <div className="pageContent">
+                        <PageTitle icon={faWind}>Balises</PageTitle>
                         <h2>OPGC</h2>
                         <MesuresOPGC />
                         <h2>Holfuy PDD Nord (1464)</h2>
@@ -70,8 +70,8 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     <Head>
                         <title>Puy de dôme Parapente : Webcams</title>
                     </Head>
-                    <PageTitle icon={faCameraRetro}>Webcams</PageTitle>
                     <div className="pageContent">
+                        <PageTitle icon={faCameraRetro}>Webcams</PageTitle>
                         <BlockWebcam />
                     </div>
                 </TabPanel>
@@ -79,10 +79,10 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     <Head>
                         <title>Puy de dôme Parapente : Train</title>
                     </Head>
-                    <PageTitle icon={faTrainTram}>
-                        Horaires Panoramiques
-                    </PageTitle>
                     <div className="pageContent">
+                        <PageTitle icon={faTrainTram}>
+                            Horaires Panoramiques
+                        </PageTitle>
                         <TrainNextOneToday />
                         <TrainsOfTheDay />
                         <TrainHourlySchedule />

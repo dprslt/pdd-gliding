@@ -55,10 +55,8 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
                 index={3}
                 className="forecast-subtab forecast-morelinks"
             >
-                {/* <MeteoblueMultimodel /> */}
-                <PageTitle icon={faEarthEurope}>Analyse Météo</PageTitle>
-
                 <div className="pageContent">
+                    <PageTitle icon={faEarthEurope}>Analyse Météo</PageTitle>
                     <h2>Pour aller plus loin</h2>
                     <MetOfficeLink />
                     <MultiModelLink />

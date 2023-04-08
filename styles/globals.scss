@@ -100,8 +100,7 @@ a {
         // overflow: hidden;
         display: flex;
         align-items: center;
-        margin-bottom: 1.5rem;
-        margin-top: 1.5rem;
+        margin: 1.5rem 0;
 
         & > * {
             height: 3.5rem;
@@ -156,12 +155,8 @@ a {
     .pageContent {
         flex: 1;
         overflow: auto;
-    }
-
-    .pageContent,
-    h1.page-title {
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     .mobile-content {
