@@ -12,6 +12,7 @@ import MeteoblueMultimodel from '../../Meteo/MeteoBlueForecasts/MeteoblueMultimo
 import { useRouter } from 'next/router';
 import MetOfficeLink from '../../links/MetOfficeUK';
 import MultiModelLink from '../../links/MeteoBlueMultimodel';
+import PageTitle from '../../Blocks/PageTitle';
 
 type MobileForecastTabsProps = {};
 
@@ -55,9 +56,13 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
                 className="forecast-subtab forecast-morelinks"
             >
                 {/* <MeteoblueMultimodel /> */}
-                <h2>Pour aller plus loin</h2>
-                <MetOfficeLink />
-                <MultiModelLink />
+                <PageTitle icon={faEarthEurope}>Analyse Météo</PageTitle>
+
+                <div className="pageContent">
+                    <h2>Pour aller plus loin</h2>
+                    <MetOfficeLink />
+                    <MultiModelLink />
+                </div>
             </TabPanel>
             <Tabs
                 value={value}

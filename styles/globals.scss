@@ -89,9 +89,8 @@ a {
     }
 
     h1.page-title {
-        margin: 0;
         text-align: left;
-        font-family: Lato;
+        font-family: 'Baloo 2', cursive;
         font-weight: 400;
 
         padding: 0;
@@ -101,28 +100,29 @@ a {
         // overflow: hidden;
         display: flex;
         align-items: center;
-        margin-bottom: 1.5em;
-
-        padding: 0.5em 1em;
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
 
         & > * {
             height: 3.5rem;
             display: flex;
             align-items: center;
 
-            border-radius: 1.75em;
+            border-radius: 1.75rem;
             overflow: hidden;
         }
 
         span {
-            padding-right: 2em;
-            padding-left: 1.5em;
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
             flex: 1;
             // background-color: $secondaryContainer;
             background-color: $secondaryContainer;
             color: $onSecondaryContainer;
+            // color: $onBackground;
+            font-size: 1.2em;
 
-            margin-left: 1em;
+            margin-left: 1.5rem;
         }
 
         .icon {
@@ -144,19 +144,24 @@ a {
     //     border-radius: 1em;
     // }
     h2 {
-        color: $primary;
-        font-family: Lato;
-        margin-top: 1em;
-        text-align: center;
+        color: $onBackground;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.5em;
+        margin-top: 0.5rem;
+        text-align: left;
         font-weight: 400;
-        margin-bottom: 1em;
+        margin-bottom: 0.5rem;
     }
 
     .pageContent {
         flex: 1;
         overflow: auto;
+    }
 
-        padding: 1em 1em;
+    .pageContent,
+    h1.page-title {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
     }
 
     .mobile-content {
@@ -170,6 +175,7 @@ a {
             flex: 1;
             display: flex;
             flex-direction: column;
+            align-items: initial;
         }
     }
 
@@ -229,7 +235,7 @@ a {
 }
 
 .forecast-tab-page .forecast-morelinks {
-    padding: 0 2em;
+    // padding: 0 2em;
     overflow: auto;
 }
 
@@ -283,7 +289,7 @@ a {
         border-radius: 0.5em;
         position: absolute;
         right: 1em;
-        top: 1em;
+        top: calc(50% - 1.1em);
         border: none;
         padding: 0.5em 1em;
     }

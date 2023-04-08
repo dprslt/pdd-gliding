@@ -2,6 +2,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import '@fontsource/lato/300.css';
 import '@fontsource/lato/400.css';
 import '@fontsource/lato/700.css';
+import '@fontsource/baloo-2';
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
