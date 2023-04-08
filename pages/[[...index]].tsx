@@ -12,24 +12,6 @@ const Home: NextPage = () => {
 
     return (
         <div className="root-container">
-            {process && process.env.NODE_ENV === 'production' && (
-                <>
-                    <Script
-                        async
-                        src="https://www.googletagmanager.com/gtag/js?id=G-73X7PN0C86"
-                        strategy="afterInteractive"
-                    ></Script>
-                    <Script id="google-analytics" strategy="afterInteractive">
-                        {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){window.dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    
-                    gtag('config', 'G-73X7PN0C86');
-                    `}
-                    </Script>
-                </>
-            )}
             <Head>
                 <title>Puy de dôme Parapente</title>
                 <meta
