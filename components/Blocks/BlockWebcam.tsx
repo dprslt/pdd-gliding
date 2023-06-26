@@ -6,6 +6,7 @@ import OrcinesWebcam from '../Webcams/OrcinesWebcam';
 import SommetWebcam from '../Webcams/SommetWebcam';
 
 import styles from '../../styles/Home.module.scss';
+import GolfVolvicWebcam from '../Webcams/GolfWebcam';
 
 type BlockWebcamProps = {};
 
@@ -20,6 +21,8 @@ const BlockWebcam: React.FC<BlockWebcamProps> = () => {
             <CezeauxWebcam />
             <h2>Météovergne</h2>
             <MeteovergneWebcam />
+            <h2>Golf Volvic</h2>
+            <GolfVolvicWebcam />
             <h2>Live - Sud-Ouest</h2>
             <LiveWebcam />
         </div>

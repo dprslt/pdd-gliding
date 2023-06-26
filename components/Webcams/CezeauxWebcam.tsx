@@ -7,7 +7,7 @@ type CezeauxWebcamProps = {};
 const CezeauxWebcam: React.FC<CezeauxWebcamProps> = () => {
     return (
         <img
-            src={'http://wwwobs.univ-bpclermont.fr/opgc/webcamcez.jpg'}
+            src={'https://wwwobs.univ-bpclermont.fr/opgc/webcamcez.jpg'}
             alt={'Webcam Cézeaux'}
             className="webcam"
             width={800}
