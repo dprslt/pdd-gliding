@@ -11,7 +11,6 @@ import BlockForecast from '../../Blocks/BlockForecast';
 import BlockMesures from '../../Blocks/BlockMesures';
 import BlockWebcam from '../../Blocks/BlockWebcam';
 import MobileForecastTabs from './MobileForecastTabs';
-import TrainHourlySchedule from '../../Train/TrainHourlySchedule';
 import { TabPanel } from '../TabPanel';
 import MainTabs from './MainTabs';
 import HolfuyHistory from '../../MesuresHolfuy/HolfuyHistory';
@@ -25,6 +24,7 @@ import PageTitle from '../../Blocks/PageTitle';
 import SportAirLink from '../../links/SpotAirLink';
 import ParaveyronLink from '../../links/Paraveyron';
 import MetOfficeLink from '../../links/MetOfficeUK';
+import TrainScheduleLink from '../../Train/TrainScheduleLink';
 
 type AppMobileProps = {};
 
@@ -85,7 +85,7 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                         </PageTitle>
                         <TrainNextOneToday />
                         <TrainsOfTheDay />
-                        <TrainHourlySchedule />
+                        <TrainScheduleLink />
                     </div>
                 </TabPanel>
             </div>

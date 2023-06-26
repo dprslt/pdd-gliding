@@ -3,7 +3,6 @@ import HolfuyHistory from '../MesuresHolfuy/HolfuyHistory';
 import HolfuyResume from '../MesuresHolfuy/HolfuyResume';
 import MesuresOPGC from '../MesuresOPGC/MesuresOPGC';
 import MeteoParapenteForecast from '../Meteo/MeteoParapenteForecast/MeteoParapenteForecast';
-import TrainHourlySchedule from '../Train/TrainHourlySchedule';
 import WindyForecast from '../Meteo/WindyForecast/WindyForecast';
 import BlockWebcam from '../Blocks/BlockWebcam';
 import styles from '../../styles/Home.module.scss';
@@ -11,6 +10,7 @@ import BlockForecast from '../Blocks/BlockForecast';
 import BlockMesures from '../Blocks/BlockMesures';
 import TrainNextOneToday from '../Train/TrainNextOneToday';
 import TrainsOfTheDay from '../Train/TrainsOfTheDay';
+import TrainScheduleLink from '../Train/TrainScheduleLink';
 
 type AppDesktopProps = {};
 
@@ -30,7 +30,7 @@ const AppDesktop: React.FC<AppDesktopProps> = () => {
                     <h1>Horaires panoramique</h1>
                     <TrainNextOneToday />
                     <TrainsOfTheDay />
-                    <TrainHourlySchedule />
+                    <TrainScheduleLink />
                 </div>
             </div>
 
