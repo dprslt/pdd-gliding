@@ -1,3 +1,5 @@
+'use client';
+
 import { faWind, faEarthEurope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tabs, Tab } from '@mui/material';
@@ -9,10 +11,10 @@ import WindyForecast from '../../Meteo/WindyForecast/WindyForecast';
 import tabStyles from '../../../styles/MobileTabs.module.scss';
 import MeteoBlueMeteoGram from '../../Meteo/MeteoBlueForecasts/MeteoblueMeteogram';
 import MeteoblueMultimodel from '../../Meteo/MeteoBlueForecasts/MeteoblueMultimodel';
-import { useRouter } from 'next/router';
 import MetOfficeLink from '../../links/MetOfficeUK';
 import MultiModelLink from '../../links/MeteoBlueMultimodel';
 import PageTitle from '../../Blocks/PageTitle';
+import { redirect, usePathname, useRouter } from 'next/navigation';
 
 type MobileForecastTabsProps = {};
 
@@ -22,18 +24,21 @@ function a11yProps(index: number) {
         'aria-controls': `forecast-tab-${index}`,
     };
 }
+export const urls = ['meteoparapente', 'windy', 'meteoblue', 'more'];
 
-const urls = ['meteoparapente', 'windy', 'meteoblue', 'more'];
-
+// TODO rewrite this component and split it
 const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
     const router = useRouter();
-    const indexQuery = router.query.index;
-    const stringValue = (Array.isArray(indexQuery) && indexQuery[1]) || urls[0];
+    const pathname = usePathname();
+    const paths = pathname?.split('/');
+    paths?.shift();
+    console.log(paths);
+    const stringValue = (Array.isArray(paths) && paths[1]) || urls[0];
     const value = urls.findIndex((v) => v === stringValue);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        // setValue(newValue);
         // TODO improve this to get current url
+        console.log(newValue);
         router.push(`/meteo/${urls[newValue]}`);
     };
 

@@ -1,23 +1,35 @@
+'use client';
+
 import Head from 'next/head';
 import React from 'react';
-import MainTabs from './MainTabs';
-import MobileNavBar from './MobileNavBar';
-import MobilePageHeader from './MobilePageHeader';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import PageTitle from '../../Blocks/PageTitle';
+import MainMenu from './MainMenu';
 
 type MobilePageProps = {
-    pageTitle: string;
+    pageTitle?: string;
+    pageIcon?: IconDefinition;
+    className?: string;
     children?: React.ReactNode;
 };
 
-const MobilePage: React.FC<MobilePageProps> = ({ pageTitle, children }) => {
+const MobilePage: React.FC<MobilePageProps> = ({
+    pageTitle,
+    pageIcon,
+    children,
+    className,
+}) => {
     return (
-        <div className="mobilePage">
-            <Head>
-                <title>Puy de dôme Parapente - {pageTitle}</title>
-            </Head>
-            <MobilePageHeader title={pageTitle} />
-            <div className="mobilePage-content">{children}</div>
-            <MobileNavBar />
+        <div className="mobile-app">
+            <div className="mobile-content">
+                <div className={`pageContent ${className}`}>
+                    {pageTitle && pageIcon && (
+                        <PageTitle icon={pageIcon}>{pageTitle}</PageTitle>
+                    )}
+                    {children}
+                </div>
+                <MainMenu />
+            </div>
         </div>
     );
 };

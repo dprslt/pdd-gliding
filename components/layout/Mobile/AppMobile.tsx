@@ -12,7 +12,7 @@ import BlockMesures from '../../Blocks/BlockMesures';
 import BlockWebcam from '../../Blocks/BlockWebcam';
 import MobileForecastTabs from './MobileForecastTabs';
 import { TabPanel } from '../TabPanel';
-import MainTabs from './MainTabs';
+import MainMenu from './MainMenu';
 import HolfuyHistory from '../../MesuresHolfuy/HolfuyHistory';
 import HolfuyResume from '../../MesuresHolfuy/HolfuyResume';
 import MesuresOPGC from '../../MesuresOPGC/MesuresOPGC';
@@ -43,7 +43,7 @@ const AppMobile: React.FC<AppMobileProps> = () => {
     return (
         <div className="mobile-app">
             <div className="mobile-content">
-                <TabPanel value={value} index={0} className="mesures-tab-page">
+                <TabPanel value={value} index={0} className="">
                     <Head>
                         <title>Puy de dôme Parapente : Balises</title>
                     </Head>
@@ -89,7 +89,7 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     </div>
                 </TabPanel>
             </div>
-            <MainTabs value={value} onChange={handleChange} />
+            <MainMenu value={value} onChange={handleChange} />
         </div>
     );
 };

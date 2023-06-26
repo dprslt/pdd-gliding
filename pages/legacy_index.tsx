@@ -12,13 +12,6 @@ const Home: NextPage = () => {
 
     return (
         <div className="root-container">
-            <Head>
-                <title>Puy de dôme Parapente</title>
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-            </Head>
             {isTabletOrMobile ? <AppMobile /> : <AppDesktop />}
         </div>
     );

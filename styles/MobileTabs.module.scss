@@ -18,19 +18,22 @@
         display: none;
     }
 
-    :global(.MuiTab-root.Mui-selected) {
+    :global(a.active) {
         color: $onPrimary;
         background-color: $primary;
         // color: $lava-red;
     }
-    :global(.MuiTab-root) {
+    a {
         // color: $lava-red;
         color: $onPrimaryContainer;
         background-color: transparent;
         height: 4em;
         min-width: 3em;
-        width: 6em;
         font-size: 0.9em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
     }
 
     border-radius: 4em;
@@ -38,6 +41,11 @@
     background: $primaryContainer;
     margin: 0 1.5rem;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-between
+    align-items: center;
+    overflow: hidden;
 
     // border: solid 3px white;
 }

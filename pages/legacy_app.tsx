@@ -8,44 +8,12 @@ import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import Head from 'next/head';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import MainMenu from '../components/layout/Mobile/MainMenu';
 
 function PddApp({ Component, pageProps }: AppProps) {
-    useEffect(() => {
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('/sw.js').then(
-                    function (registration) {
-                        console.log(
-                            'Service Worker registration successful with scope: ',
-                            registration.scope
-                        );
-                    },
-                    function (err) {
-                        console.log(
-                            'Service Worker registration failed: ',
-                            err
-                        );
-                    }
-                );
-            });
-        }
-    }, []);
     return (
         <>
-            <Script
-                async
-                src="https://www.googletagmanager.com/gtag/js?id=G-73X7PN0C86"
-                strategy="afterInteractive"
-            ></Script>
-            <Script id="google-analytics" strategy="afterInteractive">
-                {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){window.dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    
-                    gtag('config', 'G-73X7PN0C86');
-                    `}
-            </Script>
             <Head>
                 <link href="touch-icon-iphone.png" rel="apple-touch-icon" />
                 <link
@@ -79,6 +47,11 @@ function PddApp({ Component, pageProps }: AppProps) {
                 <meta
                     property="og:image"
                     content="https://pdd.dprslt.fr/icone-pdd-128_x_128.png"
+                />
+                <title>Puy de dôme Parapente</title>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
                 />
             </Head>
             <Component {...pageProps} />
