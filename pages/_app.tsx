@@ -9,7 +9,7 @@ import Script from 'next/script';
 import Head from 'next/head';
 import { useEffect } from 'react';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function PddApp({ Component, pageProps }: AppProps) {
     useEffect(() => {
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
@@ -32,24 +32,21 @@ function MyApp({ Component, pageProps }: AppProps) {
     }, []);
     return (
         <>
-            <Head>
-                <>
-                    <Script
-                        async
-                        src="https://www.googletagmanager.com/gtag/js?id=G-73X7PN0C86"
-                        strategy="afterInteractive"
-                    ></Script>
-                    <Script id="google-analytics" strategy="afterInteractive">
-                        {`
+            <Script
+                async
+                src="https://www.googletagmanager.com/gtag/js?id=G-73X7PN0C86"
+                strategy="afterInteractive"
+            ></Script>
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){window.dataLayer.push(arguments);}
                     gtag('js', new Date());
                     
                     gtag('config', 'G-73X7PN0C86');
                     `}
-                    </Script>
-                </>
-
+            </Script>
+            <Head>
                 <link href="touch-icon-iphone.png" rel="apple-touch-icon" />
                 <link
                     href="/icone-pdd-32_x_32.png"
@@ -77,7 +74,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <meta property="og:title" content="PDD Parapente - dprslt" />
                 <meta
                     property="og:description"
-                    content="Centralisation de données sur les conditions de vol sur le site du Puy de Dome (63)"
+                    content="Centralisation de données sur les conditions de vol en parapente sur le site du Puy de Dome (63)"
                 />
                 <meta
                     property="og:image"
@@ -89,4 +86,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
 }
 
-export default MyApp;
+export default PddApp;
