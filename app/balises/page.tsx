@@ -1,12 +1,11 @@
 import React from 'react';
-import MobilePage from '../../components/layout/Mobile/MobilePage';
+import AppPage from '../../components/layout/Mobile/AppPage';
 import { faWind } from '@fortawesome/free-solid-svg-icons';
-import PageTitle from '../../components/Blocks/PageTitle';
-import HolfuyHistory from '../../components/MesuresHolfuy/HolfuyHistory';
-import HolfuyResume from '../../components/MesuresHolfuy/HolfuyResume';
-import MesuresOPGC from '../../components/MesuresOPGC/MesuresOPGC';
-import ParaveyronLink from '../../components/links/Paraveyron';
-import SportAirLink from '../../components/links/SpotAirLink';
+import HolfuyHistory from './components/MesuresHolfuy/HolfuyHistory';
+import HolfuyResume from './components/MesuresHolfuy/HolfuyResume';
+import MesuresOPGC from './components/MesuresOPGC/MesuresOPGC';
+import ParaveyronLink from './components/Paraveyron';
+import SportAirLink from './components/SpotAirLink';
 
 type BalisesPageProps = {};
 
@@ -16,7 +15,7 @@ export const metadata = {
 
 const BalisesPage: React.FC<BalisesPageProps> = () => {
     return (
-        <MobilePage
+        <AppPage
             pageTitle={'Balises'}
             pageIcon={faWind}
             className={'mesures-tab-page'}
@@ -29,7 +28,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             <h2>Pour aller plus loin</h2>
             <SportAirLink />
             <ParaveyronLink />
-        </MobilePage>
+        </AppPage>
     );
 };
 

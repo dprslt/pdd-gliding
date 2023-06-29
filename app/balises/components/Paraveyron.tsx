@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkElement from '../Blocks/LinkElement';
+import LinkElement from '../../../components/layout/LinkElement';
 import roseVent from './rose.jpg';
 
 type ParaveyronBalisesProps = {};

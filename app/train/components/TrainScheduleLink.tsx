@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkElement from '../Blocks/LinkElement';
+import LinkElement from '../../../components/layout/LinkElement';
 import icon from './pano_icon_x96.png';
 
 type TrainScheduleLinkProps = {};

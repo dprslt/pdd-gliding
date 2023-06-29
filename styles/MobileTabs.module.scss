@@ -51,6 +51,8 @@
 }
 
 .mobileForecastTabs {
+    display: flex;
+    flex-direction: row;
     :global(.MuiTabs-indicator) {
         background-color: $lava-red;
         top: 0;

@@ -9,7 +9,7 @@ import Script from 'next/script';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import MainMenu from '../components/layout/Mobile/MainMenu';
+import MainMenu from '../components/layout/MainMenu';
 
 function PddApp({ Component, pageProps }: AppProps) {
     return (

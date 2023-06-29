@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import sportAirLogo from './spotair-logo.png';
-import LinkElement from '../Blocks/LinkElement';
+import LinkElement from '../../../components/layout/LinkElement';
 
 type SportAirLinkProps = {};
 

@@ -1,12 +1,14 @@
+'use client';
+
 import moment, { Moment } from 'moment';
 import { default as ReactMoment } from 'react-moment';
 import React, { useEffect, useState } from 'react';
-import { PanoSchedule2023 } from '../../services/Train/configs/2023';
+import { PanoSchedule2023 } from '../../../services/Train/configs/2023';
 import {
     getAllTrainsOfADay,
     getNextTrainForADay,
-} from '../../services/Train/TrainSchedules';
-import { useMoment } from '../../hooks/useMoment';
+} from '../../../services/Train/TrainSchedules';
+import { useMoment } from '../../../hooks/useMoment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
@@ -37,7 +39,10 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
                     className={showMissed ? 'missed-on' : 'missed-off'}
                     onClick={() => setShowMissed(!showMissed)}
                 >
-                    <FontAwesomeIcon icon={showMissed ? faEyeSlash : faEye} />
+                    <FontAwesomeIcon icon={showMissed ? faEyeSlash : faEye} />{' '}
+                    {showMissed
+                        ? 'Masquer les trains ratés'
+                        : 'Voir les trains ratés'}
                 </button>
             </h2>
             {!showMissed && nextTrain === null && (

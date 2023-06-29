@@ -1,3 +1,5 @@
+'use client';
+
 import {
     faWind,
     faEarthEurope,
@@ -9,7 +11,7 @@ import { Box, Tabs, Tab } from '@mui/material';
 import { Router } from 'next/router';
 import React from 'react';
 
-import styles from '../../../styles/MobileTabs.module.scss';
+import styles from '../../styles/MobileTabs.module.scss';
 import ActiveLink from './ActiveLink';
 
 type MainTabsProps = {};

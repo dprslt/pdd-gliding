@@ -5,16 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tabs, Tab } from '@mui/material';
 import React, { useEffect } from 'react';
 import { TabPanel } from '../TabPanel';
-import MeteoParapenteForecast from '../../Meteo/MeteoParapenteForecast/MeteoParapenteForecast';
-import WindyForecast from '../../Meteo/WindyForecast/WindyForecast';
 
 import tabStyles from '../../../styles/MobileTabs.module.scss';
-import MeteoBlueMeteoGram from '../../Meteo/MeteoBlueForecasts/MeteoblueMeteogram';
-import MeteoblueMultimodel from '../../Meteo/MeteoBlueForecasts/MeteoblueMultimodel';
-import MetOfficeLink from '../../links/MetOfficeUK';
-import MultiModelLink from '../../links/MeteoBlueMultimodel';
-import PageTitle from '../../Blocks/PageTitle';
+import MeteoBlueMeteoGram from '../../../app/meteo/components/MeteoBlueForecasts/MeteoblueMeteogram';
+import MeteoblueMultimodel from '../../../app/meteo/components/MeteoBlueForecasts/MeteoblueMultimodel';
 import { redirect, usePathname, useRouter } from 'next/navigation';
+import PageTitle from '../PageTitle';
+import MetOfficeLink from '../../../app/meteo/components/MetOfficeUK';
+import MultiModelLink from '../../../app/meteo/components/MeteoBlueMultimodel';
+import MeteoParapenteForecast from '../../../app/meteo/components/MeteoParapenteForecast/MeteoParapenteForecast';
+import WindyForecast from '../../../app/meteo/components/WindyForecast/WindyForecast';
 
 type MobileForecastTabsProps = {};
 
@@ -26,13 +26,11 @@ function a11yProps(index: number) {
 }
 export const urls = ['meteoparapente', 'windy', 'meteoblue', 'more'];
 
-// TODO rewrite this component and split it
 const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
     const router = useRouter();
     const pathname = usePathname();
     const paths = pathname?.split('/');
     paths?.shift();
-    console.log(paths);
     const stringValue = (Array.isArray(paths) && paths[1]) || urls[0];
     const value = urls.findIndex((v) => v === stringValue);
 
@@ -60,12 +58,7 @@ const MobileForecastTabs: React.FC<MobileForecastTabsProps> = () => {
                 index={3}
                 className="forecast-subtab forecast-morelinks"
             >
-                <div className="pageContent">
-                    <PageTitle icon={faEarthEurope}>Analyse Météo</PageTitle>
-                    <h2>Pour aller plus loin</h2>
-                    <MetOfficeLink />
-                    <MultiModelLink />
-                </div>
+                <div className="pageContent"></div>
             </TabPanel>
             <Tabs
                 value={value}

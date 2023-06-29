@@ -3,17 +3,18 @@
 import Head from 'next/head';
 import React from 'react';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import PageTitle from '../../Blocks/PageTitle';
-import MainMenu from './MainMenu';
+import MainMenu from '../MainMenu';
+import PageTitle from '../PageTitle';
+import { mergeClasses } from '../../../utils/StyleHelper';
 
-type MobilePageProps = {
+type AppPageProps = {
     pageTitle?: string;
     pageIcon?: IconDefinition;
     className?: string;
     children?: React.ReactNode;
 };
 
-const MobilePage: React.FC<MobilePageProps> = ({
+const AppPage: React.FC<AppPageProps> = ({
     pageTitle,
     pageIcon,
     children,
@@ -21,8 +22,8 @@ const MobilePage: React.FC<MobilePageProps> = ({
 }) => {
     return (
         <div className="mobile-app">
-            <div className="mobile-content">
-                <div className={`pageContent ${className}`}>
+            <div className={mergeClasses('mobile-content', className)}>
+                <div className={`pageContent`}>
                     {pageTitle && pageIcon && (
                         <PageTitle icon={pageIcon}>{pageTitle}</PageTitle>
                     )}
@@ -34,4 +35,4 @@ const MobilePage: React.FC<MobilePageProps> = ({
     );
 };
 
-export default MobilePage;
+export default AppPage;

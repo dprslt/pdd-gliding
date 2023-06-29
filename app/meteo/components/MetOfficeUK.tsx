@@ -1,6 +1,6 @@
 import React from 'react';
-import LinkElement from '../Blocks/LinkElement';
 import MetOfficeLogo from './met_office.jpg';
+import LinkElement from '../../../components/layout/LinkElement';
 
 type MetOfficeLinkProps = {};
 

@@ -1,30 +1,22 @@
 import {
     faWind,
-    faEarthEurope,
     faCameraRetro,
     faTrainTram,
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Tabs, Tab } from '@mui/material';
-import React, { useEffect } from 'react';
-import BlockForecast from '../../Blocks/BlockForecast';
-import BlockMesures from '../../Blocks/BlockMesures';
-import BlockWebcam from '../../Blocks/BlockWebcam';
+import React from 'react';
 import MobileForecastTabs from './MobileForecastTabs';
 import { TabPanel } from '../TabPanel';
-import MainMenu from './MainMenu';
-import HolfuyHistory from '../../MesuresHolfuy/HolfuyHistory';
-import HolfuyResume from '../../MesuresHolfuy/HolfuyResume';
-import MesuresOPGC from '../../MesuresOPGC/MesuresOPGC';
-import TrainNextOneToday from '../../Train/TrainNextOneToday';
-import TrainsOfTheDay from '../../Train/TrainsOfTheDay';
+import HolfuyHistory from '../../../app/balises/components/MesuresHolfuy/HolfuyHistory';
+import HolfuyResume from '../../../app/balises/components/MesuresHolfuy/HolfuyResume';
+import MesuresOPGC from '../../../app/balises/components/MesuresOPGC/MesuresOPGC';
+import TrainNextOneToday from '../../../app/train/components/TrainNextOneToday';
+import TrainsOfTheDay from '../../../app/train/components/TrainsOfTheDay';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import PageTitle from '../../Blocks/PageTitle';
-import SportAirLink from '../../links/SpotAirLink';
-import ParaveyronLink from '../../links/Paraveyron';
-import MetOfficeLink from '../../links/MetOfficeUK';
-import TrainScheduleLink from '../../Train/TrainScheduleLink';
+import PageTitle from '../PageTitle';
+import SportAirLink from '../../../app/balises/components/SpotAirLink';
+import ParaveyronLink from '../../../app/balises/components/Paraveyron';
+import TrainScheduleLink from '../../../app/train/components/TrainScheduleLink';
 
 type AppMobileProps = {};
 
@@ -72,7 +64,7 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     </Head>
                     <div className="pageContent">
                         <PageTitle icon={faCameraRetro}>Webcams</PageTitle>
-                        <BlockWebcam />
+                        {/* <BlockWebcam /> */}
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={3} className="train-tab-page">
@@ -89,7 +81,6 @@ const AppMobile: React.FC<AppMobileProps> = () => {
                     </div>
                 </TabPanel>
             </div>
-            <MainMenu value={value} onChange={handleChange} />
         </div>
     );
 };
