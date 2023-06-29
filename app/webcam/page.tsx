@@ -6,7 +6,7 @@ import LiveWebcam from './components/LiveWebcam';
 import MeteovergneWebcam from './components/MeteovergneWebcam';
 import OrcinesWebcam from './components/OrcinesWebcam';
 import SommetWebcam from './components/SommetWebcam';
-import AppPage from '../../components/layout/Mobile/AppPage';
+import AppPage from '../../components/layout/AppPage';
 
 type WebcamsPageProps = {};
 

@@ -3,7 +3,7 @@ import MeteoSubPage from '../MeteoSubPage';
 import { faEarthEurope } from '@fortawesome/free-solid-svg-icons';
 import MetOfficeLink from '../components/MetOfficeUK';
 import MultiModelLink from '../components/MeteoBlueMultimodel';
-import AppPage from '../../../components/layout/Mobile/AppPage';
+import AppPage from '../../../components/layout/AppPage';
 
 const MeteoMorePage: React.FC = () => {
     return (

@@ -3,7 +3,7 @@ import React from 'react';
 import TrainNextOneToday from './components/TrainNextOneToday';
 import TrainScheduleLink from './components/TrainScheduleLink';
 import TrainsOfTheDay from './components/TrainsOfTheDay';
-import AppPage from '../../components/layout/Mobile/AppPage';
+import AppPage from '../../components/layout/AppPage';
 
 type TrainPageProps = {};
 

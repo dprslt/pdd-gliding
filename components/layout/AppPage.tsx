@@ -3,9 +3,9 @@
 import Head from 'next/head';
 import React from 'react';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import MainMenu from '../MainMenu';
-import PageTitle from '../PageTitle';
-import { mergeClasses } from '../../../utils/StyleHelper';
+import MainMenu from './MainMenu';
+import PageTitle from './PageTitle';
+import { mergeClasses } from '../../utils/StyleHelper';
 
 type AppPageProps = {
     pageTitle?: string;

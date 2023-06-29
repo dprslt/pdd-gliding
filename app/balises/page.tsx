@@ -1,5 +1,5 @@
 import React from 'react';
-import AppPage from '../../components/layout/Mobile/AppPage';
+import AppPage from '../../components/layout/AppPage';
 import { faWind } from '@fortawesome/free-solid-svg-icons';
 import HolfuyHistory from './components/MesuresHolfuy/HolfuyHistory';
 import HolfuyResume from './components/MesuresHolfuy/HolfuyResume';
