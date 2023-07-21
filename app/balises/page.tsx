@@ -7,6 +7,8 @@ import MesuresOPGC from './components/MesuresOPGC/MesuresOPGC';
 import ParaveyronLink from './components/Paraveyron';
 import SportAirLink from './components/SpotAirLink';
 
+import balisesPageStyles from './balises.module.scss';
+
 type BalisesPageProps = {};
 
 export const metadata = {
@@ -18,7 +20,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
         <AppPage
             pageTitle={'Balises'}
             pageIcon={faWind}
-            className={'mesures-tab-page'}
+            className={balisesPageStyles['mesures-tab-page']}
         >
             <h2>OPGC</h2>
             <MesuresOPGC />

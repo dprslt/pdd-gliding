@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import linkElementStyle from './linkElement.module.scss';
+import { mergeClasses } from '../../../utils/StyleHelper';
+
 type LinkElementProps = {
     href: string;
     children: ReactNode;
@@ -17,13 +20,19 @@ const LinkElement: React.FC<LinkElementProps> = ({
 }) => {
     return (
         <a href={href} target="_blank" rel="noreferrer">
-            <div className="link-element">
+            <div
+                className={mergeClasses(
+                    'link-element',
+                    linkElementStyle['link-element']
+                )}
+            >
                 <Image
                     src={favicon}
                     alt={'link Icon'}
                     style={{
                         borderRadius: '1em',
                     }}
+                    className={linkElementStyle['link-icon']}
                     height={'50'}
                     width={'50'}
                 />

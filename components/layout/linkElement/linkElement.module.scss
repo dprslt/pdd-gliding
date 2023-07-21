@@ -1,0 +1,26 @@
+@import 'styles/colors.scss';
+
+.link-element {
+    background-color: $secondaryContainer;
+    color: $onSecondaryContainer;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+
+    border-radius: 1em;
+    margin-bottom: 1em;
+
+    .link-icon {
+        width: 3em;
+        height: 3em;
+    }
+
+    h3 {
+        margin: 0 1em;
+        flex: 1;
+        text-align: left;
+    }
+    svg {
+        margin-right: 1em;
+    }
+}

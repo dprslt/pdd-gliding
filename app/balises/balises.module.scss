@@ -1,0 +1,24 @@
+.mesures-tab-page {
+    text-align: center;
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    iframe {
+        max-width: 100%;
+        flex-shrink: 0;
+    }
+
+    .opgc-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a {
+            display: contents;
+        }
+        img {
+            max-width: 400px;
+        }
+    }
+}

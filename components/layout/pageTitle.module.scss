@@ -1,0 +1,50 @@
+@import '../../styles/colors.scss';
+
+h1.page-title {
+    text-align: left;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 400;
+
+    padding: 0;
+    text-align: left;
+    font-size: 1.25em;
+    // border-radius: 2em;
+    // overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+
+    & > * {
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+
+        border-radius: 1.75rem;
+        overflow: hidden;
+    }
+
+    span {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+        flex: 1;
+        // background-color: $secondaryContainer;
+        background-color: $secondaryContainer;
+        color: $onSecondaryContainer;
+        // color: $onBackground;
+        font-size: 1.2em;
+
+        margin-left: 1.5rem;
+    }
+
+    .icon {
+        height: 3em;
+        width: 3em;
+        background-color: $primary;
+        color: $onPrimary;
+        // padding-left: 1.25rem;
+        // padding-right: 1rem;
+        display: flex;
+        justify-content: center;
+        font-size: 0.9em;
+    }
+}

@@ -3,6 +3,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react';
 
+import pageStyle from '../../balises.module.scss';
+
 type MesuresOPGCProps = {};
 
 const widthMeteo = 250;
@@ -80,7 +82,7 @@ const MesuresOPGC: React.FC<MesuresOPGCProps> = () => {
     }, []);
 
     return (
-        <div className="opgc-container">
+        <div className={pageStyle['opgc-container']}>
             {imgDate && (
                 <img
                     src={imgDate}

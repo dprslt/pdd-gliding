@@ -8,6 +8,8 @@ import OrcinesWebcam from './components/OrcinesWebcam';
 import SommetWebcam from './components/SommetWebcam';
 import AppPage from '../../components/layout/AppPage';
 
+import webcamPageModule from './webcam.module.scss';
+
 type WebcamsPageProps = {};
 
 const WebcamsPage: React.FC<WebcamsPageProps> = () => {
@@ -15,8 +17,7 @@ const WebcamsPage: React.FC<WebcamsPageProps> = () => {
         <AppPage
             pageTitle={'Webcams'}
             pageIcon={faCameraRetro}
-            // TODO rewrite style
-            className={'webcam-tab-page'}
+            className={webcamPageModule['webcam-tab-page']}
         >
             <h2>Vue Orcines</h2>
             <OrcinesWebcam />

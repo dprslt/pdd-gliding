@@ -1,6 +1,6 @@
 import React from 'react';
 import logoMeteoBlue from './meteo-blue.png';
-import LinkElement from '../../../components/layout/LinkElement';
+import LinkElement from '../../../components/layout/linkElement/LinkElement';
 
 type MultiModelLinkProps = {};
 

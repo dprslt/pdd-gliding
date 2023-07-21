@@ -12,6 +12,8 @@ import { useMoment } from '../../../hooks/useMoment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
+import trainStyle from '../train.module.scss';
+
 type TrainsOfTheDayProps = {};
 
 const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
@@ -32,11 +34,15 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
     const [showMissed, setShowMissed] = useState(false);
 
     return (
-        <div className="train-of-day">
+        <div className={trainStyle['train-of-day']}>
             <h2>
                 Trains de la journée{' '}
                 <button
-                    className={showMissed ? 'missed-on' : 'missed-off'}
+                    className={
+                        showMissed
+                            ? trainStyle['missed-on']
+                            : trainStyle['missed-off']
+                    }
                     onClick={() => setShowMissed(!showMissed)}
                 >
                     <FontAwesomeIcon icon={showMissed ? faEyeSlash : faEye} />{' '}
@@ -58,7 +64,11 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
                     return (
                         <li
                             key={train.format('HH:mm')}
-                            className={isMissed ? 'missed' : 'active'}
+                            className={
+                                isMissed
+                                    ? trainStyle['missed']
+                                    : trainStyle['active']
+                            }
                         >
                             <ReactMoment date={train} format={'HH[h]mm'} />
                         </li>

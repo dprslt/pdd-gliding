@@ -5,14 +5,14 @@ import TrainScheduleLink from './components/TrainScheduleLink';
 import TrainsOfTheDay from './components/TrainsOfTheDay';
 import AppPage from '../../components/layout/AppPage';
 
-type TrainPageProps = {};
+import trainStyle from './train.module.scss';
 
-const TrainPage: React.FC<TrainPageProps> = () => {
+const TrainPage: React.FC = () => {
     return (
         <AppPage
             pageTitle={'Horaires Panoramiques'}
             pageIcon={faTrainTram}
-            className={'train-tab-page'}
+            className={trainStyle['train-tab-page']}
         >
             <TrainNextOneToday />
             <TrainsOfTheDay />

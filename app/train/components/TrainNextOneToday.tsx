@@ -8,6 +8,8 @@ import { getNextTrainForADay } from '../../../services/Train/TrainSchedules';
 import 'moment/locale/fr';
 import { PanoSchedule2023 } from '../../../services/Train/configs/2023';
 
+import trainStyle from '../train.module.scss';
+
 moment.locale('fr');
 
 type TrainNextOneTodayProps = {};
@@ -26,7 +28,7 @@ const TrainNextOneToday: React.FC<TrainNextOneTodayProps> = () => {
     }, [nowMoment]);
 
     return (
-        <div className="next-train">
+        <div className={trainStyle['next-train']}>
             {nextTrain === null ? null : (
                 <p>
                     Prochain train{' '}

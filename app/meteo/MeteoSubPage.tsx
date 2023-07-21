@@ -5,6 +5,7 @@ import MeteoSubMenu from './MeteoSubMenu';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { mergeClasses } from '../../utils/StyleHelper';
 import PageTitle from '../../components/layout/PageTitle';
+import forecastPageStyles from './forecast.module.scss';
 
 type MeteoSubPageProps = {
     children: ReactNode;
@@ -25,7 +26,7 @@ const MeteoSubPage: React.FC<MeteoSubPageProps> = ({
             <div
                 className={mergeClasses(
                     'mobile-content',
-                    'forecast-tab-page',
+                    forecastPageStyles['forecast-tab-page'],
                     className
                 )}
             >

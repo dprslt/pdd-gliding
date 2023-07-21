@@ -5,21 +5,15 @@ import MetOfficeLink from '../components/MetOfficeUK';
 import MultiModelLink from '../components/MeteoBlueMultimodel';
 import AppPage from '../../../components/layout/AppPage';
 
+import forecastStyle from '../forecast.module.scss';
+
 const MeteoMorePage: React.FC = () => {
     return (
-        // <AppPage
-        //     className="forecast-tab-page forecast-morelinks"
-        //     pageIcon={faEarthEurope}
-        //     pageTitle="Analyse météo"
-        // >
         <MeteoSubPage
             pageIcon={faEarthEurope}
             pageTitle="Analyse météo"
-            className="forecast-more"
+            className={forecastStyle['forecast-more']}
         >
-            {/* {children} */}
-            {/* NEW PAGE */}
-            {/* <MeteoSubMenu /> */}
             <h2>Pour aller plus loin</h2>
             <MetOfficeLink />
             <MultiModelLink />

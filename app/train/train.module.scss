@@ -1,0 +1,68 @@
+@import 'styles/colors.scss';
+
+.train-tab-page {
+    height: 100%;
+}
+
+.next-train {
+    text-align: center;
+    color: $lava-red;
+    font-weight: 600;
+    margin-top: 1em;
+}
+
+.train-of-day {
+    text-align: center;
+    margin: 1em 0;
+
+    h2 {
+        position: relative;
+    }
+
+    button {
+        margin-bottom: 1em;
+        cursor: pointer;
+        border-radius: 0.5em;
+        position: absolute;
+        right: 1em;
+        top: calc(50% - 1.1em);
+        border: none;
+        padding: 0.5em 1em;
+    }
+
+    button.missed-on {
+        color: $onSecondaryContainer;
+        background-color: $secondaryContainer;
+    }
+    button.missed-off {
+        color: $onPrimary;
+        background-color: $primary;
+    }
+
+    ul {
+        padding: 0;
+        width: 50%;
+        margin: auto;
+        // border-radius: 1.5em;
+        overflow: hidden;
+        // border: solid 1px $dark;
+        li {
+            list-style-type: none;
+            display: block;
+            font-weight: 700;
+            // color: $lava-red;
+            background-color: $primary;
+            color: $onPrimary;
+
+            &.missed {
+                color: $onSecondaryContainer;
+                background-color: $secondaryContainer;
+            }
+
+            padding: 0.4em 0;
+            border-bottom: solid 1px $onPrimary;
+            margin-bottom: 0.5em;
+            border-radius: 1em;
+        }
+    }
+}
