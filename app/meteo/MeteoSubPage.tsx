@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import AppPage from '../../components/layout/AppPage';
 import MainMenu from '../../components/layout/MainMenu';
 import MeteoSubMenu from './MeteoSubMenu';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
