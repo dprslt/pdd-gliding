@@ -3,7 +3,7 @@
 import moment, { Moment } from 'moment';
 import { default as ReactMoment } from 'react-moment';
 import React, { useEffect, useState } from 'react';
-import { PanoSchedule2023 } from '../../../services/Train/configs/2023';
+import { PanoSchedule2024 } from '../../../services/Train/configs/2023';
 import {
     getAllTrainsOfADay,
     getNextTrainForADay,
@@ -24,8 +24,8 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
 
     useEffect(() => {
         try {
-            setAllTrains(getAllTrainsOfADay(nowMoment, PanoSchedule2023));
-            setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2023));
+            setAllTrains(getAllTrainsOfADay(nowMoment, PanoSchedule2024));
+            setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2024));
         } catch (e) {
             console.error(e);
         }

@@ -1,6 +1,7 @@
 import moment from 'moment';
 import { PanoSchedule2022 } from '../configs/2022';
 import { PanoSchedule2023 } from '../configs/2023';
+import { PanoSchedule2024 } from '../configs/2024';
 import {
     foundCurrentPeriod,
     getDayTypeOfADay,
@@ -187,7 +188,6 @@ describe('Validate all days are filled for 2022', () => {
     });
 });
 
-
 describe('Validate all days are filled for 2023', () => {
     it('should work for all days', () => {
         let time = moment('01/01/2023', 'L');
@@ -204,5 +204,24 @@ describe('Validate all days are filled for 2023', () => {
                 'YYYY MM DD HH:mm'
             )
         ).toBe('2023 07 20 21:00');
+    });
+});
+
+describe('Validate all days are filled for 2024', () => {
+    it('should work for all days', () => {
+        let time = moment('01/01/2024', 'L');
+        while (time.isSameOrBefore(moment('31/12/2024', 'L'))) {
+            getNextTrainForADay(time, PanoSchedule2024);
+            time = time.add(1, 'day');
+        }
+    });
+
+    it('should work during the summer nights ', () => {
+        let time = moment('2024-07-25T20:50:17+02:00');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2024)?.format(
+                'YYYY MM DD HH:mm'
+            )
+        ).toBe('2024 07 25 21:00');
     });
 });
