@@ -6,7 +6,7 @@ import { default as ReactMoment } from 'react-moment';
 import { useMoment } from '../../../hooks/useMoment';
 import { getNextTrainForADay } from '../../../services/Train/TrainSchedules';
 import 'moment/locale/fr';
-import { PanoSchedule2024 } from '../../../services/Train/configs/2023';
+import { PanoSchedule2024 } from '../../../services/Train/configs/2024';
 
 import trainStyle from '../train.module.scss';
 

@@ -3,7 +3,7 @@
 import moment, { Moment } from 'moment';
 import { default as ReactMoment } from 'react-moment';
 import React, { useEffect, useState } from 'react';
-import { PanoSchedule2024 } from '../../../services/Train/configs/2023';
+import { PanoSchedule2024 } from '../../../services/Train/configs/2024';
 import {
     getAllTrainsOfADay,
     getNextTrainForADay,
@@ -35,8 +35,8 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
 
     return (
         <div className={trainStyle['train-of-day']}>
-            <h2>
-                Trains de la journée{' '}
+            <div className={trainStyle['train-header']}>
+                <h2>Trains de la journée</h2>
                 <button
                     className={
                         showMissed
@@ -50,7 +50,7 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
                         ? 'Masquer les trains ratés'
                         : 'Voir les trains ratés'}
                 </button>
-            </h2>
+            </div>
             {!showMissed && nextTrain === null && (
                 <p>Plus de train pour aujourd&apos;hui.</p>
             )}
