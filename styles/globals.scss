@@ -9,7 +9,6 @@ body,
         Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
         sans-serif;
 
-    // min-width: 600px;
     height: 100%;
     background-color: #fffbff;
     color: #201a1a;
@@ -46,6 +45,28 @@ a {
     max-width: 100%;
 
     flex: 1;
+
+    .text-alert {
+        background-color: $primaryContainer;
+        margin: 2em 0em;
+        border-radius: 1em;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        .warn {
+            background-color: $primary;
+            color: white;
+            padding: 0 1em;
+            font-size: 1.5em;
+            align-items: center;
+            display: flex;
+            align-items: center;
+        }
+        .text {
+            flex: 1;
+            padding: 1em 1em;
+        }
+    }
 
     h2 {
         color: $onBackground;
