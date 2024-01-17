@@ -42,7 +42,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                     <FontAwesomeIcon icon={faSnowflake} />
                 </div>
                 <div className="text">
-                    La balise holfuy est démontee pendant l&apos;hiver, elle est
+                    La balise holfuy est démontée pendant l&apos;hiver, elle est
                     donc indisponible pendant cette période, elle reviendra au
                     printemps !
                 </div>
