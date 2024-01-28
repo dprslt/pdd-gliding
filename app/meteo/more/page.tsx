@@ -6,6 +6,7 @@ import MultiModelLink from '../components/MeteoBlueMultimodel';
 import AppPage from '../../../components/layout/AppPage';
 
 import forecastStyle from '../forecast.module.scss';
+import MetoBlueMapLink from '../components/MetoBlueMapLink';
 
 const MeteoMorePage: React.FC = () => {
     return (
@@ -17,6 +18,7 @@ const MeteoMorePage: React.FC = () => {
             <h2>Pour aller plus loin</h2>
             <MetOfficeLink />
             <MultiModelLink />
+            <MetoBlueMapLink />
         </MeteoSubPage>
     );
 };
