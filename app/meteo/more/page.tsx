@@ -8,6 +8,9 @@ import AppPage from '../../../components/layout/AppPage';
 import forecastStyle from '../forecast.module.scss';
 import MetoBlueMapLink from '../components/MetoBlueMapLink';
 
+export const metadata = {
+    title: 'Puy de dôme Parapente : Météo Liens',
+};
 const MeteoMorePage: React.FC = () => {
     return (
         <MeteoSubPage

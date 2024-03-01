@@ -12,6 +12,10 @@ import webcamPageModule from './webcam.module.scss';
 
 type WebcamsPageProps = {};
 
+export const metadata = {
+    title: 'Puy de dôme Parapente : Webcams',
+};
+
 const WebcamsPage: React.FC<WebcamsPageProps> = () => {
     return (
         <AppPage

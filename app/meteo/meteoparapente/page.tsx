@@ -3,6 +3,9 @@ import MeteoSubPage from '../MeteoSubPage';
 
 type MeteoParapentePageProps = {};
 
+export const metadata = {
+    title: 'Puy de dôme Parapente : Météo MeteoParapente',
+};
 const MeteoParapentePage: React.FC<MeteoParapentePageProps> = () => {
     return (
         <MeteoSubPage>

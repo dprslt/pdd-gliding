@@ -7,6 +7,10 @@ import AppPage from '../../components/layout/AppPage';
 
 import trainStyle from './train.module.scss';
 
+export const metadata = {
+    title: 'Puy de dôme Parapente : Panoramique',
+};
+
 const TrainPage: React.FC = () => {
     return (
         <AppPage

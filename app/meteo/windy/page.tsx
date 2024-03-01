@@ -1,6 +1,10 @@
 import React from 'react';
 import MeteoSubPage from '../MeteoSubPage';
 
+export const metadata = {
+    title: 'Puy de dôme Parapente : Météo Windy',
+};
+
 const WindyPage: React.FC = () => {
     return (
         <MeteoSubPage>
