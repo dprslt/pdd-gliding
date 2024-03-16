@@ -21,6 +21,7 @@
         "@fortawesome/react-fontawesome": "^0.2.0",
         "@mui/material": "^5.13.6",
         "@types/jest": "^27.5.1",
+        "@vercel/analytics": "^1.2.2",
         "jest": "^28.1.0",
         "moment": "^2.29.4",
         "next": "13.4.7",
