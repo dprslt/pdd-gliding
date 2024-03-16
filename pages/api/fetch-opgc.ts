@@ -1,12 +1,15 @@
-import { kv } from '@vercel/kv';
 import {
+    OPGCMaxWindValues,
+    OPGCValues,
     fetchOPGCValues,
     fetchOPGCmaxWind,
 } from '../../services/opgc/meter-opgc';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function FetchOPGC(req, res) {
-    // const cart = await kv.get<{ id: string; quantity: number }[]>(params.user);
-
+export default async function FetchOPGC(
+    req: NextApiRequest,
+    res: NextApiResponse<OPGCValues & OPGCMaxWindValues>
+) {
     const values = await fetchOPGCValues();
     const vmax = await fetchOPGCmaxWind();
 
