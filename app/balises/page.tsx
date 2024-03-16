@@ -26,19 +26,19 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             className={balisesPageStyles['mesures-tab-page']}
         >
             <h2>OPGC</h2>
-            <div className="text-alert">
+            {/* <div className="text-alert">
                 <div className="warn">
                     <FontAwesomeIcon icon={faSnowflake} />
                 </div>
-                {/* <div className="text">
+                <div className="text">
                     La balise de l&apos;OPGC est soumise au gel en hiver, elle
                     ne sera donc pas capable de fournir une mesure precise sur
                     la force et la direction du vent pendant une bonne partie de
                     l&apos;hiver.
-                </div> */}
-            </div>
+                </div>
+            </div> */}
             <RawMeterOPGC />
-            <MesuresOPGC />
+            {/* <MesuresOPGC /> */}
             <h2>Holfuy PDD Nord (1464)</h2>
             <div className="text-alert">
                 <div className="warn">
