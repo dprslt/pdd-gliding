@@ -1,8 +1,10 @@
 import {
-    OPGCMaxWindValues,
-    OPGCValues,
     fetchOPGCValues,
     fetchOPGCmaxWind,
+} from 'services/opgc/synthetized-txt-files';
+import {
+    OPGCMaxWindValues,
+    OPGCValues,
 } from '../../services/opgc/apiGrafanaOPGC';
 import { NextApiRequest, NextApiResponse } from 'next';
 
