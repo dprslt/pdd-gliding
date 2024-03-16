@@ -62,11 +62,11 @@ export async function fetchLastValuesFromGrafana(): Promise<OPGCValues | null> {
 
     return {
         datetime: datetime.toISO(),
-        windSpeed: serieData[1][0] * 3.6,
+        windSpeed: Math.round(serieData[1][0] * 3.6),
         windAngularDirection: Math.round(serieData[2][0]),
         temperature: Math.round(serieData[3][0] * 10) / 10,
         humidity: Math.round(serieData[4][0]),
-        pressure: serieData[5][0],
+        pressure: Math.round(serieData[5][0]),
     };
 }
 
