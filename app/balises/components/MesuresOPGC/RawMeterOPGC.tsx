@@ -2,26 +2,19 @@
 
 import React from 'react';
 import {
+    fetchLastValuesFromGrafana,
+    fetchWindHistoryFromGrafana,
+} from '../../../../services/opgc/apiGrafanaOPGC';
+
+import OPGCChartsFromGrafana from './OPGCChartsFromGrafana';
+import OPGCMeter from './OPGCMeter';
+import {
     fetchOPGCValues,
     fetchOPGCmaxWind,
-    fetchWindHistoryFromGafana,
-} from '../../../../services/opgc/meter-opgc';
+} from 'services/opgc/synthetized-txt-files';
+import PictureFromOPGC from './PictureFromOPGC';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faDroplet,
-    faLocationArrow,
-    faMapLocation,
-    faNavicon,
-    faScaleUnbalanced,
-    faTemperatureThreeQuarters,
-    faWind,
-} from '@fortawesome/free-solid-svg-icons';
-import { DateTime } from 'luxon';
-import RawMeterGraph from './RawMeterGraph';
-import OPGCMeterFromFiles from './OPGCMeterFromFiles';
-
-async function buildOPGCData() {
+async function buildOPGCDataFromFiles() {
     const [opgcvalues, opgcValuesMaxSpeed] = await Promise.all([
         fetchOPGCValues(),
         fetchOPGCmaxWind(),
@@ -36,12 +29,22 @@ async function buildOPGCData() {
 }
 
 export default async function RawMeterOPGC() {
-    const [grafanadata] = await Promise.all([fetchWindHistoryFromGafana()]);
+    const [grafanadata, opgcData, maxWind] = await Promise.all([
+        fetchWindHistoryFromGrafana(),
+        fetchLastValuesFromGrafana(),
+        fetchOPGCmaxWind(),
+    ]);
+
+    // const opgcdata = await buildOPGCDataFromFiles();
 
     return (
         <div>
-            <OPGCMeterFromFiles />
-            <RawMeterGraph
+            {opgcData ? (
+                <OPGCMeter opgcData={opgcData} maxWind={maxWind} />
+            ) : (
+                <PictureFromOPGC />
+            )}
+            <OPGCChartsFromGrafana
                 windData={grafanadata.wind}
                 orientationData={grafanadata.orientation}
             />

@@ -1,15 +1,46 @@
 'use client';
 
-import { ResponsiveLine } from '@nivo/line';
+import { PointTooltipProps, ResponsiveLine } from '@nivo/line';
+import { BasicTooltip } from '@nivo/tooltip';
 import React from 'react';
-import { GraphData } from '../../../../services/opgc/meter-opgc';
+import { GraphData } from '../../../../services/opgc/apiGrafanaOPGC';
+import { DateTime } from 'luxon';
+import { convertDegToOrientation } from 'services/wind/OrientationMapper';
 
-type RawMeterGraphProps = {
+type OPGCChartsFromGrafanaProps = {
     windData: GraphData;
     orientationData: GraphData;
 };
 
-const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
+const SpeedTooltip: React.FunctionComponent<PointTooltipProps> = ({
+    point,
+}) => {
+    return (
+        <BasicTooltip
+            id={point.data.xFormatted}
+            value={`${point.data.yFormatted} km/h`}
+            color={point.serieColor}
+            enableChip
+        />
+    );
+};
+
+const OrientationTooltip: React.FunctionComponent<PointTooltipProps> = ({
+    point,
+}) => {
+    return (
+        <BasicTooltip
+            id={point.data.xFormatted}
+            value={`${convertDegToOrientation(point.data.y as number)} (${
+                point.data.yFormatted
+            } deg)`}
+            color={point.serieColor}
+            enableChip
+        />
+    );
+};
+
+const OPGCChartsFromGrafana: React.FC<OPGCChartsFromGrafanaProps> = ({
     windData,
     orientationData,
 }) => {
@@ -20,13 +51,15 @@ const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
                     data={[windData]}
                     margin={{ top: 10, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
-                    xFormat="time:%H:%M:%S"
+                    xFormat="time:%Hh%M"
                     yScale={{ type: 'linear' }}
-                    yFormat=" >-d"
+                    yFormat=">-d"
                     curve="monotoneX"
                     axisBottom={{
-                        format: '%H:%M:%S',
+                        format: '%Hh%M',
+                        tickValues: 'every hour',
                     }}
+                    tooltip={SpeedTooltip}
                     axisRight={{
                         tickSize: 5,
                         tickPadding: 5,
@@ -53,14 +86,16 @@ const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
                     data={[orientationData]}
                     margin={{ top: 10, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
-                    xFormat="time:%H:%M:%S"
+                    xFormat="time:%Hh%M"
                     yScale={{ type: 'linear', min: 0, max: 360 }}
                     yFormat=" >-d"
                     curve="monotoneX"
                     axisTop={null}
                     axisBottom={{
-                        format: '%H:%M:%S',
+                        format: '%Hh%M',
+                        tickValues: 'every hour',
                     }}
+                    tooltip={OrientationTooltip}
                     axisRight={{
                         tickSize: 5,
                         tickPadding: 5,
@@ -72,9 +107,10 @@ const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
                     }}
                     enableGridX={false}
                     colors={{ scheme: 'accent' }}
-                    lineWidth={2}
-                    pointSize={10}
-                    pointColor={{ theme: 'background' }}
+                    lineWidth={0}
+                    pointSize={8}
+                    // pointColor={{ theme: 'background' }}
+                    pointColor={{ from: 'color' }}
                     pointBorderWidth={2}
                     pointBorderColor={{ from: 'serieColor' }}
                     pointLabelYOffset={-12}
@@ -86,4 +122,4 @@ const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
     );
 };
 
-export default RawMeterGraph;
+export default OPGCChartsFromGrafana;

@@ -4,34 +4,22 @@ import {
     faDroplet,
     faScaleUnbalanced,
     faWind,
+    faCompass,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DateTime } from 'luxon';
 import React from 'react';
-import {
-    fetchOPGCValues,
-    fetchOPGCmaxWind,
-} from '../../../../services/opgc/meter-opgc';
 
-import './opgcMeterFromFiles.scss';
+import './opgcMeter.scss';
+import { convertDegToOrientation } from 'services/wind/OrientationMapper';
+import { OPGCMaxWindValues, OPGCValues } from 'services/opgc/apiGrafanaOPGC';
 
-async function buildOPGCDataFromFiles() {
-    const [opgcvalues, opgcValuesMaxSpeed] = await Promise.all([
-        fetchOPGCValues(),
-        fetchOPGCmaxWind(),
-    ]);
+export type OpgcMeterProps = {
+    opgcData: OPGCValues;
+    maxWind?: OPGCMaxWindValues;
+};
 
-    const opgcdata = {
-        ...opgcvalues,
-        maxWindSpeed: opgcValuesMaxSpeed.windSpeedMax,
-    };
-
-    return opgcdata;
-}
-
-export default async function OPGCMeterFromFiles() {
-    const opgcdata = await buildOPGCDataFromFiles();
-
+export default async function OPGCMeter({ opgcData, maxWind }: OpgcMeterProps) {
     return (
         <div className={'balise-infos-card'}>
             <div className={'balise-infos-card--container'}>
@@ -41,51 +29,57 @@ export default async function OPGCMeterFromFiles() {
                             icon={faLocationArrow}
                             transform={{
                                 rotate:
-                                    -45 + opgcdata.windAngularDirection + 180,
+                                    -45 + opgcData.windAngularDirection + 180,
                             }}
                         />
                     </div>
                     <div className={'balise-infos-card--wind-speed'}>
-                        {Math.round(opgcdata.windSpeed)} km/h
+                        {Math.round(opgcData.windSpeed)} km/h
                     </div>
-                    <div className={'balise-infos-card--wind-max'}>
-                        max. {Math.round(opgcdata.maxWindSpeed)} km/h
-                    </div>
+                    {maxWind && (
+                        <div className={'balise-infos-card--wind-max'}>
+                            max. {Math.round(maxWind.windSpeedMax)} km/h
+                        </div>
+                    )}
                 </div>
                 <div className={'balise-infos-card--metering'}>
                     <div className="balise-infos-card--meter">
                         <FontAwesomeIcon icon={faTemperatureThreeQuarters} />
                         <div className="meter-value">
-                            {opgcdata.temperature}
+                            {opgcData.temperature}
                             <span className="meter-unit">&deg;C</span>
                         </div>
                     </div>
                     <div className="balise-infos-card--meter">
                         <FontAwesomeIcon icon={faDroplet} />
                         <div className="meter-value">
-                            {Math.round(opgcdata.humidity)}
+                            {Math.round(opgcData.humidity)}
                             <span className="meter-unit">%</span>
                         </div>
                     </div>
                     <div className="balise-infos-card--meter">
                         <FontAwesomeIcon icon={faScaleUnbalanced} />
                         <div className="meter-value">
-                            {opgcdata.pressure}
+                            {opgcData.pressure}
                             <span className="meter-unit">hPa</span>
                         </div>
                     </div>
                     <div className="balise-infos-card--meter">
-                        <FontAwesomeIcon icon={faWind} />
+                        <FontAwesomeIcon icon={faCompass} />
                         <div className="meter-value">
-                            {opgcdata.windAngularDirection}
-                            <span className="meter-unit">&deg;</span>
+                            {convertDegToOrientation(
+                                opgcData.windAngularDirection
+                            )}
+                            <span className="meter-unit">
+                                {opgcData.windAngularDirection} &deg;
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
             <span className={'balise-infos-card--time-refresh'}>
                 Mis à jour{' '}
-                {DateTime.fromISO(opgcdata.datetime)
+                {DateTime.fromISO(opgcData.datetime)
                     .setLocale('fr')
                     .toRelative({ unit: 'minutes' })}
             </span>

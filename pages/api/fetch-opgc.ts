@@ -3,7 +3,7 @@ import {
     OPGCValues,
     fetchOPGCValues,
     fetchOPGCmaxWind,
-} from '../../services/opgc/meter-opgc';
+} from '../../services/opgc/apiGrafanaOPGC';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function FetchOPGC(
