@@ -40,7 +40,9 @@ export async function fetchOPGCValues(): Promise<OPGCValues> {
         windAngularDirection,
     ] = data;
 
-    const dt = DateTime.local(year, month, day, hour, minute);
+    const dt = DateTime.local(year, month, day, hour, minute, 0, {
+        zone: 'Europe/Paris',
+    });
 
     if (!dt.isValid) {
         console.error(data);
@@ -72,7 +74,9 @@ export async function fetchOPGCmaxWind(): Promise<OPGCMaxWindValues> {
 
     const [day, month, year, hour, minute, windSpeedMax] = data;
 
-    const dt = DateTime.local(year, month, day, hour, minute);
+    const dt = DateTime.local(year, month, day, hour, minute, 0, {
+        zone: 'Europe/Paris',
+    });
 
     if (!dt.isValid) {
         console.error(data);
