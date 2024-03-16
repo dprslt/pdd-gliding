@@ -9,6 +9,7 @@ import '@fontsource/baloo-2';
 import '../styles/globals.scss';
 
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function RootLayout({
     // Layouts must accept a children prop.
@@ -37,6 +38,7 @@ export default function RootLayout({
                 <div className="root-container">{children}</div>
             </body>
             <Analytics />
+            <SpeedInsights />
         </html>
     );
 }
