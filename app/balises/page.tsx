@@ -3,7 +3,6 @@ import AppPage from '../../components/layout/AppPage';
 import { faSnowflake, faWind } from '@fortawesome/free-solid-svg-icons';
 import HolfuyHistory from './components/MesuresHolfuy/HolfuyHistory';
 import HolfuyResume from './components/MesuresHolfuy/HolfuyResume';
-import MesuresOPGC from './components/MesuresOPGC/MesuresOPGC';
 import ParaveyronLink from './components/Paraveyron';
 import SpotAirLink from './components/SpotAirLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
