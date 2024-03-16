@@ -15,10 +15,10 @@ const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
 }) => {
     return (
         <>
-            <div style={{ height: '300px' }}>
+            <div style={{ height: '250px' }}>
                 <ResponsiveLine
                     data={[windData]}
-                    margin={{ top: 50, right: 10, bottom: 30, left: 50 }}
+                    margin={{ top: 10, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
                     xFormat="time:%H:%M:%S"
                     yScale={{ type: 'linear' }}
@@ -27,13 +27,13 @@ const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
                     axisBottom={{
                         format: '%H:%M:%S',
                     }}
-                    axisLeft={{
+                    axisRight={{
                         tickSize: 5,
                         tickPadding: 5,
                         tickRotation: 0,
                         format: '>-d',
                         legend: 'Force du vent moyenne (km/h)',
-                        legendOffset: -40,
+                        legendOffset: 40,
                         legendPosition: 'middle',
                     }}
                     enableGridX={false}
@@ -48,10 +48,10 @@ const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
                     useMesh={true}
                 />
             </div>
-            <div style={{ height: '300px' }}>
+            <div style={{ height: '250px' }}>
                 <ResponsiveLine
                     data={[orientationData]}
-                    margin={{ top: 50, right: 10, bottom: 30, left: 50 }}
+                    margin={{ top: 10, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
                     xFormat="time:%H:%M:%S"
                     yScale={{ type: 'linear', min: 0, max: 360 }}
@@ -61,13 +61,13 @@ const RawMeterGraph: React.FC<RawMeterGraphProps> = ({
                     axisBottom={{
                         format: '%H:%M:%S',
                     }}
-                    axisLeft={{
+                    axisRight={{
                         tickSize: 5,
                         tickPadding: 5,
                         tickRotation: 0,
                         format: '-d',
                         legend: 'Direction du vent',
-                        legendOffset: -40,
+                        legendOffset: 40,
                         legendPosition: 'middle',
                     }}
                     enableGridX={false}

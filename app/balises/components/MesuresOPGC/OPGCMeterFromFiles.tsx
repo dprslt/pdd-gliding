@@ -75,12 +75,7 @@ export default async function OPGCMeterFromFiles() {
                         </div>
                     </div>
                     <div className="balise-infos-card--meter">
-                        <FontAwesomeIcon
-                            icon={faWind}
-                            transform={{
-                                rotate: -opgcdata.windAngularDirection - 90,
-                            }}
-                        />
+                        <FontAwesomeIcon icon={faWind} />
                         <div className="meter-value">
                             {opgcdata.windAngularDirection}
                             <span className="meter-unit">&deg;</span>
