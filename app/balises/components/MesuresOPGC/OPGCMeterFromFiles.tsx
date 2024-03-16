@@ -49,7 +49,7 @@ export default async function OPGCMeterFromFiles() {
                         {Math.round(opgcdata.windSpeed)} km/h
                     </div>
                     <div className={'balise-infos-card--wind-max'}>
-                        {Math.round(opgcdata.maxWindSpeed)} km/h
+                        max. {Math.round(opgcdata.maxWindSpeed)} km/h
                     </div>
                 </div>
                 <div className={'balise-infos-card--metering'}>
