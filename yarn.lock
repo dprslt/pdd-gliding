@@ -1183,7 +1183,7 @@
     d3-time-format "^3.0.0"
     lodash "^4.17.21"
 
-"@nivo/tooltip@0.85.1":
+"@nivo/tooltip@0.85.1", "@nivo/tooltip@^0.85.1":
   version "0.85.1"
   resolved "https://registry.yarnpkg.com/@nivo/tooltip/-/tooltip-0.85.1.tgz#d7dbca48db35f71829803d456c4eda9bebd0edf9"
   integrity sha512-lX0/MuDI9HvGzYxAtE3mnriYEgFHBWf7d5BMqUifJZIyg82XkI9g3z6vwAwPKRJ52rON9Yhik42+gwFMFj3BrA==
@@ -4890,17 +4890,17 @@ semver@^6.0.0, semver@^6.3.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
-server-only@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/server-only/-/server-only-0.0.1.tgz#0f366bb6afb618c37c9255a314535dc412cd1c9e"
-  integrity sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==
-
 semver@^7.5.4:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.0.tgz#1a46a4db4bffcccd97b743b5005c8325f23d4e2d"
   integrity sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==
   dependencies:
     lru-cache "^6.0.0"
+
+server-only@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/server-only/-/server-only-0.0.1.tgz#0f366bb6afb618c37c9255a314535dc412cd1c9e"
+  integrity sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==
 
 sharp@^0.33.2:
   version "0.33.2"
