@@ -4,7 +4,6 @@ import React from 'react';
 
 import { usePathname, useRouter } from 'next/navigation';
 import tabStyles from 'styles/MobileTabs.module.scss';
-import { redirect } from 'next/navigation';
 
 type MeteoSubMenu = {};
 

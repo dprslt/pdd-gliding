@@ -9,6 +9,7 @@ import SportAirLink from './components/SpotAirLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import balisesPageStyles from './balises.module.scss';
+import RawMeterOPGC from './components/MesuresOPGC/RawMeterOPGC';
 
 type BalisesPageProps = {};
 
@@ -35,6 +36,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                     l&apos;hiver.
                 </div>
             </div>
+            <RawMeterOPGC />
             <MesuresOPGC />
             <h2>Holfuy PDD Nord (1464)</h2>
             <div className="text-alert">
