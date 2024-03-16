@@ -6,7 +6,7 @@ export const windSegment = [
     'E',
     'ESE',
     'SE',
-    'SEE',
+    'SSE',
     'S',
     'SSO',
     'SO',
