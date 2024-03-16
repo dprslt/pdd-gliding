@@ -5,11 +5,12 @@ import HolfuyHistory from './components/MesuresHolfuy/HolfuyHistory';
 import HolfuyResume from './components/MesuresHolfuy/HolfuyResume';
 import MesuresOPGC from './components/MesuresOPGC/MesuresOPGC';
 import ParaveyronLink from './components/Paraveyron';
-import SportAirLink from './components/SpotAirLink';
+import SpotAirLink from './components/SpotAirLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import balisesPageStyles from './balises.module.scss';
 import RawMeterOPGC from './components/MesuresOPGC/RawMeterOPGC';
+import OPGCLink from './components/OPGCLink';
 
 type BalisesPageProps = {};
 
@@ -52,7 +53,8 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             <HolfuyResume />
             <HolfuyHistory />
             <h2>Pour aller plus loin</h2>
-            <SportAirLink />
+            <SpotAirLink />
+            <OPGCLink />
             <ParaveyronLink />
         </AppPage>
     );
