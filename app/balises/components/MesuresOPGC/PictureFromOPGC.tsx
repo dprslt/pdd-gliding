@@ -5,8 +5,6 @@ import React, { useEffect, useState } from 'react';
 
 import pageStyle from '../../balises.module.scss';
 
-type MesuresOPGCProps = {};
-
 const widthMeteo = 250;
 const heightMeteo = 220;
 const widthDate = 220;
@@ -14,7 +12,7 @@ const heightDate = 50;
 
 const urlOPGCPdd = 'https://wwwobs.univ-bpclermont.fr/observ/chimie/PDD.jpeg';
 
-const MesuresOPGC: React.FC<MesuresOPGCProps> = () => {
+const PictureFromOPGC: React.FC = () => {
     const [imgDate, setImgDate] = useState<string | undefined>(undefined);
     const [croppedUrlMeteo, setCroppedUrl] = useState<string | undefined>(
         undefined
@@ -114,4 +112,4 @@ const MesuresOPGC: React.FC<MesuresOPGCProps> = () => {
     );
 };
 
-export default MesuresOPGC;
+export default PictureFromOPGC;
