@@ -4,9 +4,7 @@ import Image from 'next/image';
 import sportAirLogo from './spotair-logo.png';
 import LinkElement from '../../../components/layout/linkElement/LinkElement';
 
-type SportAirLinkProps = {};
-
-const SportAirLink: React.FC<SportAirLinkProps> = () => {
+const SpotAirLink: React.FC = () => {
     return (
         <LinkElement favicon={sportAirLogo} href="https://spotair.mobi">
             SpotAir
@@ -14,4 +12,4 @@ const SportAirLink: React.FC<SportAirLinkProps> = () => {
     );
 };
 
-export default SportAirLink;
+export default SpotAirLink;

@@ -3,12 +3,13 @@ import AppPage from '../../components/layout/AppPage';
 import { faSnowflake, faWind } from '@fortawesome/free-solid-svg-icons';
 import HolfuyHistory from './components/MesuresHolfuy/HolfuyHistory';
 import HolfuyResume from './components/MesuresHolfuy/HolfuyResume';
-import MesuresOPGC from './components/MesuresOPGC/MesuresOPGC';
 import ParaveyronLink from './components/Paraveyron';
-import SportAirLink from './components/SpotAirLink';
+import SpotAirLink from './components/SpotAirLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import balisesPageStyles from './balises.module.scss';
+import RawMeterOPGC from './components/MesuresOPGC/RawMeterOPGC';
+import OPGCLink from './components/OPGCLink';
 
 type BalisesPageProps = {};
 
@@ -24,7 +25,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             className={balisesPageStyles['mesures-tab-page']}
         >
             <h2>OPGC</h2>
-            <div className="text-alert">
+            {/* <div className="text-alert">
                 <div className="warn">
                     <FontAwesomeIcon icon={faSnowflake} />
                 </div>
@@ -34,8 +35,8 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                     la force et la direction du vent pendant une bonne partie de
                     l&apos;hiver.
                 </div>
-            </div>
-            <MesuresOPGC />
+            </div> */}
+            <RawMeterOPGC />
             <h2>Holfuy PDD Nord (1464)</h2>
             <div className="text-alert">
                 <div className="warn">
@@ -50,7 +51,8 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             <HolfuyResume />
             <HolfuyHistory />
             <h2>Pour aller plus loin</h2>
-            <SportAirLink />
+            <SpotAirLink />
+            <OPGCLink />
             <ParaveyronLink />
         </AppPage>
     );

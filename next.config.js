@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+
     images: {
         domains: [
             'www.orcines.fr',
@@ -8,6 +9,11 @@ const nextConfig = {
             'meteovergne.fr',
             'www.panoramiquedesdomes.fr',
         ],
+    },
+    logging: {
+        fetches: {
+            fullUrl: true,
+        },
     },
     async rewrites() {
         return [

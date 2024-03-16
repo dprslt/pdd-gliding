@@ -1,0 +1,82 @@
+@import '../../../../styles/colors.scss';
+
+.balise-infos-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 20em;
+    padding: 0 1em;
+
+    margin: 1em auto;
+
+    .balise-infos-card--container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        // justify-content: space-between;
+
+        gap: 2em;
+
+        .balise-infos-card--wind {
+            // width: 6em;
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .balise-infos-card--wind-icon {
+                font-size: 5em;
+                color: $primary;
+            }
+
+            .balise-infos-card--wind-speed {
+                color: $primary;
+                font-size: 1.1em;
+                font-weight: 800;
+            }
+            .balise-infos-card--wind-max {
+                font-size: 0.7em;
+                opacity: 0.8;
+            }
+        }
+        .balise-infos-card--metering {
+            padding-bottom: 0.5em;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 0.5em;
+            .balise-infos-card--meter {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0.3em;
+
+                .meter-unit {
+                    display: inline-block;
+                    margin-left: 0.3em;
+                    color: grey;
+                    font-size: 0.7em;
+                    font-weight: 700;
+                }
+
+                .svg-inline--fa {
+                    color: $primary;
+                    width: 2em;
+                }
+
+                span {
+                    flex: 1;
+                }
+            }
+        }
+    }
+    .balise-infos-card--time-refresh {
+        color: $grey;
+        font-size: 0.6em;
+        text-align: right;
+        align-self: flex-end;
+    }
+}
