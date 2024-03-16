@@ -63,7 +63,7 @@ export default async function OPGCMeterFromFiles() {
                     <div className="balise-infos-card--meter">
                         <FontAwesomeIcon icon={faDroplet} />
                         <div className="meter-value">
-                            {opgcdata.humidity}
+                            {Math.round(opgcdata.humidity)}
                             <span className="meter-unit">%</span>
                         </div>
                     </div>
