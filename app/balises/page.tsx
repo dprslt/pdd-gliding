@@ -30,12 +30,12 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                 <div className="warn">
                     <FontAwesomeIcon icon={faSnowflake} />
                 </div>
-                <div className="text">
+                {/* <div className="text">
                     La balise de l&apos;OPGC est soumise au gel en hiver, elle
                     ne sera donc pas capable de fournir une mesure precise sur
                     la force et la direction du vent pendant une bonne partie de
                     l&apos;hiver.
-                </div>
+                </div> */}
             </div>
             <RawMeterOPGC />
             <MesuresOPGC />
