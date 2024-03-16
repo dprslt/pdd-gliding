@@ -118,6 +118,7 @@ const OPGCChartsFromGrafana: React.FC<OPGCChartsFromGrafanaProps> = ({
                         legendPosition: 'middle',
                     }}
                     enableGridX={false}
+                    gridYValues={numericHalfWindSegment}
                     colors={{ scheme: 'accent' }}
                     lineWidth={0}
                     pointSize={8}
