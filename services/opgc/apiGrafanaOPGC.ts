@@ -23,6 +23,9 @@ async function askGrafana<T extends any>(query: any): Promise<T> {
         method: 'POST',
         body: JSON.stringify(query),
         headers,
+        next: {
+            revalidate: 60,
+        },
     });
 
     const parsedBody = await results.json();
@@ -80,11 +83,13 @@ export type OPGCWindHistory = {
     orientation: GraphData;
 };
 export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory> {
+    // Lock query range to the beginning of the last minute to improve cache hit
+    const time = DateTime.now().startOf('minute');
     const query = {
         // See the attached file to edit the queries
         queries: grafanaHistoryQueries,
-        from: `${DateTime.now().minus({ hours: 3 }).toMillis()}`,
-        to: `${DateTime.now().toMillis()}`,
+        from: `${time.minus({ hours: 3 }).toMillis()}`,
+        to: `${time.toMillis()}`,
     };
 
     const grafanaResponse = await askGrafana<any>(query);
