@@ -1,0 +1,88 @@
+@import '../../../../styles/colors.scss';
+
+.notam-card {
+    padding: 0.5em 1em;
+    padding-right: 0;
+    margin: 0.5em 0;
+
+    border-left: solid 2px $primary;
+
+    .notam-card-container-heading {
+        display: flex;
+        flex-direction: row;
+        justify-content: stretch;
+        .notam-card-content {
+            flex: 1;
+
+            .notam-card-infos {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-bottom: 0.5em;
+
+                .notam-card-validity {
+                    font-size: 0.7em;
+                    font-weight: 900;
+
+                    flex: 2;
+
+                    color: $grey;
+
+                    .svg-inline--fa {
+                        color: $primary;
+
+                        font-size: 0.8rem;
+                        margin: 0 0.5em;
+                    }
+                }
+
+                .notam-card-heigths {
+                    font-size: 0.7em;
+                    font-weight: bold;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1em;
+                    flex: 1;
+                    justify-content: flex-end;
+
+                    span {
+                        color: $onBackground;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        text-align: center;
+                        gap: 0.5em;
+                    }
+                    .svg-inline--fa {
+                        color: $primary;
+
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+
+        .notam-card-action {
+            display: flex;
+            flex-direction: row;
+            justify-content: stretch;
+            button {
+                color: $primary;
+                padding: 0.3em 0.5em;
+                min-width: auto;
+            }
+        }
+    }
+
+    .notam-card-container-unroll {
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+.notam-card.notam-card__open {
+    .notam-card-container-unroll {
+        height: fit-content;
+    }
+}
