@@ -28,7 +28,6 @@ const MeteoSubMenu: React.FC<MeteoSubMenu> = () => {
     const { push } = useRouter();
     const currentUrlValue = useCurrentUrlIndex();
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        console.log(newValue, urls[newValue]);
         push(`/meteo/${urls[newValue]}`);
     };
 

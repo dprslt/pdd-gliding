@@ -17,7 +17,5 @@ export default async function FetchOPGC(
 
     const dict = { ...vmax, ...values };
 
-    console.log(dict);
-
     res.status(200).json(dict);
 }

@@ -33,8 +33,8 @@ const WebcamsPage: React.FC<WebcamsPageProps> = () => {
             <MeteovergneWebcam />
             <h2>Golf Volvic</h2>
             <GolfVolvicWebcam />
-            <h2>Live - Sud-Ouest</h2>
-            <LiveWebcam />
+            {/* <h2>Live - Sud-Ouest</h2>
+            <LiveWebcam /> */}
         </AppPage>
     );
 };
