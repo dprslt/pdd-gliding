@@ -8,12 +8,13 @@ import { DateTime } from 'luxon';
 import {
     convertDegToOrientation,
     numericHalfWindSegment,
-    windSegment,
 } from 'services/wind/OrientationMapper';
+import { faLinkSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type OPGCChartsFromGrafanaProps = {
-    windData: GraphData;
-    orientationData: GraphData;
+    windData?: GraphData;
+    orientationData?: GraphData;
 };
 
 const SpeedTooltip: React.FunctionComponent<PointTooltipProps> = ({
@@ -48,6 +49,20 @@ const OPGCChartsFromGrafana: React.FC<OPGCChartsFromGrafanaProps> = ({
     windData,
     orientationData,
 }) => {
+    if (!windData || !orientationData || windData.data.length === 0) {
+        return (
+            <div className="text-alert">
+                <div className="warn">
+                    <FontAwesomeIcon icon={faLinkSlash} />
+                </div>
+                <div className="text">
+                    Désolé, les données d&apos;historique de l&apos;OPGC sont
+                    indisponibles
+                </div>
+            </div>
+        );
+    }
+
     return (
         <>
             <div style={{ height: '250px' }}>

@@ -19,9 +19,18 @@ import { faLinkSlash, faWarning } from '@fortawesome/free-solid-svg-icons';
 
 export default async function RawMeterOPGC() {
     const [grafanadata, opgcDataFromGrafana, maxWind] = await Promise.all([
-        fetchWindHistoryFromGrafana().catch((e) => console.error(e)),
-        fetchLastValuesFromGrafana().catch((e) => console.error(e)),
-        fetchOPGCmaxWind().catch((e) => console.error(e)),
+        fetchWindHistoryFromGrafana().catch((e) => {
+            console.error(e);
+            return null;
+        }),
+        fetchLastValuesFromGrafana().catch((e) => {
+            console.error(e);
+            return null;
+        }),
+        fetchOPGCmaxWind().catch((e) => {
+            console.error(e);
+            return null;
+        }),
     ]);
 
     // const opgcdata = await buildOPGCDataFromFiles();
@@ -31,12 +40,6 @@ export default async function RawMeterOPGC() {
     // First Fallback try to get last file
     if (!opgcData) {
         opgcData = await fetchOPGCValues();
-
-        console.log(
-            DateTime.fromISO(opgcData.datetime)
-                .diffNow('minutes')
-                .as('minutes') < -15
-        );
 
         if (
             DateTime.fromISO(opgcData.datetime)
@@ -65,25 +68,10 @@ export default async function RawMeterOPGC() {
                     </div>
                 </>
             )}
-            {grafanadata?.wind &&
-            grafanadata?.orientation &&
-            (grafanadata?.wind?.data?.length || 0) > 0 ? (
-                <OPGCChartsFromGrafana
-                    windData={grafanadata.wind}
-                    orientationData={grafanadata.orientation}
-                />
-            ) : (
-                <div className="text-alert">
-                    <div className="warn">
-                        <FontAwesomeIcon icon={faLinkSlash} />
-                    </div>
-                    <div className="text">
-                        Désolé, les données d&apos;historique de l&apos;OPGC
-                        sont indisponibles
-                    </div>
-                </div>
-            )}
-            {/* <RawMeterGraph data={[grafanadata.orientation as any]} /> */}
+            <OPGCChartsFromGrafana
+                windData={grafanadata?.wind}
+                orientationData={grafanadata?.orientation}
+            />
         </div>
     );
 }

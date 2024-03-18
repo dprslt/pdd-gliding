@@ -1,4 +1,3 @@
-'use client';
 import {
     faLocationArrow,
     faTemperatureThreeQuarters,
@@ -82,7 +81,7 @@ export default async function OPGCMeter({ opgcData, maxWind }: OpgcMeterProps) {
                 Mis à jour{' '}
                 {DateTime.fromISO(opgcData.datetime)
                     .setLocale('fr')
-                    .toRelative({ unit: 'minutes' })}
+                    .toLocaleString(DateTime.DATETIME_MED)}
             </span>
         </div>
     );
