@@ -81,6 +81,7 @@ export default async function OPGCMeter({ opgcData, maxWind }: OpgcMeterProps) {
                 Mis à jour{' '}
                 {DateTime.fromISO(opgcData.datetime)
                     .setLocale('fr')
+                    .setZone('Europe/Paris')
                     .toLocaleString(DateTime.DATETIME_MED)}
             </span>
         </div>
