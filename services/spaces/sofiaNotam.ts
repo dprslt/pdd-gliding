@@ -1,8 +1,6 @@
 import { DateTime } from 'luxon';
+import { DGACcustomSSLAgent } from 'services/tls/DGACCustomTLSAgent';
 import { URLSearchParams } from 'url';
-import { v4 } from 'uuid';
-import { cookies } from 'next/headers';
-
 export type SofiaNotamRouteParams = {
     ':operation': string;
     duration: string;
@@ -155,13 +153,13 @@ export async function fetchNOTAMForRoute(
 
     const FIRNOTAMS: Array<NOTAMstructure> = [];
 
-    console.log(notams);
+    // console.log(notams);
 
-    Object.entries(notams['listnotams']['FIR']).forEach(([notamCat, cat]) => {
-        cat.forEach((notamImpacted) => {
+    Object.values(notams['listnotams']['FIR']).forEach((cat: any) => {
+        cat.forEach((notamImpacted: any) => {
             notamImpacted['sortedNotamsByImpactedAerodromes']?.forEach(
-                (aerodromes) => {
-                    aerodromes.sortedNotamsByPurpose.forEach((purpose) => {
+                (aerodromes: any) => {
+                    aerodromes.sortedNotamsByPurpose.forEach((purpose: any) => {
                         FIRNOTAMS.push(...purpose.notam);
                     });
                 }
