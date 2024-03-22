@@ -21,7 +21,7 @@ function getFiles(dir) {
         // Check if the current file/directory is a directory using fs.statSync
         if (fs.statSync(name).isDirectory()) {
             // If it is a directory, recursively call the getFiles function with the directory path and the files array
-            getFiles(name, files);
+            getFiles(name);
         } else {
             // If it is a file, push the full path to the files array
             // files.push(name);

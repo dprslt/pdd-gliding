@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "cross-env NODE_EXTRA_CA_CERTS=./certs/DGAC.pem next dev --port 4000",
-        "build": "env; cross-env NODE_EXTRA_CA_CERTS=./certs/DGAC.pem next build",
+        "build": "cross-env NODE_EXTRA_CA_CERTS=./certs/DGAC.pem next build",
         "start": "cross-env NODE_EXTRA_CA_CERTS=./certs/DGAC.pem next start --port 4004",
         "test": "jest --watch",
         "lint": "next lint",
