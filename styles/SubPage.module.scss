@@ -1,4 +1,4 @@
-.forecast-tab-page {
+.subpage-tab-page {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -8,7 +8,7 @@
         height: 100%;
     }
 
-    &:not(.forecast-more) :global(.pageContent) {
+    &:global(.sub-page-fullscreen) :global(.pageContent) {
         padding: 0;
     }
 
@@ -17,7 +17,7 @@
     }
 }
 
-.forecast-tab-page .forecast-morelinks {
+.subpage-tab-page .forecast-morelinks {
     // padding: 0 2em;
     overflow: auto;
 }

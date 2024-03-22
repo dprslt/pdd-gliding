@@ -29,9 +29,9 @@ export const PDDNorthSouthRoute = {
     duration: '2400',
     traffic: 'V',
     fl_lower: '0',
-    fl_upper: '85',
-    width: '30',
-    radiusAD: '30',
+    fl_upper: '115',
+    width: '15',
+    radiusAD: '10',
     route: ['LFBK', 'LFLW'],
     isFromSofia: true,
     target: '#aside-target',
@@ -154,6 +154,8 @@ export async function fetchNOTAMForRoute(
     // https://www.notams.faa.gov/common/qcode/qcode.html
 
     const FIRNOTAMS: Array<NOTAMstructure> = [];
+
+    console.log(notams);
 
     Object.entries(notams['listnotams']['FIR']).forEach(([notamCat, cat]) => {
         cat.forEach((notamImpacted) => {

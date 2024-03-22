@@ -8,7 +8,7 @@ export const metadata = {
 };
 const MeteoParapentePage: React.FC<MeteoParapentePageProps> = () => {
     return (
-        <MeteoSubPage>
+        <MeteoSubPage className="sub-page-fullscreen">
             <iframe
                 src="https://meteo-parapente.com/#/45.7728,2.9625,18"
                 height={700}
