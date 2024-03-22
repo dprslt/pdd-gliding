@@ -11,9 +11,9 @@ export default function NotamNotice() {
                 <p>
                     <strong>
                         Cette page est en Beta, merci de vérifier les
-                        informations s'y trouvant. Elles ne sont pas exhautives
-                        et ne suffisent pas à préparer un vol dans le respect de
-                        la réglementation aérienne.
+                        informations s&apos;y trouvant. Elles ne sont pas
+                        exhautives et ne suffisent pas à préparer un vol dans le
+                        respect de la réglementation aérienne.
                         <br />
                         Vous volez sous votre propre responsabilité.
                     </strong>
@@ -25,7 +25,7 @@ export default function NotamNotice() {
                     entre Montlucon et Aurillac du FL 0 au FL 115 avec un
                     couloir de 15 Nautiques de large.
                     <br /> La recherche est faite pour une validité de 24h avec
-                    une heure de décollage au début de l'heure actuelle.
+                    une heure de décollage au début de l&apos;heure actuelle.
                 </p>
 
                 {/* <p>
