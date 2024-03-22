@@ -1,5 +1,4 @@
 import { DateTime } from 'luxon';
-import { DGACcustomSSLAgent } from 'services/tls/DGACCustomTLSAgent';
 import { URLSearchParams } from 'url';
 export type SofiaNotamRouteParams = {
     ':operation': string;

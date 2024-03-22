@@ -3,12 +3,12 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "cross-env NODE_EXTRA_CA_CERTS=./services/spaces/DGAC.pem next dev --port 4000",
-        "build": "cross-env NODE_EXTRA_CA_CERTS=./services/spaces/DGAC.pem next build",
-        "start": "cross-env NODE_EXTRA_CA_CERTS=./services/spaces/DGAC.pem next start --port 4004",
+        "dev": "cross-env NODE_EXTRA_CA_CERTS=./certs/DGAC.pem next dev --port 4000",
+        "build": "cross-env NODE_EXTRA_CA_CERTS=./certs/DGAC.pem next build",
+        "start": "cross-env NODE_EXTRA_CA_CERTS=./certs/DGAC.pem next start --port 4004",
         "test": "jest --watch",
         "lint": "next lint",
-        "postbuild": "next-sitemap"
+        "postbuild": "node ./copy-certs.js ; next-sitemap"
     },
     "dependencies": {
         "@emotion/react": "^11.11.4",
