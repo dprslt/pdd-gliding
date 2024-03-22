@@ -94,14 +94,14 @@ export async function fetchNOTAMForRoute(
         // uuid: v4(),
     };
 
-    console.log(fullConfig);
+    // console.log(fullConfig);
 
     const { route, ...otherParams } = fullConfig;
 
     const urlParams = new URLSearchParams(otherParams);
     route.forEach((point) => urlParams.append('route[]', point));
 
-    console.log(urlParams.toString());
+    // console.log(urlParams.toString());
 
     const headers = new Headers();
     headers.append('Accept', 'application/json, text/javascript, */*; q=0.01');
@@ -145,7 +145,11 @@ export async function fetchNOTAMForRoute(
         }
     );
 
-    const response = await notamsRequest.json();
+    const text_response = await notamsRequest.text();
+    console.log(text_response);
+
+    // const response = await notamsRequest.json();
+    const response = JSON.parse(text_response);
 
     const notams = JSON.parse(response['status.message']);
 
