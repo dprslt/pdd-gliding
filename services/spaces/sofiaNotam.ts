@@ -81,7 +81,11 @@ export type NOTAMstructure = {
 export async function fetchNOTAMForRoute(
     config: SofiaNotamRouteParams
 ): Promise<Array<NOTAMstructure>> {
-    const date = DateTime.now().startOf('hour');
+    const date = DateTime.now().setZone('Europe/Paris').startOf('hour');
+
+    if (!date.isValid) {
+        throw new Error('InvalidDate');
+    }
 
     const fullConfig: SofiaNotamQueryParams = {
         ...config,
@@ -145,11 +149,7 @@ export async function fetchNOTAMForRoute(
         }
     );
 
-    const text_response = await notamsRequest.text();
-    console.log(text_response);
-
-    // const response = await notamsRequest.json();
-    const response = JSON.parse(text_response);
+    const response = await notamsRequest.json();
 
     const notams = JSON.parse(response['status.message']);
 
