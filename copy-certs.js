@@ -5,7 +5,7 @@ console.log(certs);
 if (!fs.existsSync('./.next/certs')) {
     fs.mkdirSync('./.next/certs');
 }
-fs.fs.writeFileSync('./.next/certs/DGAC.pem', certs);
+fs.writeFileSync('./.next/certs/DGAC.pem', certs);
 
 // fs.createReadStream('./certs/DGAC.pem').pipe(
 //     fs.createWriteStream('./.next/DGAC.pem')
