@@ -2,7 +2,10 @@ const fs = require('fs');
 
 const certs = fs.readFileSync('./certs/DGAC.pem');
 console.log(certs);
-fs.writeFileSync('./.next/DGAC.pem', certs);
+if (!fs.existsSync('./.next/certs')) {
+    fs.mkdirSync('./.next/certs');
+}
+fs.fs.writeFileSync('./.next/certs/DGAC.pem', certs);
 
 // fs.createReadStream('./certs/DGAC.pem').pipe(
 //     fs.createWriteStream('./.next/DGAC.pem')
