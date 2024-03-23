@@ -20,7 +20,7 @@ export default function NotamNotice() {
                 </p>
 
                 <p>
-                    Les Notams sont ci dessous sont directement récupérés depuis
+                    Les NOTAM ci-dessous sont directement récupérés depuis
                     <strong> Sofia Briefing</strong> en cherchant une navigation
                     entre Montlucon et Aurillac du FL 0 au FL 115 avec un
                     couloir de 15 Nautiques de large.
