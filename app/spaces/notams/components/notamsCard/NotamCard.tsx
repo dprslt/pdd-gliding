@@ -54,7 +54,7 @@ export default function NotamCard({ notam }: NotamCardProps) {
                         </div>
                     </div>
                     <div className="notam-card-fieldE">
-                        {notam.multiLanguage.itemE}
+                        <pre>{notam.multiLanguage.itemE}</pre>
                     </div>
                 </div>
                 <div className="notam-card-action">
