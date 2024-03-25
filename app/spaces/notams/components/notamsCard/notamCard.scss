@@ -85,8 +85,14 @@
         font-size: 0.9em;
 
         pre {
+            max-width: 100%;
             margin: 0;
+            text-wrap: pretty;
         }
+
+        // max-height: 7em;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
@@ -98,5 +104,9 @@
     }
     .notam-card-container-unroll {
         height: fit-content;
+    }
+
+    .notam-card-fieldE {
+        max-height: max-content;
     }
 }
