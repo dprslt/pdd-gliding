@@ -18,7 +18,12 @@ import { DateTime } from 'luxon';
 import './notam-page.scss';
 
 export default async function NotamsSpacesPage() {
-    const notamResponse = await fetchNOTAMForRoute(PDDNorthSouthRoute);
+    const notamResponse = await fetchNOTAMForRoute(PDDNorthSouthRoute).catch(
+        (e) => {
+            console.error(e);
+            return null;
+        }
+    );
 
     return (
         <SpacesSubPage
