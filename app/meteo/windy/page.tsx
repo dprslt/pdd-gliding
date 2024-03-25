@@ -7,7 +7,7 @@ export const metadata = {
 
 const WindyPage: React.FC = () => {
     return (
-        <MeteoSubPage>
+        <MeteoSubPage className="sub-page-fullscreen">
             <iframe
                 width="50%"
                 height="700"

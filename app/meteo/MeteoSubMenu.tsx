@@ -35,7 +35,7 @@ const MeteoSubMenu: React.FC<MeteoSubMenu> = () => {
         <Tabs
             value={currentUrlValue}
             onChange={handleChange}
-            className={tabStyles.mobileForecastTabs}
+            className={tabStyles.mobileSubTabs}
             // variant="fullWidth"
             variant="scrollable"
             scrollButtons="auto"

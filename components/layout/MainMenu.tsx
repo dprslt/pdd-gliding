@@ -5,6 +5,7 @@ import {
     faEarthEurope,
     faCameraRetro,
     faTrainTram,
+    faPlaneCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Tabs, Tab } from '@mui/material';
@@ -34,6 +35,9 @@ const MainMenu: React.FC<MainTabsProps> = () => {
                 </ActiveLink>
                 <ActiveLink href={'/train'}>
                     <FontAwesomeIcon icon={faTrainTram} />
+                </ActiveLink>
+                <ActiveLink href={'/spaces'}>
+                    <FontAwesomeIcon icon={faPlaneCircleCheck} />
                 </ActiveLink>
             </div>
         </Box>

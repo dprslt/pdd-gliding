@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 import MainMenu from '../../components/layout/MainMenu';
-import MeteoSubMenu from './MeteoSubMenu';
+import SpacesSubMenu from './SpacesSubMenu';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { mergeClasses } from '../../utils/StyleHelper';
 import PageTitle from '../../components/layout/PageTitle';
-import subPageStyles from 'styles/SubPage.module.scss';
+import SubPageStyles from 'styles/SubPage.module.scss';
 
 type MeteoSubPageProps = {
     children: ReactNode;
@@ -14,7 +14,7 @@ type MeteoSubPageProps = {
     pageIcon?: IconDefinition;
 };
 
-const MeteoSubPage: React.FC<MeteoSubPageProps> = ({
+const SpacesSubPage: React.FC<MeteoSubPageProps> = ({
     children,
     className,
     pageTitle,
@@ -25,7 +25,7 @@ const MeteoSubPage: React.FC<MeteoSubPageProps> = ({
             <div
                 className={mergeClasses(
                     'mobile-content',
-                    subPageStyles['subpage-tab-page'],
+                    SubPageStyles['subpage-tab-page'],
                     className
                 )}
             >
@@ -35,11 +35,11 @@ const MeteoSubPage: React.FC<MeteoSubPageProps> = ({
                     )}
                     {children}
                 </div>
-                <MeteoSubMenu />
+                <SpacesSubMenu />
                 <MainMenu />
             </div>
         </div>
     );
 };
 
-export default MeteoSubPage;
+export default SpacesSubPage;

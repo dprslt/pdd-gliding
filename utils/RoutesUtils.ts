@@ -1,5 +1,7 @@
 import qs, { ParsedQs } from 'qs';
 
+import { usePathname } from 'next/navigation';
+
 export const objectToQueryString = (
     object: Record<string, string | number | undefined>
 ): string => `?${qs.stringify(object)}`;
@@ -41,4 +43,16 @@ export const mergeRoutesAnchor = (baseRoute: string, hash: string): string => {
     const split = baseRoute.split('#');
 
     return `${split[0]}#${hash}`;
+};
+
+type SubPageHooks = () => number;
+export const createSubPageHook = (urls: Array<string>): SubPageHooks => {
+    return (): number => {
+        const pathname = usePathname();
+        const paths = pathname?.split('/');
+        paths?.shift();
+        const stringValue = (Array.isArray(paths) && paths[1]) || undefined;
+        const value = urls.findIndex((v) => v === stringValue);
+        return value || 0;
+    };
 };
