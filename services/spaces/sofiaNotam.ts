@@ -77,9 +77,14 @@ export type NOTAMstructure = {
     valid: string;
 };
 
+export type NotamResponse = {
+    notams: Array<NOTAMstructure>;
+    timestamp: string;
+};
+
 export async function fetchNOTAMForRoute(
     config: SofiaNotamRouteParams
-): Promise<Array<NOTAMstructure>> {
+): Promise<NotamResponse | null> {
     const date = DateTime.now().setZone('Europe/Paris').startOf('hour');
 
     if (!date.isValid) {
@@ -123,10 +128,9 @@ export async function fetchNOTAMForRoute(
     const r = await fetch(
         `https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/homepage.html`,
         {
-            credentials: 'include',
             headers,
             next: {
-                revalidate: 1000,
+                revalidate: 600,
             },
         }
     );
@@ -143,39 +147,47 @@ export async function fetchNOTAMForRoute(
             headers,
             credentials: 'include',
             next: {
-                revalidate: 1000,
+                revalidate: 600,
             },
         }
     );
 
-    const response = await notamsRequest.json();
+    try {
+        const response = await notamsRequest.json();
 
-    const notams = JSON.parse(response['status.message']);
+        try {
+            const notams = JSON.parse(response['status.message']);
 
-    // https://www.notams.faa.gov/common/qcode/qcode.html
+            // https://www.notams.faa.gov/common/qcode/qcode.html
 
-    const FIRNOTAMS: Array<NOTAMstructure> = [];
+            const FIRNOTAMS: Array<NOTAMstructure> = [];
 
-    // console.log(notams);
+            // console.log(notams);
 
-    Object.values(notams['listnotams']['FIR']).forEach((cat: any) => {
-        cat.forEach((notamImpacted: any) => {
-            notamImpacted['sortedNotamsByImpactedAerodromes']?.forEach(
-                (aerodromes: any) => {
-                    aerodromes.sortedNotamsByPurpose.forEach((purpose: any) => {
-                        FIRNOTAMS.push(...purpose.notam);
-                    });
-                }
-            );
-            // console.log(JSON.stringify(notamImpated, null, 2));
-        });
-    });
+            Object.values(notams['listnotams']['FIR']).forEach((cat: any) => {
+                cat.forEach((notamImpacted: any) => {
+                    notamImpacted['sortedNotamsByImpactedAerodromes']?.forEach(
+                        (aerodromes: any) => {
+                            aerodromes.sortedNotamsByPurpose.forEach(
+                                (purpose: any) => {
+                                    FIRNOTAMS.push(...purpose.notam);
+                                }
+                            );
+                        }
+                    );
+                    // console.log(JSON.stringify(notamImpated, null, 2));
+                });
+            });
 
-    // console.log(FIRNOTAMS);
+            return { notams: FIRNOTAMS, timestamp: notams.issued };
+        } catch (e) {
+            console.error(response);
+            throw new Error('Unable to parse notams, query may be invalid');
+        }
+    } catch (e) {
+        console.error(e);
+        throw new Error('Unable to parse response');
+    }
 
-    // const notamResponse = await notamsRequest.json();
-
-    // console.log(notamResponse);
-
-    return FIRNOTAMS;
+    return null;
 }
