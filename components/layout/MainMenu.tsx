@@ -2,10 +2,10 @@
 
 import {
     faWind,
-    faEarthEurope,
     faCameraRetro,
     faTrainTram,
     faPlaneCircleCheck,
+    faCloudSun,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Tabs, Tab } from '@mui/material';
@@ -28,7 +28,7 @@ const MainMenu: React.FC<MainTabsProps> = () => {
                     <FontAwesomeIcon icon={faWind} />
                 </ActiveLink>
                 <ActiveLink href={'/meteo'}>
-                    <FontAwesomeIcon icon={faEarthEurope} />
+                    <FontAwesomeIcon icon={faCloudSun} />
                 </ActiveLink>
                 <ActiveLink href={'/webcam'}>
                     <FontAwesomeIcon icon={faCameraRetro} />

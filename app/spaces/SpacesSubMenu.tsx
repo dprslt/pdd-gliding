@@ -14,7 +14,7 @@ function a11yProps(index: number) {
         'aria-controls': `spaces-tab-${index}`,
     };
 }
-export const spacesSubUrls = ['notams', 'tma', 'links'];
+export const spacesSubUrls = ['notams', 'tma', 'map', 'links'];
 
 const useCurrentUrlIndex = createSubPageHook(spacesSubUrls);
 
@@ -36,6 +36,7 @@ const SpacesSubMenu: React.FC<MeteoSubMenu> = () => {
         >
             <Tab label={'NOTAMs'} {...a11yProps(0)} />
             <Tab label={'TMA'} {...a11yProps(1)} />
+            <Tab label={'Carte'} {...a11yProps(2)} />
             <Tab label={'Liens'} {...a11yProps(2)} />
         </Tabs>
     );
