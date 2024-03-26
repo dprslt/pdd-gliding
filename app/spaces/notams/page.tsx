@@ -17,6 +17,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DateTime } from 'luxon';
 import './notam-page.scss';
 
+export const metadata = {
+    title: 'Puy de dôme Parapente : Espaces / Notams',
+};
+
 export default async function NotamsSpacesPage() {
     const notamResponse = await fetchNOTAMForRoute(PDDNorthSouthRoute).catch(
         (e) => {

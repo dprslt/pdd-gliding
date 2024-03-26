@@ -5,6 +5,10 @@ import TmaInfos from './TmaInfos';
 import spacesStyles from '../spaces.module.scss';
 import SpacesSubPage from '../SpacesSubPage';
 
+export const metadata = {
+    title: 'Puy de dôme Parapente : Espaces / TMA',
+};
+
 export default async function TMASpacesPage() {
     return (
         <SpacesSubPage

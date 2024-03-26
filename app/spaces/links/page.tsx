@@ -7,6 +7,10 @@ import spacesStyles from '../spaces.module.scss';
 import SpacesSubPage from '../SpacesSubPage';
 import ZoneCentreLink from './LinkZoneCentre';
 
+export const metadata = {
+    title: 'Puy de dôme Parapente : Espaces / Liens',
+};
+
 export default async function Page() {
     return (
         <SpacesSubPage
