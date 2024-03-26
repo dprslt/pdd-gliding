@@ -35,11 +35,11 @@ export default function NotamCard({ notam }: NotamCardProps) {
                         <div className="notam-card-validity">
                             {DateTime.fromISO(notam.startValidity)
                                 .setZone('Europe/Paris')
-                                .toFormat('dd/MM/yy hh:mm')}
+                                .toFormat('dd/MM/yy HH:mm')}
                             <FontAwesomeIcon icon={faArrowRight} />
                             {DateTime.fromISO(notam.endValidity)
                                 .setZone('Europe/Paris')
-                                .toFormat('dd/MM/yy hh:mm')}
+                                .toFormat('dd/MM/yy HH:mm')}
                         </div>
 
                         <div className="notam-card-heigths">
