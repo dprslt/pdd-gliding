@@ -28,6 +28,12 @@ export default function NotamNotice() {
                     une heure de décollage au début de l&apos;heure actuelle.
                 </p>
 
+                <p>
+                    Les tranches horaires indiquées au dessus des NOTAMs sont en
+                    heures locales. Le contenu des NOTAMs étant libre, les
+                    horaires sont indiqués en UTC.
+                </p>
+
                 {/* <p>
                     <strong>
                         Si vous ne comprenez pas l'intégralité du paragraphe
