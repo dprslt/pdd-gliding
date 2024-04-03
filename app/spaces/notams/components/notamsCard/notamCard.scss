@@ -81,6 +81,27 @@
         overflow: hidden;
     }
 
+    .notam-card-fieldD {
+        display: flex;
+        font-size: 0.7rem;
+        flex-direction: row;
+        align-items: center;
+
+        margin-bottom: 0.5em;
+
+        .fieldD-UTC-badge {
+            background-color: $primary;
+            color: $onPrimary;
+            margin-right: 0.5em;
+            padding: 0.25em 0.5em;
+            border-radius: 0.3em;
+
+            .svg-inline--fa {
+                margin-right: 0.5em;
+            }
+        }
+    }
+
     .notam-card-fieldE {
         font-size: 0.9em;
 

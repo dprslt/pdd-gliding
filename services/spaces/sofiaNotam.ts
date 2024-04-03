@@ -71,6 +71,7 @@ export type NOTAMstructure = {
     multiLanguage: {
         itemE: string;
     };
+    itemD: string;
     itemF?: string;
     itemG?: string;
     marker: string;

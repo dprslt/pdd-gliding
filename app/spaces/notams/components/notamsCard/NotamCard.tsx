@@ -8,6 +8,7 @@ import {
     faArrowRight,
     faArrowsDownToLine,
     faArrowsUpToLine,
+    faClock,
     faMinus,
 } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
@@ -53,6 +54,16 @@ export default function NotamCard({ notam }: NotamCardProps) {
                             </span>
                         </div>
                     </div>
+                    {notam.itemD && (
+                        <div className="notam-card-fieldD">
+                            <span className="fieldD-UTC-badge">
+                                <FontAwesomeIcon icon={faClock} />
+                                Activation UTC
+                            </span>
+                            <span>{notam.itemD}</span>
+                        </div>
+                    )}
+
                     <div className="notam-card-fieldE">
                         <pre>{notam.multiLanguage.itemE}</pre>
                     </div>
