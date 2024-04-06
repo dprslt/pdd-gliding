@@ -25,6 +25,22 @@
         margin-bottom: 1em;
     }
 
+    .next-day-scedule-buttons {
+        margin-bottom: 1em;
+        .next-day-scedule-button:not(:first-child) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .next-day-scedule-button:not(:last-child) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .scedule-button--active {
+            background-color: $primary;
+            color: $onPrimary;
+        }
+    }
+
     h2 {
         flex: 1;
         white-space: nowrap;

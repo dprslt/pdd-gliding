@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 import trainStyle from '../train.module.scss';
+import { mergeClasses } from 'utils/StyleHelper';
 
 type TrainsOfTheDayProps = {};
 
@@ -22,21 +23,27 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
     const [trains, setAllTrains] = useState<Array<Moment>>([]);
     const [nextTrain, setNextTrain] = useState<Moment | null>(null);
 
+    const [showMissed, setShowMissed] = useState(false);
+    const [nextDay, setNextDay] = useState(false);
+
     useEffect(() => {
+        var momentToUse = nowMoment;
+        if (nextDay) {
+            momentToUse = nowMoment.clone().add(1, 'day').startOf('day');
+        }
+        console.log(momentToUse);
         try {
-            setAllTrains(getAllTrainsOfADay(nowMoment, PanoSchedule2024));
-            setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2024));
+            setAllTrains(getAllTrainsOfADay(momentToUse, PanoSchedule2024));
+            setNextTrain(getNextTrainForADay(momentToUse, PanoSchedule2024));
         } catch (e) {
             console.error(e);
         }
-    }, [nowMoment]);
-
-    const [showMissed, setShowMissed] = useState(false);
+    }, [nowMoment, nextDay]);
 
     return (
         <div className={trainStyle['train-of-day']}>
             <div className={trainStyle['train-header']}>
-                <h2>Trains de la journée</h2>
+                <h2>Horaire des montées</h2>
                 <button
                     className={
                         showMissed
@@ -51,9 +58,35 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
                         : 'Voir les trains ratés'}
                 </button>
             </div>
-            {!showMissed && nextTrain === null && (
-                <p>Plus de train pour aujourd&apos;hui.</p>
-            )}
+
+            <div className={trainStyle['next-day-scedule-buttons']}>
+                <button
+                    className={mergeClasses(
+                        nextDay ? '' : trainStyle['scedule-button--active'],
+                        trainStyle['next-day-scedule-button']
+                    )}
+                    onClick={() => setNextDay(false)}
+                >
+                    Aujourd&apos;hui
+                </button>
+                <button
+                    className={mergeClasses(
+                        nextDay ? trainStyle['scedule-button--active'] : '',
+                        trainStyle['next-day-scedule-button']
+                    )}
+                    onClick={() => setNextDay(true)}
+                >
+                    Demain
+                </button>
+            </div>
+
+            {!showMissed &&
+                nextTrain === null &&
+                (nextDay ? (
+                    <p>Pas de trains demain</p>
+                ) : (
+                    <p>Plus de trains pour aujourd&apos;hui.</p>
+                ))}
             <ul>
                 {trains.map((train) => {
                     const isMissed = nowMoment.isAfter(train);
