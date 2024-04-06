@@ -96,9 +96,13 @@
             padding: 0.25em 0.5em;
             border-radius: 0.3em;
 
-            .svg-inline--fa {
-                margin-right: 0.5em;
-            }
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0 0.5em;
+            align-items: center;
+            justify-content: center;
         }
     }
 
