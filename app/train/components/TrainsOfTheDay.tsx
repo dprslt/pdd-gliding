@@ -31,7 +31,6 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
         if (nextDay) {
             momentToUse = nowMoment.clone().add(1, 'day').startOf('day');
         }
-        console.log(momentToUse);
         try {
             setAllTrains(getAllTrainsOfADay(momentToUse, PanoSchedule2024));
             setNextTrain(getNextTrainForADay(momentToUse, PanoSchedule2024));
