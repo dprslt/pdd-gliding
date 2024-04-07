@@ -9,12 +9,14 @@ import {
     faArrowsDownToLine,
     faArrowsUpToLine,
     faClock,
+    faFlaskVial,
     faMinus,
 } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { mergeClasses } from 'utils/StyleHelper';
 import { Button } from '@mui/material';
 import { DateTime } from 'luxon';
+import { translateUTCRangetoLocalInMessage } from 'services/spaces/localTime';
 
 type NotamCardProps = {
     notam: NOTAMstructure;
@@ -22,6 +24,8 @@ type NotamCardProps = {
 
 export default function NotamCard({ notam }: NotamCardProps) {
     const [isOpen, setIsOpen] = useState(false);
+
+    const [showLocaleTime, setShowLocaleTime] = useState(false);
 
     return (
         <div
@@ -54,15 +58,35 @@ export default function NotamCard({ notam }: NotamCardProps) {
                             </span>
                         </div>
                     </div>
-                    {notam.itemD && (
-                        <div className="notam-card-fieldD">
-                            <span className="fieldD-UTC-badge">
-                                <FontAwesomeIcon icon={faClock} />
-                                Activation UTC
-                            </span>
-                            <span>{notam.itemD}</span>
-                        </div>
-                    )}
+                    {notam.itemD &&
+                        (showLocaleTime ? (
+                            <div className="notam-card-fieldD notam-card-fieldD--local">
+                                <span
+                                    className="fieldD-UTC-badge"
+                                    onClick={() => setShowLocaleTime(false)}
+                                >
+                                    <FontAwesomeIcon icon={faFlaskVial} />
+                                    Activation Local
+                                </span>
+                                <span>
+                                    {translateUTCRangetoLocalInMessage(
+                                        notam.itemD,
+                                        DateTime.now()
+                                    )}
+                                </span>
+                            </div>
+                        ) : (
+                            <div className="notam-card-fieldD">
+                                <button
+                                    className="fieldD-UTC-badge"
+                                    onClick={() => setShowLocaleTime(true)}
+                                >
+                                    <FontAwesomeIcon icon={faClock} />
+                                    Activation UTC
+                                </button>
+                                <span>{notam.itemD}</span>
+                            </div>
+                        ))}
 
                     <div className="notam-card-fieldE">
                         <pre>{notam.multiLanguage.itemE}</pre>

@@ -3,7 +3,7 @@ import {
     faFlaskVial,
     faPlaneCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
+import React, { useState } from 'react';
 
 import spacesStyles from '../spaces.module.scss';
 import {
