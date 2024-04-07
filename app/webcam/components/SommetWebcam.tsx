@@ -7,7 +7,7 @@ type SommetWebcamProps = {};
 const SommetWebcam: React.FC<SommetWebcamProps> = () => {
     return (
         <img
-            src={'http://wwwobs.univ-bpclermont.fr/opgc/webcampdd.jpg'}
+            src={'https://wwwobs.univ-bpclermont.fr/opgc/webcampdd.jpg'}
             alt={'Webcam Sommet'}
             className="webcam"
             width={800}

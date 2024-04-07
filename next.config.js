@@ -3,11 +3,28 @@ const nextConfig = {
     reactStrictMode: true,
 
     images: {
-        domains: [
-            'www.orcines.fr',
-            'wwwobs.univ-bpclermont.fr',
-            'meteovergne.fr',
-            'www.panoramiquedesdomes.fr',
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.orcines.fr',
+                port: '443',
+                pathname: '/wp-content/uploads/webcam/webcam.jpg',
+            },
+            {
+                protocol: 'https',
+                hostname: 'wwwobs.univ-bpclermont.fr',
+                port: '443',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.panoramiquedesdomes.fr',
+                port: '443',
+            },
+            {
+                protocol: 'https',
+                hostname: 'meteovergne.fr',
+                port: '443',
+            },
         ],
     },
     logging: {
