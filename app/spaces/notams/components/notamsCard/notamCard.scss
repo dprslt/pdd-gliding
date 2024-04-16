@@ -21,18 +21,44 @@
                 margin-bottom: 0.5em;
 
                 .notam-card-validity {
-                    font-size: 0.7em;
-                    font-weight: 900;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    font-size: 0.7rem;
+                    overflow: hidden;
+                    border-radius: 0.3em;
 
-                    flex: 2;
+                    .notam-validity-prefix {
+                        font-size: 0.6rem;
 
-                    color: $grey;
+                        padding: 0.25em 0.5em;
+                        border-radius: 0.3em;
 
-                    .svg-inline--fa {
-                        color: $primary;
+                        color: $onPrimary;
+                        background-color: $primary;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
 
-                        font-size: 0.8rem;
-                        margin: 0 0.5em;
+                        .svg-inline--fa {
+                            margin-right: 0.5em;
+                        }
+                    }
+                    .notam-validity-content {
+                        font-weight: 900;
+
+                        flex: 2;
+
+                        color: $grey;
+
+                        padding: 0.25em 0.5em;
+
+                        .svg-inline--fa {
+                            color: $primary;
+
+                            font-size: 0.8rem;
+                            margin: 0 0.5em;
+                        }
                     }
                 }
 
@@ -114,6 +140,8 @@
         }
 
         .fieldD-UTC-badge {
+            font-size: 0.6rem;
+
             background-color: $primary;
             color: $onPrimary;
             margin-right: 0.5em;

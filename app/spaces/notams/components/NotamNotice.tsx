@@ -29,9 +29,12 @@ export default function NotamNotice() {
                 </p>
 
                 <p>
-                    Les tranches horaires indiquées au dessus des NOTAMs sont en
-                    heures locales. Le contenu des NOTAMs étant libre, les
-                    horaires sont indiqués en UTC.
+                    La plage horaire indiquée au dessus des NOTAMs est en heure
+                    locale. Le contenu des NOTAMs étant libre, les horaires
+                    spécifiés dans les champs D et E sont indiqués en UTC. En
+                    cliquant sur la pastille UTC, je procède à une traduction en
+                    heure locale, merci de bien vérifier la cohérence des
+                    informations.
                 </p>
 
                 {/* <p>

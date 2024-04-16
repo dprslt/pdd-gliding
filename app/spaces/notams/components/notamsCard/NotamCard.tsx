@@ -38,13 +38,19 @@ export default function NotamCard({ notam }: NotamCardProps) {
                 <div className="notam-card-content">
                     <div className="notam-card-infos">
                         <div className="notam-card-validity">
-                            {DateTime.fromISO(notam.startValidity)
-                                .setZone('Europe/Paris')
-                                .toFormat('dd/MM/yy HH:mm')}
-                            <FontAwesomeIcon icon={faArrowRight} />
-                            {DateTime.fromISO(notam.endValidity)
-                                .setZone('Europe/Paris')
-                                .toFormat('dd/MM/yy HH:mm')}
+                            <div className="notam-validity-prefix">
+                                <FontAwesomeIcon icon={faClock} />
+                                LOC
+                            </div>
+                            <div className="notam-validity-content">
+                                {DateTime.fromISO(notam.startValidity)
+                                    .setZone('Europe/Paris')
+                                    .toFormat('dd/MM/yy HH:mm')}
+                                <FontAwesomeIcon icon={faArrowRight} />
+                                {DateTime.fromISO(notam.endValidity)
+                                    .setZone('Europe/Paris')
+                                    .toFormat('dd/MM/yy HH:mm')}
+                            </div>
                         </div>
 
                         <div className="notam-card-heigths">
@@ -66,7 +72,7 @@ export default function NotamCard({ notam }: NotamCardProps) {
                                     onClick={() => setShowLocaleTime(false)}
                                 >
                                     <FontAwesomeIcon icon={faFlaskVial} />
-                                    Activation Local
+                                    LOC
                                 </span>
                                 <span>
                                     {translateUTCRangetoLocalInMessage(
@@ -82,7 +88,7 @@ export default function NotamCard({ notam }: NotamCardProps) {
                                     onClick={() => setShowLocaleTime(true)}
                                 >
                                     <FontAwesomeIcon icon={faClock} />
-                                    Activation UTC
+                                    UTC
                                 </button>
                                 <span>{notam.itemD}</span>
                             </div>
