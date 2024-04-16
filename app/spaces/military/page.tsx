@@ -1,9 +1,11 @@
 import { faPlaneCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import TmaInfos from './TmaInfos';
 
 import spacesStyles from '../spaces.module.scss';
 import SpacesSubPage from '../SpacesSubPage';
+import ZoneCentreCut from './ZoneCentreCut';
+import RtbaMapLink from '../components/LinkRTBA';
+import ZoneCentreLink from '../components/LinkZoneCentre';
 
 export const metadata = {
     title: 'Puy de dôme Parapente : Espaces / TMA',
@@ -16,7 +18,10 @@ export default async function TMASpacesPage() {
             pageIcon={faPlaneCircleCheck}
             className={spacesStyles['space-tab-page']}
         >
-            <TmaInfos />
+            <ZoneCentreCut />
+
+            <ZoneCentreLink />
+            <RtbaMapLink />
         </SpacesSubPage>
     );
 }

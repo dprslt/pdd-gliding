@@ -1,11 +1,11 @@
 import { faPlaneCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
-import RtbaMapLink from './LinkRTBA';
+import RtbaMapLink from '../components/LinkRTBA';
 import SofiaBriefingLink from './LinkSofia';
 
 import spacesStyles from '../spaces.module.scss';
 import SpacesSubPage from '../SpacesSubPage';
-import ZoneCentreLink from './LinkZoneCentre';
+import ZoneCentreLink from '../components/LinkZoneCentre';
 import CantalAirzonesLink from './LinkCantal';
 
 export const metadata = {
