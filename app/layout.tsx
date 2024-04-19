@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     openGraph: {
         description: 'Numéro 1 sur les conditions de vols au PDD.',
         title: 'Puy de Dome Parapente',
+        url: 'https://pdd.dprslt.fr',
     },
 };
 
