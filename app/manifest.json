@@ -6,6 +6,7 @@
     "background_color": "#a7001e",
     "theme_color": "#a7001e",
     "orientation": "portrait-primary",
+    "description": "Restez informez des conditions de vol au PDD !",
     "icons": [
         {
             "src": "pdd_icon_x48.png",
