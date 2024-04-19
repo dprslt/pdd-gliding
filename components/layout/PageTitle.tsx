@@ -8,15 +8,23 @@ import pageTitleStyle from './pageTitle.module.scss';
 type PageTitleProps = {
     icon: IconProp;
     children: ReactNode;
+    onIconClick?: () => void;
+    rightItem?: ReactNode;
 };
 
-const PageTitle: React.FC<PageTitleProps> = ({ icon, children }) => {
+const PageTitle: React.FC<PageTitleProps> = ({
+    icon,
+    children,
+    onIconClick,
+    rightItem,
+}) => {
     return (
         <h1 className={pageTitleStyle['page-title']}>
-            <div className={pageTitleStyle.icon}>
+            <div className={pageTitleStyle.icon} onClick={onIconClick}>
                 <FontAwesomeIcon icon={icon} />
             </div>
             <span>{children}</span>
+            {rightItem && <div>{rightItem}</div>}
         </h1>
     );
 };

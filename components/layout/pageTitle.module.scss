@@ -16,6 +16,7 @@ h1.page-title {
 
     line-height: 1em;
 
+    gap: 1.5rem;
     & > * {
         height: 3.5rem;
         display: flex;
@@ -34,8 +35,6 @@ h1.page-title {
         color: $onSecondaryContainer;
         // color: $onBackground;
         font-size: 1.2em;
-
-        margin-left: 1.5rem;
     }
 
     .icon {

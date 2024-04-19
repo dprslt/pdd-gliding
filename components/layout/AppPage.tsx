@@ -1,7 +1,7 @@
 'use client';
 
 import Head from 'next/head';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import MainMenu from './MainMenu';
 import PageTitle from './PageTitle';
@@ -12,6 +12,7 @@ type AppPageProps = {
     pageIcon?: IconDefinition;
     className?: string;
     children?: React.ReactNode;
+    pageTitleRightItem?: ReactNode;
 };
 
 const AppPage: React.FC<AppPageProps> = ({
@@ -19,13 +20,19 @@ const AppPage: React.FC<AppPageProps> = ({
     pageIcon,
     children,
     className,
+    pageTitleRightItem,
 }) => {
     return (
         <div className="mobile-app">
             <div className={mergeClasses('mobile-content', className)}>
                 <div className={`pageContent`}>
                     {pageTitle && pageIcon && (
-                        <PageTitle icon={pageIcon}>{pageTitle}</PageTitle>
+                        <PageTitle
+                            icon={pageIcon}
+                            rightItem={pageTitleRightItem}
+                        >
+                            {pageTitle}
+                        </PageTitle>
                     )}
                     {children}
                 </div>

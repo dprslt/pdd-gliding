@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import balisesPageStyles from './balises.module.scss';
 import RawMeterOPGC from './components/MesuresOPGC/RawMeterOPGC';
 import OPGCLink from './components/OPGCLink';
+import SupportPageHeaderLink from 'app/support/SupportPageHeaderLink';
 
 type BalisesPageProps = {};
 
@@ -23,6 +24,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             pageTitle={'Balises'}
             pageIcon={faWind}
             className={balisesPageStyles['mesures-tab-page']}
+            pageTitleRightItem={<SupportPageHeaderLink />}
         >
             <h2>OPGC</h2>
             {/* <div className="text-alert">

@@ -1,0 +1,15 @@
+@import '../../styles/colors.scss';
+
+.support-page {
+    ov .support-button {
+        background-color: $primary;
+        color: $onPrimary;
+
+        border-radius: 50%;
+        text-align: center;
+        padding: 0.3em 0.5em;
+
+        width: 80%;
+        max-width: 50em;
+    }
+}

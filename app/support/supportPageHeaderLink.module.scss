@@ -1,0 +1,42 @@
+@import '../../styles/colors.scss';
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+    65% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-15deg);
+    }
+    85% {
+        transform: rotate(10deg);
+    }
+    95% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.supportHeaderLink {
+    height: 3em;
+    width: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 1.75rem;
+    overflow: hidden;
+
+    background-color: #ffcb1e;
+    color: $onPrimary;
+    font-size: 0.9em;
+
+    animation: wiggle 1s infinite;
+}
