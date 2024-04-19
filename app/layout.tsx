@@ -7,6 +7,7 @@ import '@fontsource/lato/400.css';
 import '@fontsource/lato/700.css';
 import '@fontsource/baloo-2';
 import '../styles/globals.scss';
+import Head from 'next/head';
 
 // import { Analytics } from '@vercel/analytics/react';
 // import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="fr">
-            <head>
+            <Head>
                 <meta
                     name="description"
                     content="Numéro 1 sur les conditions de vols au PDD."
@@ -33,10 +34,10 @@ export default function RootLayout({
                     property="og:description"
                     content="Numéro 1 sur les conditions de vols au PDD."
                 />
-                <meta
+                {/* <meta
                     property="og:image"
-                    content="https://pdd.dprslt.fr/banner.png"
-                />
+                    content="https://pdd.dprslt.fr/opengraph-image.png"
+                /> */}
                 <meta property="og:image:width" content="2048" />
                 <meta property="og:image:height" content="2048" />
 
@@ -48,11 +49,7 @@ export default function RootLayout({
                     name="twitter:description"
                     content="Numéro 1 sur les conditions de vols au PDD."
                 />
-                <meta
-                    name="twitter:image"
-                    content="https://pdd.dprslt.fr/banner.png"
-                />
-            </head>
+            </Head>
             <Script
                 async
                 src="https://www.googletagmanager.com/gtag/js?id=G-73X7PN0C86"
