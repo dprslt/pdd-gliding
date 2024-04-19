@@ -20,6 +20,39 @@ export default function RootLayout({
 }) {
     return (
         <html lang="fr">
+            <head>
+                <meta
+                    name="description"
+                    content="Numéro 1 sur les conditions de vols au PDD."
+                />
+
+                <meta property="og:url" content="https://pdd.dprslt.fr" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Puy de Dome Parapente" />
+                <meta
+                    property="og:description"
+                    content="Numéro 1 sur les conditions de vols au PDD."
+                />
+                <meta
+                    property="og:image"
+                    content="https://pdd.dprslt.fr/banner.png"
+                />
+                <meta property="og:image:width" content="2048" />
+                <meta property="og:image:height" content="2048" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:domain" content="pdd.dprslt.fr" />
+                <meta property="twitter:url" content="https://pdd.dprslt.fr" />
+                <meta name="twitter:title" content="Puy de Dome Parapente" />
+                <meta
+                    name="twitter:description"
+                    content="Numéro 1 sur les conditions de vols au PDD."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://pdd.dprslt.fr/banner.png"
+                />
+            </head>
             <Script
                 async
                 src="https://www.googletagmanager.com/gtag/js?id=G-73X7PN0C86"
