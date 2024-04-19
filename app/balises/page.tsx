@@ -11,6 +11,7 @@ import balisesPageStyles from './balises.module.scss';
 import RawMeterOPGC from './components/MesuresOPGC/RawMeterOPGC';
 import OPGCLink from './components/OPGCLink';
 import SupportPageHeaderLink from 'app/support/SupportPageHeaderLink';
+import MetaJDV from './components/MetaJDV';
 
 type BalisesPageProps = {};
 
@@ -52,6 +53,8 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             </div>
             <HolfuyResume />
             <HolfuyHistory />
+            <h2>Situation autour</h2>
+            <MetaJDV />
             <h2>Pour aller plus loin</h2>
             <SpotAirLink />
             <OPGCLink />
