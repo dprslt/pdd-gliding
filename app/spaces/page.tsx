@@ -1,6 +1,6 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default async function Page() {
-    redirect('spaces/notams');
+    permanentRedirect('spaces/notams');
     return null;
 }
