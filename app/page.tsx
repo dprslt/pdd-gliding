@@ -1,10 +1,9 @@
-import { redirect } from 'next/navigation';
-import React from 'react';
+// import { redirect } from 'next/navigation';
+// import React from 'react';
 
-type IndexPageProps = {};
+import BalisesPage, { metadata as balisesMeta } from './balises/page';
 
-const IndexPage: React.FC<IndexPageProps> = () => {
-    redirect('/balises');
+export const metadata = {
+    ...balisesMeta,
 };
-
-export default IndexPage;
+export default BalisesPage;
