@@ -10,6 +10,20 @@
         flex-shrink: 0;
     }
 
+    :global(#ifram-meta-jdv) {
+        border: none;
+        margin-left: -1.5em;
+        margin-right: -1.5em;
+        max-width: unset;
+        height: 950px;
+    }
+
+    @media (min-width: 1000px) {
+        :global(#ifram-meta-jdv) {
+            height: 650px;
+        }
+    }
+
     .opgc-container {
         display: flex;
         flex-direction: column;
