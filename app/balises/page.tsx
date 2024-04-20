@@ -53,7 +53,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             </div>
             <HolfuyResume />
             <HolfuyHistory />
-            <h2>Situation autour</h2>
+            <h2>Balises à proximité</h2>
             <MetaJDV />
             <h2>Pour aller plus loin</h2>
             <SpotAirLink />
