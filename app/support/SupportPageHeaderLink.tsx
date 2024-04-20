@@ -40,7 +40,7 @@ const SupportPageHeaderLink: React.FC = () => {
     return (
         <>
             <CustomTooltip
-                title="Soutenez moi !"
+                title="Soutenez le site !"
                 arrow
                 open={isTooltipOpen}
                 onOpen={() => setTooltipStatus(true)}
