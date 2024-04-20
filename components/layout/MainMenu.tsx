@@ -24,7 +24,7 @@ const MainMenu: React.FC<MainTabsProps> = () => {
             className={styles.mobileTabsBox}
         >
             <div className={styles.mobileTabs}>
-                <ActiveLink href={'/balises'}>
+                <ActiveLink href={'/balises'} emptyPathMeanActive>
                     <FontAwesomeIcon icon={faWind} />
                 </ActiveLink>
                 <ActiveLink href={'/meteo'}>
