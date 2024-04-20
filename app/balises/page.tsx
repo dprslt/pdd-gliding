@@ -41,14 +41,17 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             </div> */}
             <RawMeterOPGC />
             <h2>Holfuy PDD Nord (1464)</h2>
-            <div className="text-alert">
-                <div className="warn">
-                    <FontAwesomeIcon icon={faSnowflake} />
-                </div>
-                <div className="text">
-                    La balise holfuy est démontée pendant l&apos;hiver, elle est
-                    donc indisponible pendant cette période, elle reviendra au
-                    printemps !
+            <div>
+                <div className="text-alert">
+                    <div className="warn">
+                        <FontAwesomeIcon icon={faSnowflake} />
+                    </div>
+                    <div className="text">
+                        La balise holfuy est démontée pendant l&apos;hiver, elle
+                        est donc indisponible pendant cette période, elle
+                        reviendra au printemps... &apos;fin bientôt
+                        j&apos;espére !
+                    </div>
                 </div>
             </div>
             {/* <HolfuyResume /> */}
