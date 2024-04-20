@@ -18,9 +18,11 @@ export const metadata: Metadata = {
     authors: { name: 'Theo', url: 'contact@dprslt.fr' },
     metadataBase: new URL('https://pdd.dprslt.fr'),
     openGraph: {
+        type: 'website',
         description: 'Numéro 1 sur les conditions de vols au PDD.',
         title: 'Puy de Dome Parapente',
-        url: 'https://pdd.dprslt.fr',
+        url: './',
+        siteName: 'PDD',
     },
 };
 
