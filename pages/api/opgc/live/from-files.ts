@@ -5,7 +5,7 @@ import {
 import {
     OPGCMaxWindValues,
     OPGCValues,
-} from '../../services/opgc/apiGrafanaOPGC';
+} from '../../../../services/opgc/apiGrafanaOPGC';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function FetchOPGC(
