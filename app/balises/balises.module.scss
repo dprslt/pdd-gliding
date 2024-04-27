@@ -12,10 +12,23 @@
 
     :global(#ifram-meta-jdv) {
         border: none;
-        margin-left: -1.5em;
-        margin-right: -1.5em;
         max-width: unset;
-        height: 950px;
+        height: 1160px;
+        width: 100%;
+
+        min-width: 446px;
+    }
+
+    :global(.jdv-container) {
+        max-width: 100%;
+        width: 100%;
+        overflow: auto;
+        height: fit-content;
+        flex-shrink: 0;
+
+        // display: flex;
+        // align-items: center;
+        // flex-direction: column;
     }
 
     @media (min-width: 1000px) {
@@ -23,6 +36,28 @@
             height: 650px;
         }
     }
+
+    @media (max-width: 500px) {
+        :global(#ifram-meta-jdv) {
+            margin-left: -0.5em;
+            margin-right: -1em;
+        }
+    }
+    // Unzoom iframe to fix iframe display on very small devices
+    // @media (max-width: 500px) {
+    //     :global(#ifram-meta-jdv) {
+    //         // min-width: 500px;
+    //         max-width: unset;
+    //         height: 1160px;
+    //         transform: scale(0.85, 0.85);
+    //         width: 446px;
+    //         transform-origin: 0 0;
+    //         align-self: center;
+    //         margin-left: 10%;
+    //         margin-right: 0;
+    //         margin-bottom: -10em;
+    //     }
+    // }
 
     .opgc-container {
         display: flex;
