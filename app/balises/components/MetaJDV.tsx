@@ -8,6 +8,7 @@ const MetaJDV: React.FC<MetaJDVProps> = () => {
             <iframe
                 id="ifram-meta-jdv"
                 src="https://journaldevol.com/planning/page/77edff8f-393f-48a9-bce8-cbe647ee4cc3?iframe=true"
+                title="Vue des balises à proximité depuis JDV"
             ></iframe>
         </div>
     );

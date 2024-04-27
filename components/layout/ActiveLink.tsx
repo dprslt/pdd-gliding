@@ -7,6 +7,7 @@ type ActiveLinkProps = {
     children: ReactNode;
     enabledClass?: string;
     emptyPathMeanActive?: boolean;
+    ariaLabel?: string;
 };
 
 const ActiveLink: React.FC<ActiveLinkProps> = ({
@@ -14,6 +15,7 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
     children,
     enabledClass = 'active',
     emptyPathMeanActive = false,
+    ariaLabel,
 }) => {
     const pathname = usePathname();
     const isActive =
@@ -21,7 +23,11 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
         (pathname?.startsWith(href) ||
             (emptyPathMeanActive && pathname?.length <= 1));
     return (
-        <Link href={href} className={isActive ? enabledClass : ''}>
+        <Link
+            href={href}
+            className={isActive ? enabledClass : ''}
+            aria-label={ariaLabel}
+        >
             {children}
         </Link>
     );

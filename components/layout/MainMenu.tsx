@@ -9,7 +9,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Tabs, Tab } from '@mui/material';
-import { Router } from 'next/router';
 import React from 'react';
 
 import styles from '../../styles/MobileTabs.module.scss';
@@ -24,19 +23,26 @@ const MainMenu: React.FC<MainTabsProps> = () => {
             className={styles.mobileTabsBox}
         >
             <div className={styles.mobileTabs}>
-                <ActiveLink href={'/balises'} emptyPathMeanActive>
+                <ActiveLink
+                    href={'/balises'}
+                    emptyPathMeanActive
+                    ariaLabel="Balises"
+                >
                     <FontAwesomeIcon icon={faWind} />
                 </ActiveLink>
-                <ActiveLink href={'/meteo'}>
+                <ActiveLink href={'/meteo'} ariaLabel="Météo">
                     <FontAwesomeIcon icon={faCloudSun} />
                 </ActiveLink>
-                <ActiveLink href={'/webcam'}>
+                <ActiveLink href={'/webcam'} ariaLabel="Webcams">
                     <FontAwesomeIcon icon={faCameraRetro} />
                 </ActiveLink>
-                <ActiveLink href={'/train'}>
+                <ActiveLink href={'/train'} ariaLabel="Horaires du Panoramique">
                     <FontAwesomeIcon icon={faTrainTram} />
                 </ActiveLink>
-                <ActiveLink href={'/spaces'}>
+                <ActiveLink
+                    href={'/spaces'}
+                    ariaLabel="Réglementation aérienne"
+                >
                     <FontAwesomeIcon icon={faPlaneCircleCheck} />
                 </ActiveLink>
             </div>
