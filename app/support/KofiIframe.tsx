@@ -13,7 +13,7 @@ const KofiIframe: React.FC<KofiIframeProps> = () => {
                 padding: '4px',
                 // background: '#f9f9f9',
             }}
-            height="800"
+            height="600"
             title="dprslt"
         ></iframe>
     );

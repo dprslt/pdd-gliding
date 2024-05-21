@@ -1,6 +1,7 @@
 import {
     faCross,
     faFlaskVial,
+    faPersonDigging,
     faPlaneCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
@@ -37,6 +38,19 @@ export default async function NotamsSpacesPage() {
         >
             <div>
                 <NotamNotice />
+
+                <div className="text-alert">
+                    <div className="warn">
+                        <FontAwesomeIcon icon={faPersonDigging} />
+                    </div>
+                    <div className="text">
+                        Le site Sofia Briefing est actuellement en maintenance
+                        et ne permet pas de recupérer les NOTAMS ...{' '}
+                        <a href="https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/homepage.html">
+                            https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/homepage.html
+                        </a>
+                    </div>
+                </div>
 
                 {notamResponse === null ? (
                     <>

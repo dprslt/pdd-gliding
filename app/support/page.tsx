@@ -13,7 +13,17 @@ export default function SupportPage() {
             <div className={mergeClasses('mobile-content')}>
                 <div className={`pageContent support-page`}>
                     <SupportPageCustomHeader />
-                    <div>
+                    <div
+                        style={{
+                            textAlign: 'justify',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            alignSelf: 'center',
+                        }}
+                    >
+                        <KofiIframe />
+
                         <div
                             // Ouais flemme de faire du css a coté..
                             style={{
@@ -54,7 +64,6 @@ export default function SupportPage() {
                                 prochain débiefing, ou une nouvelle voile .. :p
                             </p>
                         </div>
-                        <KofiIframe />
                     </div>
 
                     {/* <a
