@@ -39,7 +39,7 @@ export default async function NotamsSpacesPage() {
             <div>
                 <NotamNotice />
 
-                <div className="text-alert">
+{/*                 <div className="text-alert">
                     <div className="warn">
                         <FontAwesomeIcon icon={faPersonDigging} />
                     </div>
@@ -50,7 +50,7 @@ export default async function NotamsSpacesPage() {
                             https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/homepage.html
                         </a>
                     </div>
-                </div>
+                </div> */}
 
                 {notamResponse === null ? (
                     <>
