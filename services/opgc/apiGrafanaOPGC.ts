@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon';
 import { grafanaHistoryQueries } from './historyGrafanaQuery';
+import { GenericWindMeasurement } from 'services/wind/GenericWindMeasurement';
 export type OPGCValues = {
     datetime: string;
     temperature: number;
@@ -77,6 +78,23 @@ export type GraphData = {
     id: string;
     data: Array<{ x: number; y: number }>;
 };
+
+export function convertOpgcMeasureToGeneric(
+    measurement: OPGCValues,
+    maxValues?: OPGCMaxWindValues
+): GenericWindMeasurement {
+    return {
+        datetime: measurement.datetime,
+        wind: {
+            speed: measurement.windSpeed,
+            gust: maxValues?.windSpeedMax,
+            direction: measurement.windAngularDirection,
+        },
+        temperature: measurement.temperature,
+        humidity: measurement.humidity,
+        pressure: measurement.pressure,
+    };
+}
 
 export type OPGCWindHistory = {
     wind: GraphData;
