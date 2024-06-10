@@ -1,16 +1,27 @@
 import { DateTime } from 'luxon';
-import { fetchHolfuyHistory } from 'services/holfuy/fetchPddHolfuy';
+import {
+    convertHolfuyMeasurementToGeneric,
+    fetchHolfuyHistory,
+} from 'services/holfuy/fetchPddHolfuy';
 import {
     fetchWindHistoryFromGrafana,
     fetchLastValuesFromGrafana,
     convertOpgcMeasureToGeneric,
+    OPGCWindHistory,
 } from 'services/opgc/apiGrafanaOPGC';
 import {
     fetchOPGCValues,
     fetchOPGCmaxWind,
 } from 'services/opgc/synthetized-txt-files';
+import { GenericWindMeasurement } from './GenericWindMeasurement';
 
-export async function fetchAllWindData() {
+export type WindData = {
+    opgcLive: GenericWindMeasurement | null;
+    holfuyLive: GenericWindMeasurement | null;
+    graph: OPGCWindHistory;
+};
+
+export async function fetchAllWindData(): Promise<WindData> {
     const [grafanadata, opgcDataFromGrafana, maxWind, holfuyArchive] =
         await Promise.all([
             fetchWindHistoryFromGrafana().catch((e) => {
@@ -49,5 +60,16 @@ export async function fetchAllWindData() {
         ? convertOpgcMeasureToGeneric(opgcData, maxWind || undefined)
         : null;
 
-    const uHlfuyLive = holfuyArchive ? holfuholfuyArchive[0] : null;
+    const uHolfuyLive =
+        holfuyArchive && holfuyArchive.length > 0
+            ? convertHolfuyMeasurementToGeneric(holfuyArchive[0])
+            : null;
+
+    const graph = grafanadata;
+
+    return {
+        opgcLive: uOpgcLive,
+        holfuyLive: uHolfuyLive,
+        graph,
+    };
 }

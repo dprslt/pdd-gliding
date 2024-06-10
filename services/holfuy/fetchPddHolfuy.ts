@@ -1,7 +1,7 @@
+import { DateTime } from 'luxon';
 import { GenericWindMeasurement } from 'services/wind/GenericWindMeasurement';
 
-export async function fetchHolfuyPdd(): Promise<string> {
-    const options = {};
+export async function fetchHolfuyPdd(): Promise<any> {
     const results = await fetch(
         'https://api.holfuy.com/live/' +
             new URLSearchParams({
@@ -18,7 +18,7 @@ export async function fetchHolfuyPdd(): Promise<string> {
         }
     );
 
-    return 'toto';
+    return results.json();
 }
 
 export type HolfuyMeasurement = {
@@ -41,11 +41,19 @@ export type HolfuyArchiveResponse = {
     measurements: Array<HolfuyMeasurement>;
 };
 
-export function holfuyMeasurementToGeneric(
+export function convertHolfuyMeasurementToGeneric(
     measurement: HolfuyMeasurement
 ): GenericWindMeasurement {
+    const datetime = DateTime.fromSQL(measurement.dateTime, {
+        zone: 'Europe/Paris',
+        locale: 'fr',
+    });
+
+    if (!datetime.isValid) {
+        throw new Error('Invalid timestamp');
+    }
     return {
-        datetime: measurement.dateTime,
+        datetime: datetime.toISO(),
         wind: {
             speed: measurement.wind.speed,
             gust: measurement.wind.gust,
@@ -57,12 +65,14 @@ export function holfuyMeasurementToGeneric(
 }
 
 export async function fetchHolfuyHistory(): Promise<Array<HolfuyMeasurement>> {
-    const options = {};
+    const body = new FormData();
+    body.append('pw', process.env.HOLFUY_PASSWD as string);
+
     const results = await fetch(
         'https://api.holfuy.com/archive/?s=1464&m=JSON&su=km/h&mback=180',
         {
             method: 'POST',
-            body: `sw:${process.env.HOLFUY_PASSWD}`,
+            body: body,
             next: {
                 revalidate: 60,
             },

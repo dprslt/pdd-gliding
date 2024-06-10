@@ -11,6 +11,9 @@ import React from 'react';
 import { GenericWindMeasurement } from 'services/wind/GenericWindMeasurement';
 import { convertDegToOrientation } from 'services/wind/OrientationMapper';
 
+// TODO rename this file
+import '../MesuresOPGC/opgcMeter.scss';
+
 type GenericMeterCardProps = {
     meterData: GenericWindMeasurement;
 };
@@ -33,6 +36,11 @@ const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData }) => {
                             }}
                         />
                     </div>
+                    {meterData.wind.min && (
+                        <div className={'balise-infos-card--wind-min'}>
+                            min. {Math.round(meterData.wind.min)} km/h
+                        </div>
+                    )}
                     <div className={'balise-infos-card--wind-speed'}>
                         {Math.round(meterData.wind.speed)} km/h
                     </div>

@@ -12,6 +12,7 @@ import RawMeterOPGC from './components/MesuresOPGC/RawMeterOPGC';
 import OPGCLink from './components/OPGCLink';
 import SupportPageHeaderLink from 'app/support/SupportPageHeaderLink';
 import MetaJDV from './components/MetaJDV';
+import SharedMeasure from './components/Mesures/SharedMeasures';
 
 type BalisesPageProps = {};
 
@@ -27,7 +28,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             className={balisesPageStyles['mesures-tab-page']}
             pageTitleRightItem={<SupportPageHeaderLink />}
         >
-            <h2>OPGC</h2>
+            {/* <h2>OPGC</h2> */}
             {/* <div className="text-alert">
                 <div className="warn">
                     <FontAwesomeIcon icon={faSnowflake} />
@@ -39,8 +40,10 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                     l&apos;hiver.
                 </div>
             </div> */}
-            <RawMeterOPGC />
-            <h2>Holfuy PDD Nord (1464)</h2>
+            {/* <RawMeterOPGC /> */}
+
+            <SharedMeasure />
+            {/* <h2>Holfuy PDD Nord (1464)</h2> */}
             {/*
             <div>
                 <div className="text-alert">
@@ -56,8 +59,8 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                 </div>
             </div>
             */}
-            <HolfuyResume />
-            <HolfuyHistory /> 
+            {/* <HolfuyResume /> */}
+            {/* <HolfuyHistory /> */}
             <h2>Balises à proximité</h2>
             <MetaJDV />
             <h2>Pour aller plus loin</h2>
