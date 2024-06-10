@@ -41,6 +41,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             </div> */}
             <RawMeterOPGC />
             <h2>Holfuy PDD Nord (1464)</h2>
+            {/*
             <div>
                 <div className="text-alert">
                     <div className="warn">
@@ -54,8 +55,9 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                     </div>
                 </div>
             </div>
-            {/* <HolfuyResume /> */}
-            {/* <HolfuyHistory /> */}
+            */}
+            <HolfuyResume />
+            <HolfuyHistory /> 
             <h2>Balises à proximité</h2>
             <MetaJDV />
             <h2>Pour aller plus loin</h2>
