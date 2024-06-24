@@ -7,7 +7,7 @@ import {
     fetchWindHistoryFromGrafana,
     fetchLastValuesFromGrafana,
     convertOpgcMeasureToGeneric,
-    OPGCWindHistory,
+    GraphData,
 } from 'services/opgc/apiGrafanaOPGC';
 import {
     fetchOPGCValues,
@@ -18,7 +18,18 @@ import { GenericWindMeasurement } from './GenericWindMeasurement';
 export type WindData = {
     opgcLive: GenericWindMeasurement | null;
     holfuyLive: GenericWindMeasurement | null;
-    graph: OPGCWindHistory;
+    graph: {
+        windSpeed: {
+            opgc?: GraphData;
+            holfuy?: GraphData;
+            holfuyMax?: GraphData;
+            holfuyMin?: GraphData;
+        };
+        windDirection: {
+            opgc?: GraphData;
+            holfuy?: GraphData;
+        };
+    };
 };
 
 export async function fetchAllWindData(): Promise<WindData> {
@@ -67,9 +78,64 @@ export async function fetchAllWindData(): Promise<WindData> {
 
     const graph = grafanadata;
 
+    const graphOPGCwind = grafanadata?.wind;
+    const graphOPGCDirection = grafanadata?.orientation;
+
+    const graphHolfuyWind = {
+        id: 'holfuy-windSpeed',
+        data: (holfuyArchive || [])?.map((value) => {
+            const genericWind = convertHolfuyMeasurementToGeneric(value);
+            return {
+                x: genericWind.datetime,
+                y: genericWind.wind.speed,
+            };
+        }),
+    };
+    const graphHolfuyWindMax = {
+        id: 'holfuy-windSpeedMax',
+        data: (holfuyArchive || [])?.map((value) => {
+            const genericWind = convertHolfuyMeasurementToGeneric(value);
+            return {
+                x: genericWind.datetime,
+                y: genericWind.wind.gust as number,
+            };
+        }),
+    };
+    const graphHolfuyWindMin = {
+        id: 'Holfuy (Min)',
+        data: (holfuyArchive || [])?.map((value) => {
+            const genericWind = convertHolfuyMeasurementToGeneric(value);
+            return {
+                x: genericWind.datetime,
+                y: genericWind.wind.min as number,
+            };
+        }),
+    };
+    const graphHolfuyDirection = {
+        id: 'Holfuy',
+        data: (holfuyArchive || []).map((value) => {
+            const genericWind = convertHolfuyMeasurementToGeneric(value);
+            return {
+                x: genericWind.datetime,
+                y: genericWind.wind.direction,
+            };
+        }),
+    };
+
     return {
         opgcLive: uOpgcLive,
         holfuyLive: uHolfuyLive,
-        graph,
+        graph: {
+            windSpeed: {
+                opgc: graphOPGCwind,
+                holfuy: graphHolfuyWind,
+                holfuyMax: graphHolfuyWindMax,
+                holfuyMin: graphHolfuyWindMin,
+            },
+            windDirection: {
+                opgc: graphOPGCDirection,
+                holfuy: graphHolfuyDirection,
+            },
+        },
     };
 }

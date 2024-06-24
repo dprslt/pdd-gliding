@@ -76,7 +76,7 @@ export async function fetchLastValuesFromGrafana(): Promise<OPGCValues | null> {
 
 export type GraphData = {
     id: string;
-    data: Array<{ x: number; y: number }>;
+    data: Array<{ x: number | string; y: number }>;
 };
 
 export function convertOpgcMeasureToGeneric(

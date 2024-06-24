@@ -3,6 +3,9 @@ import GenericMeterCard from '../GenericMeters/GenericMeterCard';
 import { fetchAllWindData } from 'services/wind/windDataFetching';
 import { ResponsiveLine } from '@nivo/line';
 
+import './sharedMeasure.scss';
+import SharedMeasureGraph from './SharedMeasureGraph';
+
 type SharedMeasureProps = {};
 
 const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
@@ -25,7 +28,7 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                 )}
             </div>
 
-            {/* <SharedMeasureGraph /> */}
+            <SharedMeasureGraph windData={windData} />
         </div>
     );
 };

@@ -39,7 +39,7 @@ export default async function NotamsSpacesPage() {
             <div>
                 <NotamNotice />
 
-{/*                 <div className="text-alert">
+                {/*                 <div className="text-alert">
                     <div className="warn">
                         <FontAwesomeIcon icon={faPersonDigging} />
                     </div>
