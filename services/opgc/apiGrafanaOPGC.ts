@@ -114,7 +114,7 @@ export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory> {
 
     return {
         wind: {
-            id: 'wind (avg 5min)',
+            id: 'OPGC (5min)',
             data: grafanaResponse.results['B'].frames[0].data.values[0].map(
                 (e: number, rank: number) => {
                     return {
@@ -126,7 +126,7 @@ export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory> {
             ),
         },
         orientation: {
-            id: 'orientation',
+            id: 'OPGC (5min)',
             data: grafanaResponse.results['C'].frames[0].data.values[0].map(
                 (e: number, rank: number) => {
                     return {

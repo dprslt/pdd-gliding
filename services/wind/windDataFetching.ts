@@ -82,7 +82,7 @@ export async function fetchAllWindData(): Promise<WindData> {
     const graphOPGCDirection = grafanadata?.orientation;
 
     const graphHolfuyWind = {
-        id: 'holfuy-windSpeed',
+        id: 'Holfuy',
         data: (holfuyArchive || [])?.map((value) => {
             const genericWind = convertHolfuyMeasurementToGeneric(value);
             return {
@@ -92,7 +92,7 @@ export async function fetchAllWindData(): Promise<WindData> {
         }),
     };
     const graphHolfuyWindMax = {
-        id: 'holfuy-windSpeedMax',
+        id: 'Holfuy (Rafales)',
         data: (holfuyArchive || [])?.map((value) => {
             const genericWind = convertHolfuyMeasurementToGeneric(value);
             return {

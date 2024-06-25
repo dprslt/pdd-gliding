@@ -58,7 +58,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             // windData.graph.windSpeed.holfuyMin,
                         ].filter((e) => e != undefined) as Array<GraphData>
                     }
-                    margin={{ top: 10, right: 50, bottom: 30, left: 10 }}
+                    margin={{ top: 30, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
                     xFormat="time:%Hh%M"
                     yScale={{ type: 'linear' }}
@@ -81,13 +81,39 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                     enableGridX={false}
                     colors={{ scheme: 'spectral' }}
                     lineWidth={2}
-                    pointSize={8}
+                    pointSize={0}
                     pointColor={{ theme: 'background' }}
                     pointBorderWidth={2}
                     pointBorderColor={{ from: 'serieColor' }}
                     pointLabelYOffset={-12}
                     enableTouchCrosshair={true}
                     useMesh={true}
+                    legends={[
+                        {
+                            anchor: 'top',
+                            direction: 'row',
+                            justify: false,
+                            translateX: 0,
+                            translateY: -25,
+                            itemsSpacing: 0,
+                            itemDirection: 'left-to-right',
+                            itemWidth: 100,
+                            itemHeight: 20,
+                            itemOpacity: 0.75,
+                            symbolSize: 12,
+                            symbolShape: 'circle',
+                            symbolBorderColor: 'rgba(0, 0, 0, .5)',
+                            effects: [
+                                {
+                                    on: 'hover',
+                                    style: {
+                                        itemBackground: 'rgba(0, 0, 0, .03)',
+                                        itemOpacity: 1
+                                    }
+                                }
+                            ]
+                        }
+                    ]}
                 />
             </div>
             <div style={{ height: '250px' }}>
@@ -98,7 +124,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             windData.graph.windDirection.holfuy,
                         ].filter((e) => e != undefined) as Array<GraphData>
                     }
-                    margin={{ top: 10, right: 50, bottom: 30, left: 10 }}
+                    margin={{ top: 30, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
                     xFormat="time:%Hh%M"
                     yScale={{
@@ -129,7 +155,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                     }}
                     enableGridX={false}
                     gridYValues={numericHalfWindSegment}
-                    colors={{ scheme: 'accent' }}
+                    colors={{ scheme: 'spectral' }}
                     lineWidth={0}
                     pointSize={6}
                     // pointColor={{ theme: 'background' }}
@@ -139,6 +165,32 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                     pointLabelYOffset={-12}
                     enableTouchCrosshair={true}
                     useMesh={true}
+                    legends={[
+                        {
+                            anchor: 'top',
+                            direction: 'row',
+                            justify: false,
+                            translateX: 0,
+                            translateY: -25,
+                            itemsSpacing: 0,
+                            itemDirection: 'left-to-right',
+                            itemWidth: 100,
+                            itemHeight: 20,
+                            itemOpacity: 0.75,
+                            symbolSize: 12,
+                            symbolShape: 'circle',
+                            symbolBorderColor: 'rgba(0, 0, 0, .5)',
+                            effects: [
+                                {
+                                    on: 'hover',
+                                    style: {
+                                        itemBackground: 'rgba(0, 0, 0, .03)',
+                                        itemOpacity: 1
+                                    }
+                                }
+                            ]
+                        }
+                    ]}
                 />
             </div>
         </div>

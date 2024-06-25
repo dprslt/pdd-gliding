@@ -3,4 +3,26 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    grid-column-gap: 1em;
+
+    margin-bottom: 1em;
+
+    white-space: nowrap;
+    .meter-columns {
+        flex: 1;
+        max-width: 25em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h2 {
+        width: 100%;
+    }
+
+    .balise-infos-card {
+        margin: 0;
+    }
 }

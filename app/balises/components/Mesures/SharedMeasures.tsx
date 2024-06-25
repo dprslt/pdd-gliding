@@ -29,6 +29,7 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
             </div>
 
             <SharedMeasureGraph windData={windData} />
+            
         </div>
     );
 };
