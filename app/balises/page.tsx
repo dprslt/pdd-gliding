@@ -12,6 +12,7 @@ import RawMeterOPGC from './components/MesuresOPGC/RawMeterOPGC';
 import OPGCLink from './components/OPGCLink';
 import SupportPageHeaderLink from 'app/support/SupportPageHeaderLink';
 import MetaJDV from './components/MetaJDV';
+import SharedMeasure from './components/Mesures/SharedMeasures';
 
 type BalisesPageProps = {};
 
@@ -27,20 +28,9 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             className={balisesPageStyles['mesures-tab-page']}
             pageTitleRightItem={<SupportPageHeaderLink />}
         >
-            <h2>OPGC</h2>
-            {/* <div className="text-alert">
-                <div className="warn">
-                    <FontAwesomeIcon icon={faSnowflake} />
-                </div>
-                <div className="text">
-                    La balise de l&apos;OPGC est soumise au gel en hiver, elle
-                    ne sera donc pas capable de fournir une mesure precise sur
-                    la force et la direction du vent pendant une bonne partie de
-                    l&apos;hiver.
-                </div>
-            </div> */}
-            <RawMeterOPGC />
-            <h2>Holfuy PDD Nord (1464)</h2>
+
+            <SharedMeasure />
+            {/* <h2>Holfuy PDD Nord (1464)</h2> */}
             {/*
             <div>
                 <div className="text-alert">
@@ -57,7 +47,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             </div>
             */}
             <HolfuyResume />
-            <HolfuyHistory /> 
+            <HolfuyHistory />
             <h2>Balises à proximité</h2>
             <MetaJDV />
             <h2>Pour aller plus loin</h2>

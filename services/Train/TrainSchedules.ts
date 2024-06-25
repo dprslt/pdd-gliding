@@ -57,7 +57,7 @@ export const getDayTypeOfADay = (time: Moment, config: YearConfig): DayType => {
         if (time.weekday() === 3) {
             return 'TwentyExtended';
         } else {
-            return 'TwentyExtended'
+            return 'TwentyExtended';
         }
     }
 

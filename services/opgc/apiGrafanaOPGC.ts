@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon';
 import { grafanaHistoryQueries } from './historyGrafanaQuery';
+import { GenericWindMeasurement } from 'services/wind/GenericWindMeasurement';
 export type OPGCValues = {
     datetime: string;
     temperature: number;
@@ -75,8 +76,25 @@ export async function fetchLastValuesFromGrafana(): Promise<OPGCValues | null> {
 
 export type GraphData = {
     id: string;
-    data: Array<{ x: number; y: number }>;
+    data: Array<{ x: number | string; y: number }>;
 };
+
+export function convertOpgcMeasureToGeneric(
+    measurement: OPGCValues,
+    maxValues?: OPGCMaxWindValues
+): GenericWindMeasurement {
+    return {
+        datetime: measurement.datetime,
+        wind: {
+            speed: measurement.windSpeed,
+            gust: maxValues?.windSpeedMax,
+            direction: measurement.windAngularDirection,
+        },
+        temperature: measurement.temperature,
+        humidity: measurement.humidity,
+        pressure: measurement.pressure,
+    };
+}
 
 export type OPGCWindHistory = {
     wind: GraphData;
@@ -96,7 +114,7 @@ export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory> {
 
     return {
         wind: {
-            id: 'wind (avg 5min)',
+            id: 'OPGC (5min)',
             data: grafanaResponse.results['B'].frames[0].data.values[0].map(
                 (e: number, rank: number) => {
                     return {
@@ -108,7 +126,7 @@ export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory> {
             ),
         },
         orientation: {
-            id: 'orientation',
+            id: 'OPGC (5min)',
             data: grafanaResponse.results['C'].frames[0].data.values[0].map(
                 (e: number, rank: number) => {
                     return {
