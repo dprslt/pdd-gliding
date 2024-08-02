@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     },
 };
 
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Puy de Dôme Parapente',
+    alternateName: 'PDDP',
+    url: 'https://pdd.dprslt.fr',
+};
+
 export default function RootLayout({
     // Layouts must accept a children prop.
     // This will be populated with nested layouts or pages
@@ -49,6 +57,11 @@ export default function RootLayout({
                     gtag('config', 'G-73X7PN0C86');
                     `}
             </Script>
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <body>
                 <div className="root-container">{children}</div>
             </body>
