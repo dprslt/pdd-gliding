@@ -30,20 +30,24 @@ h1.page-title {
         padding-right: 1.5rem;
         padding-left: 1.5rem;
         flex: 1;
+
         // background-color: $secondaryContainer;
-        background-color: $secondaryContainer;
-        color: $onSecondaryContainer;
-        // color: $onBackground;
+        // color: $onSecondaryContainer;
+
+        color: $onPrimary;
+        background-color: $primary;
+
         font-size: 1.2em;
     }
 
     .icon {
+        // background-color: $primary;
+        // color: $onPrimary;
+        background-color: $secondaryContainer;
+        color: $onSecondaryContainer;
+
         height: 3em;
         width: 3em;
-        background-color: $primary;
-        color: $onPrimary;
-        // padding-left: 1.25rem;
-        // padding-right: 1rem;
         display: flex;
         justify-content: center;
         font-size: 0.9em;
@@ -51,5 +55,9 @@ h1.page-title {
 
     button.icon {
         cursor: pointer;
+    }
+
+    @media (max-width: 500px) {
+        gap: 1rem;
     }
 }

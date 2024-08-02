@@ -15,7 +15,7 @@ export const metadata = {
 const SharePage = () => {
     return (
         <AppPage
-            pageTitle={'Partager'}
+            pageTitle={'Partage'}
             pageTitleLeftItem={<GoBackIconButton />}
             className="page-share"
         >
