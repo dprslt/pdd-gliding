@@ -6,7 +6,7 @@
         flex-direction: row;
         justify-content: center;
 
-        width: 90%;
+        width: 100%;
 
         margin: 0 auto;
 
@@ -29,8 +29,8 @@
             font-weight: bold;
             font-size: 2em;
 
-            background-color: $primary;
-            color: $onPrimary;
+            color: $onSecondaryContainer;
+            background-color: $secondaryContainer;
 
             flex: 1;
 
@@ -49,8 +49,9 @@
             justify-content: center;
             align-items: center;
 
-            color: $onSecondaryContainer;
-            background-color: $secondaryContainer;
+            background-color: $primary;
+            color: $onPrimary;
+
             border: none;
             padding: 0em 1em;
 
@@ -65,8 +66,27 @@
         }
     }
 
+    @media (max-width: 400px) {
+        .url-container {
+            flex-direction: column;
+            align-items: normal;
+            text-align: center;
+            height: 8em;
+            border-radius: 0rem;
+
+            gap: 1em;
+
+            & > * {
+                height: 4rem;
+                flex: 1 0;
+
+                border-radius: 2rem;
+            }
+        }
+    }
+
     .qrCode {
-        width: 80%;
+        width: 100%;
         max-width: 500px;
         height: auto;
 
