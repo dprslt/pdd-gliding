@@ -17,6 +17,7 @@ const SharePage = () => {
         <AppPage
             pageTitle={'Partage'}
             pageTitleLeftItem={<GoBackIconButton />}
+            pageTitleRightItem={null}
             className="page-share"
         >
             <Image src={qrCode} alt="QRCode" className="qrCode" sizes="100vw" />

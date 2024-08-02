@@ -58,6 +58,22 @@ h1.page-title {
     }
 
     @media (max-width: 500px) {
-        gap: 1rem;
+        gap: 0;
+
+        border-radius: 1.75em;
+        overflow: hidden;
+        flex-shrink: 0;
+        & > * {
+            border-radius: 0;
+            height: 100%;
+        }
+
+        .icon:last-child {
+            padding-right: 0.25em;
+        }
+
+        .icon:first-child {
+            padding-left: 0.25em;
+        }
     }
 }

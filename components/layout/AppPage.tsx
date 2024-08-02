@@ -17,7 +17,7 @@ type AppPageProps = {
     pageIcon?: IconDefinition;
     className?: string;
     children?: React.ReactNode;
-    pageTitleRightItem?: ReactNode;
+    pageTitleRightItem?: ReactNode | null;
     pageTitleLeftItem?: ReactNode;
 };
 
@@ -35,8 +35,12 @@ const AppPage: React.FC<AppPageProps> = ({
                 <div className={`pageContent`}>
                     {pageTitle && (
                         <PageTitle
-                            rightItem={pageTitleRightItem}
-                            leftItem={pageTitleLeftItem || <ShareIconButton />}
+                            rightItem={
+                                pageTitleRightItem === undefined ? (
+                                    <ShareIconButton />
+                                ) : undefined
+                            }
+                            leftItem={pageTitleLeftItem}
                         >
                             {pageTitle}
                         </PageTitle>
