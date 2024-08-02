@@ -25,18 +25,10 @@
 }
 
 .supportHeaderLink {
-    height: 3em;
-    width: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #ffcb1e !important;
+    color: $onPrimary !important;
 
-    border-radius: 1.75rem;
-    overflow: hidden;
-
-    background-color: #ffcb1e;
-    color: $onPrimary;
-    font-size: 0.9em;
-
-    animation: wiggle 1s infinite;
+    svg {
+        animation: wiggle 1s infinite;
+    }
 }

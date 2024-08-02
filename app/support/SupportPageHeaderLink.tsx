@@ -9,12 +9,15 @@ import buttonStyle from './supportPageHeaderLink.module.scss';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import { styled } from '@mui/material/styles';
 
+import pageTitleStyle from '../../components/layout/pageTitle.module.scss';
+import { mergeClasses } from 'utils/StyleHelper';
+
 const CustomTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
-        // backgroundColor: '#ffcb1e',
-        backgroundColor: '#ba1829',
+        backgroundColor: '#ffcb1e',
+        // backgroundColor: '#ba1829',
         color: 'white',
         // color: 'rgba(0, 0, 0, 0.57)',
         // boxShadow: theme.shadows[1],
@@ -22,8 +25,8 @@ const CustomTooltip = styled(({ className, ...props }: TooltipProps) => (
         fontWeight: 700,
     },
     [`& .${tooltipClasses.arrow}`]: {
-        // color: '#ffcb1e',
-        color: '#ba1829',
+        color: '#ffcb1e',
+        // color: '#ba1829',
     },
 }));
 
@@ -49,7 +52,10 @@ const SupportPageHeaderLink: React.FC = () => {
             >
                 <Link
                     href="/support"
-                    className={buttonStyle.supportHeaderLink}
+                    className={mergeClasses(
+                        pageTitleStyle.icon,
+                        buttonStyle.supportHeaderLink
+                    )}
                     id="support-header-button"
                 >
                     <FontAwesomeIcon icon={faBeerMugEmpty} />

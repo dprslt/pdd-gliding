@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 import pageTitleStyle from './pageTitle.module.scss';
 
@@ -15,9 +15,8 @@ const PageTitle: React.FC<PageTitleProps> = ({
 }) => (
     <h1 className={pageTitleStyle['page-title']}>
         {leftItem}
-        {/* <div className={pageTitleStyle.icon}>{leftItem}</div> */}
         <span>{children}</span>
-        {rightItem && <div>{rightItem}</div>}
+        {rightItem}
     </h1>
 );
 

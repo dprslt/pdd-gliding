@@ -1,7 +1,8 @@
 import { mergeClasses } from 'utils/StyleHelper';
 import './support.scss';
-import SupportPageCustomHeader from './SupportPageCustomHeader';
 import KofiIframe from './KofiIframe';
+import { GoBackIconButton } from 'components/GoBackIconButton';
+import PageTitle from 'components/layout/PageTitle';
 
 export const metadata = {
     title: 'Puy de dôme Parapente : Soutien',
@@ -12,7 +13,9 @@ export default function SupportPage() {
         <div className="mobile-app">
             <div className={mergeClasses('mobile-content')}>
                 <div className={`pageContent support-page`}>
-                    <SupportPageCustomHeader />
+                    <PageTitle leftItem={<GoBackIconButton />}>
+                        Soutenez le site
+                    </PageTitle>
                     <div
                         style={{
                             textAlign: 'justify',
