@@ -7,6 +7,7 @@ import spacesStyles from '../spaces.module.scss';
 import SpacesSubPage from '../SpacesSubPage';
 import ZoneCentreLink from '../components/LinkZoneCentre';
 import CantalAirzonesLink from './LinkCantal';
+import LinkNotionZonesMil from './LinkNotionZonesMil';
 
 export const metadata = {
     title: 'Puy de dôme Parapente : Espaces / Liens',
@@ -22,6 +23,7 @@ export default async function Page() {
             <ZoneCentreLink />
             <SofiaBriefingLink />
             <CantalAirzonesLink />
+            <LinkNotionZonesMil />
         </SpacesSubPage>
     );
 }
