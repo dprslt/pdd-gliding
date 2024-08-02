@@ -15,7 +15,6 @@ export default async function TMASpacesPage() {
     return (
         <SpacesSubPage
             pageTitle={'Espaces : TMAs'}
-            pageIcon={faPlaneCircleCheck}
             className={spacesStyles['space-tab-page']}
         >
             <ZoneCentreCut />

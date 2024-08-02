@@ -5,20 +5,19 @@ import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { mergeClasses } from '../../utils/StyleHelper';
 import PageTitle from '../../components/layout/PageTitle';
 import SubPageStyles from 'styles/SubPage.module.scss';
+import { ShareIconButton } from 'components/ShareIconButton';
 
 type MeteoSubPageProps = {
     children: ReactNode;
     className?: string;
 
     pageTitle?: string;
-    pageIcon?: IconDefinition;
 };
 
 const SpacesSubPage: React.FC<MeteoSubPageProps> = ({
     children,
     className,
     pageTitle,
-    pageIcon,
 }) => {
     return (
         <div className="mobile-app">
@@ -30,8 +29,10 @@ const SpacesSubPage: React.FC<MeteoSubPageProps> = ({
                 )}
             >
                 <div className={`pageContent`}>
-                    {pageTitle && pageIcon && (
-                        <PageTitle icon={pageIcon}>{pageTitle}</PageTitle>
+                    {pageTitle && (
+                        <PageTitle leftItem={<ShareIconButton />}>
+                            {pageTitle}
+                        </PageTitle>
                     )}
                     {children}
                 </div>

@@ -16,7 +16,6 @@ export default async function Page() {
     return (
         <SpacesSubPage
             pageTitle={'Espaces : Ressources'}
-            pageIcon={faPlaneCircleCheck}
             className={spacesStyles['space-tab-page']}
         >
             <RtbaMapLink />
