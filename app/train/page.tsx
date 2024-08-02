@@ -15,7 +15,6 @@ const TrainPage: React.FC = () => {
     return (
         <AppPage
             pageTitle={'Horaires Panoramiques'}
-            pageIcon={faTrainTram}
             className={trainStyle['train-tab-page']}
         >
             <TrainNextOneToday />

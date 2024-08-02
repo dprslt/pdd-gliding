@@ -24,11 +24,9 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
     return (
         <AppPage
             pageTitle={'Balises'}
-            pageIcon={faWind}
             className={balisesPageStyles['mesures-tab-page']}
             pageTitleRightItem={<SupportPageHeaderLink />}
         >
-
             <SharedMeasure />
             {/* <h2>Holfuy PDD Nord (1464)</h2> */}
             {/*

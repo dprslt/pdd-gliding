@@ -12,7 +12,7 @@ export const metadata = {
 };
 const MeteoMorePage: React.FC = () => {
     return (
-        <MeteoSubPage pageIcon={faEarthEurope} pageTitle="Analyse météo">
+        <MeteoSubPage pageTitle="Analyse météo">
             <h2>Pour aller plus loin</h2>
             <MetOfficeLink />
             <MultiModelLink />

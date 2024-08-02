@@ -2,10 +2,15 @@
 
 import Head from 'next/head';
 import React, { ReactNode } from 'react';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import {
+    faShareNodes,
+    IconDefinition,
+} from '@fortawesome/free-solid-svg-icons';
 import MainMenu from './MainMenu';
 import PageTitle from './PageTitle';
 import { mergeClasses } from '../../utils/StyleHelper';
+import { useRouter } from 'next/navigation';
+import { ShareIconButton } from 'components/ShareIconButton';
 
 type AppPageProps = {
     pageTitle?: string;
@@ -13,23 +18,25 @@ type AppPageProps = {
     className?: string;
     children?: React.ReactNode;
     pageTitleRightItem?: ReactNode;
+    pageTitleLeftItem?: ReactNode;
 };
 
 const AppPage: React.FC<AppPageProps> = ({
     pageTitle,
-    pageIcon,
     children,
     className,
     pageTitleRightItem,
+    pageTitleLeftItem,
 }) => {
+    const router = useRouter();
     return (
         <div className="mobile-app">
             <div className={mergeClasses('mobile-content', className)}>
                 <div className={`pageContent`}>
-                    {pageTitle && pageIcon && (
+                    {pageTitle && (
                         <PageTitle
-                            icon={pageIcon}
                             rightItem={pageTitleRightItem}
+                            leftItem={pageTitleLeftItem || <ShareIconButton />}
                         >
                             {pageTitle}
                         </PageTitle>

@@ -20,7 +20,6 @@ const WebcamsPage: React.FC<WebcamsPageProps> = () => {
     return (
         <AppPage
             pageTitle={'Webcams'}
-            pageIcon={faCameraRetro}
             className={webcamPageModule['webcam-tab-page']}
         >
             <div>

@@ -33,7 +33,6 @@ export default async function NotamsSpacesPage() {
     return (
         <SpacesSubPage
             pageTitle={'Espaces : Notams'}
-            pageIcon={faPlaneCircleCheck}
             className={spacesStyles['space-tab-page']}
         >
             <div>
