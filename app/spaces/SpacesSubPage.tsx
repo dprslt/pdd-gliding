@@ -30,7 +30,7 @@ const SpacesSubPage: React.FC<MeteoSubPageProps> = ({
             >
                 <div className={`pageContent`}>
                     {pageTitle && (
-                        <PageTitle leftItem={<ShareIconButton />}>
+                        <PageTitle rightItem={<ShareIconButton />}>
                             {pageTitle}
                         </PageTitle>
                     )}

@@ -41,7 +41,14 @@ const SupportPageHeaderLink: React.FC = () => {
     }, []);
 
     return (
-        <>
+        <div
+            className={mergeClasses(
+                pageTitleStyle.icon,
+                pageTitleStyle.headerElement,
+                buttonStyle.supportHeaderLink
+            )}
+            id="support-header-button"
+        >
             <CustomTooltip
                 title="Soutenez le site !"
                 arrow
@@ -50,18 +57,11 @@ const SupportPageHeaderLink: React.FC = () => {
                 onClose={() => setTooltipStatus(false)}
                 placement="bottom-start"
             >
-                <Link
-                    href="/support"
-                    className={mergeClasses(
-                        pageTitleStyle.icon,
-                        buttonStyle.supportHeaderLink
-                    )}
-                    id="support-header-button"
-                >
+                <Link href="/support">
                     <FontAwesomeIcon icon={faBeerMugEmpty} />
                 </Link>
             </CustomTooltip>
-        </>
+        </div>
     );
 };
 
