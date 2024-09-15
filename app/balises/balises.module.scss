@@ -1,3 +1,4 @@
+@import '../../styles/colors.scss';
 .mesures-tab-page {
     text-align: center;
     img {
@@ -68,6 +69,18 @@
         }
         img {
             max-width: 400px;
+        }
+    }
+
+    .thanks {
+        text-align: center;
+        font-size: 0.8em;
+        opacity: 0.7;
+        margin-top: 2em;
+
+        a {
+            color: $primary;
+            text-decoration: underline;
         }
     }
 }

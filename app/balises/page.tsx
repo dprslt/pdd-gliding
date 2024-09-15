@@ -10,6 +10,9 @@ import OPGCLink from './components/OPGCLink';
 import SupportPageHeaderLink from 'app/support/SupportPageHeaderLink';
 import MetaJDV from './components/MetaJDV';
 import SharedMeasure from './components/Mesures/SharedMeasures';
+import Link from 'next/link';
+import { faSnowflake } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type BalisesPageProps = {};
 
@@ -25,8 +28,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             pageTitleLeftItem={<SupportPageHeaderLink />}
         >
             <SharedMeasure />
-            {/* <h2>Holfuy PDD Nord (1464)</h2> */}
-            {/*
+
             <div>
                 <div className="text-alert">
                     <div className="warn">
@@ -35,20 +37,28 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                     <div className="text">
                         La balise holfuy est démontée pendant l&apos;hiver, elle
                         est donc indisponible pendant cette période, elle
-                        reviendra au printemps... &apos;fin bientôt
-                        j&apos;espére !
+                        reviendra au printemps...
                     </div>
                 </div>
             </div>
-            */}
-            <HolfuyResume />
-            <HolfuyHistory />
+
+            {/* <HolfuyResume />
+            <HolfuyHistory /> */}
             <h2>Balises à proximité</h2>
             <MetaJDV />
             <h2>Pour aller plus loin</h2>
             <SpotAirLink />
             <OPGCLink />
             <ParaveyronLink />
+
+            <div className={balisesPageStyles['thanks']}>
+                Un grand merci à tous les{' '}
+                <Link href={'/support'}>donateurs</Link> et à{' '}
+                <Link href={'https://www.freedom-parapente.fr/boutique'}>
+                    Freedom Parapente
+                </Link>{' '}
+                pour leurs soutiens qui m&apos;aident à faire vivre ce site !
+            </div>
         </AppPage>
     );
 };

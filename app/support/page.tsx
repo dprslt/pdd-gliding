@@ -25,8 +25,6 @@ export default function SupportPage() {
                             alignSelf: 'center',
                         }}
                     >
-                        <KofiIframe />
-
                         <div
                             // Ouais flemme de faire du css a coté..
                             style={{
@@ -63,10 +61,11 @@ export default function SupportPage() {
                                 pour me motiver à faire évoluer ce site et à le
                                 maintenir en ligne, vous pouvez me faire un don
                                 via le formulaire ci dessous.
-                                <br /> Pour m&apos;acheter un café, une bière au
-                                prochain débiefing, ou une nouvelle voile .. :p
+                                <br /> Pour m&apos;acheter un café ou une bière
+                                au prochain débiefing.
                             </p>
                         </div>
+                        <KofiIframe />
                     </div>
 
                     {/* <a
