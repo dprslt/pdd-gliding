@@ -13,6 +13,7 @@ import SharedMeasure from './components/Mesures/SharedMeasures';
 import Link from 'next/link';
 import { faSnowflake } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import WarningHelico from 'app/_components/WarningHelico';
 
 type BalisesPageProps = {};
 
@@ -27,8 +28,8 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             className={balisesPageStyles['mesures-tab-page']}
             pageTitleLeftItem={<SupportPageHeaderLink />}
         >
+            <WarningHelico />
             <SharedMeasure />
-
             <div>
                 <div className="text-alert">
                     <div className="warn">
@@ -41,7 +42,6 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                     </div>
                 </div>
             </div>
-
             {/* <HolfuyResume />
             <HolfuyHistory /> */}
             <h2>Balises à proximité</h2>
@@ -50,7 +50,6 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             <SpotAirLink />
             <OPGCLink />
             <ParaveyronLink />
-
             <div className={balisesPageStyles['thanks']}>
                 Un grand merci à tous les{' '}
                 <Link href={'/support'}>donateurs</Link> et à{' '}
