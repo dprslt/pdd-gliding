@@ -36,8 +36,8 @@ const WarningHelico = () => {
 
                     <p>Les horaires de vol sont les suivants :</p>
                     <ul style={{ textAlign: 'left' }}>
-                        <li>Atterissages 14h20, décollage 14h30</li>
-                        <li>Atterissage 16h20, décollage 16h30</li>
+                        <li>Atterrissage 14h20, décollage 14h30</li>
+                        <li>Atterrissage 16h20, décollage 16h30</li>
                     </ul>
                 </div>
             </div>
