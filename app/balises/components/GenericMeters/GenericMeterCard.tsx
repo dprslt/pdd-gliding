@@ -13,6 +13,7 @@ import { convertDegToOrientation } from 'services/wind/OrientationMapper';
 
 // TODO rename this file
 import '../MesuresOPGC/opgcMeter.scss';
+import './genericMeterCard.scss';
 
 type GenericMeterCardProps = {
     meterData: GenericWindMeasurement;

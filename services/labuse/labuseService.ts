@@ -116,9 +116,6 @@ export const getLabuseData =
         const liveData = await getLabuseLiveData(labuseMeasurements);
         const history = await getLabuseHistoricalData(labuseMeasurements);
 
-        console.log(history.windSpeed);
-        console.log(history.windOrientation);
-
         return {
             liveData,
             history,

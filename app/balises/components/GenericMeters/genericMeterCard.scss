@@ -1,0 +1,14 @@
+@import '../../../../styles/colors.scss';
+
+.generic-meter-card-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .generic-meter-card-title-icon {
+        font-size: 0.8em;
+        opacity: 0.8;
+        color: $primary;
+    }
+}
