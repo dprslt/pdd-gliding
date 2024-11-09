@@ -139,9 +139,6 @@ export async function fetchAllWindData(): Promise<WindData> {
     const labuseGraphWind = labuseGenericData?.history.windSpeed;
     const labuseGraphOrientation = labuseGenericData?.history.windOrientation;
 
-    console.log(labuseGraphWind);
-    console.log(labuseGraphOrientation);
-
     return {
         opgcLive: uOpgcLive,
         holfuyLive: uHolfuyLive,
