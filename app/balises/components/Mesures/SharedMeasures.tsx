@@ -5,6 +5,7 @@ import { ResponsiveLine } from '@nivo/line';
 
 import './sharedMeasure.scss';
 import SharedMeasureGraph from './SharedMeasureGraph';
+import Link from 'next/link';
 
 type SharedMeasureProps = {};
 
@@ -26,10 +27,17 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                         <GenericMeterCard meterData={windData.holfuyLive} />
                     </div>
                 )}
+                {windData.labuseLive && (
+                    <Link href={'/https://labuse.uiguig.ovh/devices'}>
+                        <div className="meter-columns">
+                            <h2>Labuse</h2>
+                            <GenericMeterCard meterData={windData.labuseLive} />
+                        </div>
+                    </Link>
+                )}
             </div>
 
             <SharedMeasureGraph windData={windData} />
-            
         </div>
     );
 };

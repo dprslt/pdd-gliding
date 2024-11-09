@@ -14,44 +14,57 @@ import {
     fetchOPGCmaxWind,
 } from 'services/opgc/synthetized-txt-files';
 import { GenericWindMeasurement } from './GenericWindMeasurement';
+import { getLabuseData } from 'services/labuse/labuseService';
 
 export type WindData = {
     opgcLive: GenericWindMeasurement | null;
     holfuyLive: GenericWindMeasurement | null;
+    labuseLive: GenericWindMeasurement | null;
     graph: {
         windSpeed: {
             opgc?: GraphData;
             holfuy?: GraphData;
             holfuyMax?: GraphData;
             holfuyMin?: GraphData;
+            labuse?: GraphData;
         };
         windDirection: {
             opgc?: GraphData;
             holfuy?: GraphData;
+            labuse?: GraphData;
         };
     };
 };
 
 export async function fetchAllWindData(): Promise<WindData> {
-    const [grafanadata, opgcDataFromGrafana, maxWind, holfuyArchive] =
-        await Promise.all([
-            fetchWindHistoryFromGrafana().catch((e) => {
-                console.error(e);
-                return null;
-            }),
-            fetchLastValuesFromGrafana().catch((e) => {
-                console.error(e);
-                return null;
-            }),
-            fetchOPGCmaxWind().catch((e) => {
-                console.error(e);
-                return null;
-            }),
-            fetchHolfuyHistory().catch((e) => {
-                console.error(e);
-                return null;
-            }),
-        ]);
+    const [
+        grafanadata,
+        opgcDataFromGrafana,
+        maxWind,
+        holfuyArchive,
+        labuseGenericData,
+    ] = await Promise.all([
+        fetchWindHistoryFromGrafana().catch((e) => {
+            console.error(e);
+            return null;
+        }),
+        fetchLastValuesFromGrafana().catch((e) => {
+            console.error(e);
+            return null;
+        }),
+        fetchOPGCmaxWind().catch((e) => {
+            console.error(e);
+            return null;
+        }),
+        fetchHolfuyHistory().catch((e) => {
+            console.error(e);
+            return null;
+        }),
+        getLabuseData().catch((e) => {
+            console.error(e);
+            return null;
+        }),
+    ]);
 
     // Fallback try to get last file
     var opgcData = opgcDataFromGrafana;
@@ -122,19 +135,29 @@ export async function fetchAllWindData(): Promise<WindData> {
         }),
     };
 
+    const labuseLive = labuseGenericData?.liveData || null;
+    const labuseGraphWind = labuseGenericData?.history.windSpeed;
+    const labuseGraphOrientation = labuseGenericData?.history.windOrientation;
+
+    console.log(labuseGraphWind);
+    console.log(labuseGraphOrientation);
+
     return {
         opgcLive: uOpgcLive,
         holfuyLive: uHolfuyLive,
+        labuseLive,
         graph: {
             windSpeed: {
                 opgc: graphOPGCwind,
                 holfuy: graphHolfuyWind,
                 holfuyMax: graphHolfuyWindMax,
                 holfuyMin: graphHolfuyWindMin,
+                labuse: labuseGraphWind,
             },
             windDirection: {
                 opgc: graphOPGCDirection,
                 holfuy: graphHolfuyDirection,
+                labuse: labuseGraphOrientation,
             },
         },
     };

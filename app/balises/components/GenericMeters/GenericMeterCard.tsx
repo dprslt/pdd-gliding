@@ -37,14 +37,14 @@ const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData }) => {
                         />
                     </div>
                     <div className={'balise-infos-card--wind-min'}>
-                        {meterData.wind.min && (
+                        {meterData.wind.min !== undefined && (
                             <>min. {Math.round(meterData.wind.min)} km/h</>
                         )}
                     </div>
                     <div className={'balise-infos-card--wind-speed'}>
                         {Math.round(meterData.wind.speed)} km/h
                     </div>
-                    {meterData.wind.gust && (
+                    {meterData.wind.gust !== undefined && (
                         <div className={'balise-infos-card--wind-max'}>
                             max. {Math.round(meterData.wind.gust)} km/h
                         </div>

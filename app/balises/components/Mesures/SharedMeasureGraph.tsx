@@ -54,6 +54,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                         [
                             windData.graph.windSpeed.opgc,
                             windData.graph.windSpeed.holfuy,
+                            windData.graph.windSpeed.labuse,
                             // windData.graph.windSpeed.holfuyMax,
                             // windData.graph.windSpeed.holfuyMin,
                         ].filter((e) => e != undefined) as Array<GraphData>
@@ -108,11 +109,11 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                                     on: 'hover',
                                     style: {
                                         itemBackground: 'rgba(0, 0, 0, .03)',
-                                        itemOpacity: 1
-                                    }
-                                }
-                            ]
-                        }
+                                        itemOpacity: 1,
+                                    },
+                                },
+                            ],
+                        },
                     ]}
                 />
             </div>
@@ -122,6 +123,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                         [
                             windData.graph.windDirection.opgc,
                             windData.graph.windDirection.holfuy,
+                            windData.graph.windDirection.labuse,
                         ].filter((e) => e != undefined) as Array<GraphData>
                     }
                     margin={{ top: 30, right: 50, bottom: 30, left: 10 }}
@@ -185,11 +187,11 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                                     on: 'hover',
                                     style: {
                                         itemBackground: 'rgba(0, 0, 0, .03)',
-                                        itemOpacity: 1
-                                    }
-                                }
-                            ]
-                        }
+                                        itemOpacity: 1,
+                                    },
+                                },
+                            ],
+                        },
                     ]}
                 />
             </div>

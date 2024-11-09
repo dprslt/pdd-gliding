@@ -28,7 +28,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             className={balisesPageStyles['mesures-tab-page']}
             pageTitleLeftItem={<SupportPageHeaderLink />}
         >
-            <WarningHelico />
+            {/* <WarningHelico /> */}
             <SharedMeasure />
             <div>
                 <div className="text-alert">
