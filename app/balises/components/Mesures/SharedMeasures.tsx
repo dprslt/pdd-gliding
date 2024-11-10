@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import './sharedMeasure.scss';
+import GenericMeterCardTitle from '../GenericMeters/GenericMeterCardTitle';
 
 type SharedMeasureProps = {};
 
@@ -21,30 +22,31 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
             <div className="shared-measure-cards">
                 {windData.opgcLive && (
                     <div className="meter-columns">
-                        <h2>OPGC</h2>
+                        <GenericMeterCardTitle>OPGC</GenericMeterCardTitle>
                         <GenericMeterCard meterData={windData.opgcLive} />
                     </div>
                 )}
                 {windData.holfuyLive && (
-                    <div className="meter-columns">
-                        <h2 className="generic-meter-card-title">
+                    <Link
+                        href={'https://holfuy.com/fr/weather/1464'}
+                        className="meter-columns"
+                    >
+                        <GenericMeterCardTitle hasLink>
                             Holfuy PDD Nord (1464)
-                        </h2>
+                        </GenericMeterCardTitle>
                         <GenericMeterCard meterData={windData.holfuyLive} />
-                    </div>
+                    </Link>
                 )}
                 {windData.labuseLive && (
-                    <Link href={'https://labuse.uiguig.ovh/devices/2'}>
-                        <div className="meter-columns">
-                            <h2 className="generic-meter-card-title">
-                                Labuse
-                                <FontAwesomeIcon
-                                    className="generic-meter-card-title-icon"
-                                    icon={faArrowUpRightFromSquare}
-                                />
-                            </h2>
-                            <GenericMeterCard meterData={windData.labuseLive} />
-                        </div>
+                    <Link
+                        href={'https://labuse.uiguig.ovh/devices/2'}
+                        className="meter-columns"
+                    >
+                        <GenericMeterCardTitle hasLink>
+                            Labuse
+                        </GenericMeterCardTitle>
+
+                        <GenericMeterCard meterData={windData.labuseLive} />
                     </Link>
                 )}
             </div>

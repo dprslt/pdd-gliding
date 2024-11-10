@@ -9,7 +9,8 @@
     margin-bottom: 1em;
 
     white-space: nowrap;
-    .meter-columns {
+    .meter-columns,
+    .meter-columns > a {
         flex: 1;
         max-width: 25em;
 
