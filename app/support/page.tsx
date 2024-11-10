@@ -52,7 +52,7 @@ export default function SupportPage() {
                                 les données pour faciliter leur lecture. Au fait
                                 et à mesure du temps j&apos;essaie
                                 d&apos;ajouter d&apos;avantage de contenu en
-                                m&apos;efforcant de garder un outils clair,
+                                m&apos;efforcant de garder un outil clair,
                                 simple et rapide.
                             </p>
                             <p>
