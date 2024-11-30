@@ -60,10 +60,11 @@ export async function fetchAllWindData(): Promise<WindData> {
             console.error(e);
             return null;
         }),
-        getLabuseData().catch((e) => {
-            console.error(e);
-            return null;
-        }),
+        // getLabuseData().catch((e) => {
+        //     console.error(e);
+        //     return null;
+        // }),
+        Promise.resolve(null),
     ]);
 
     // Fallback try to get last file
@@ -135,9 +136,13 @@ export async function fetchAllWindData(): Promise<WindData> {
         }),
     };
 
-    const labuseLive = labuseGenericData?.liveData || null;
-    const labuseGraphWind = labuseGenericData?.history.windSpeed;
-    const labuseGraphOrientation = labuseGenericData?.history.windOrientation;
+    // const labuseLive = labuseGenericData?.liveData || null;
+    // const labuseGraphWind = labuseGenericData?.history.windSpeed;
+    // const labuseGraphOrientation = labuseGenericData?.history.windOrientation;
+
+    const labuseLive = null;
+    const labuseGraphWind = undefined;
+    const labuseGraphOrientation = undefined;
 
     return {
         opgcLive: uOpgcLive,

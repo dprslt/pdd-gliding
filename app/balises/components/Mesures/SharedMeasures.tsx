@@ -37,7 +37,7 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                         <GenericMeterCard meterData={windData.holfuyLive} />
                     </Link>
                 )}
-                {windData.labuseLive && (
+                {/* {windData.labuseLive && (
                     <Link
                         href={'https://labuse.uiguig.ovh/devices/2'}
                         className="meter-columns"
@@ -48,10 +48,10 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
 
                         <GenericMeterCard meterData={windData.labuseLive} />
                     </Link>
-                )}
+                )} */}
             </div>
 
-            <div className="text-alert">
+            {/* <div className="text-alert">
                 <div className="warn">
                     <FontAwesomeIcon icon={faFlaskVial} />
                 </div>
@@ -60,7 +60,7 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                     par Guillaume T depuis plusieurs mois. Elle est encore en
                     phase de tests et de réglages. Merci a lui !
                 </div>
-            </div>
+            </div> */}
 
             <SharedMeasureGraph windData={windData} />
         </div>
