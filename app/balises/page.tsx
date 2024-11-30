@@ -14,6 +14,8 @@ import Link from 'next/link';
 import { faSnowflake } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import WarningHelico from 'app/_components/WarningHelico';
+import FfvlBalisesMetoDotCom from './components/FfvlBalisesMeteoDotCom';
+import FooterThanks from 'app/_components/FooterThank';
 
 type BalisesPageProps = {};
 
@@ -50,14 +52,9 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             <SpotAirLink />
             <OPGCLink />
             <ParaveyronLink />
-            <div className={balisesPageStyles['thanks']}>
-                Un grand merci à tous les{' '}
-                <Link href={'/support'}>donateurs</Link> et à{' '}
-                <Link href={'https://www.freedom-parapente.fr/boutique'}>
-                    Freedom Parapente
-                </Link>{' '}
-                pour leurs soutiens qui m&apos;aident à faire vivre ce site !
-            </div>
+            <FfvlBalisesMetoDotCom />
+
+            <FooterThanks />
         </AppPage>
     );
 };
