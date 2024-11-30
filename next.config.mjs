@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
+import path from 'path';
+
 const nextConfig = {
     reactStrictMode: true,
+
+    sassOptions: {
+        includePaths: [path.join(import.meta.dirname, './styles')],
+        prependData: `@import "colors.scss";`,
+    },
 
     images: {
         remotePatterns: [
@@ -47,4 +54,4 @@ const nextConfig = {
     },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
