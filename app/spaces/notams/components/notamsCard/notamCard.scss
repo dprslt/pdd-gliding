@@ -160,16 +160,15 @@
 
     .notam-card-fieldE {
         font-size: 0.9em;
+        // max-height: 7em;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         pre {
             max-width: 100%;
             margin: 0;
             text-wrap: pretty;
         }
-
-        // max-height: 7em;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 }
 

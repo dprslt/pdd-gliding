@@ -8,7 +8,7 @@
         "start": "cross-env NODE_EXTRA_CA_CERTS=./certs/DGAC.pem next start --port 4004",
         "test": "jest --watch",
         "lint": "next lint",
-        "postbuild": "node ./copy-certs.js ; next-sitemap"
+        "postbuild": "next-sitemap"
     },
     "dependencies": {
         "@emotion/react": "^11.11.4",
@@ -29,7 +29,7 @@
         "jest": "^28.1.0",
         "luxon": "^3.4.4",
         "moment": "^2.30.1",
-        "next": "^14.2.2",
+        "next": "^15.0.3",
         "next-sitemap": "^4.2.3",
         "qs": "^6.12.1",
         "react": "18.2.0",
