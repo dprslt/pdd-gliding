@@ -1,4 +1,3 @@
-import { faPlaneCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import RtbaMapLink from '../components/LinkRTBA';
 import SofiaBriefingLink from './LinkSofia';
@@ -8,6 +7,8 @@ import SpacesSubPage from '../SpacesSubPage';
 import ZoneCentreLink from '../components/LinkZoneCentre';
 import CantalAirzonesLink from './LinkCantal';
 import LinkNotionZonesMil from './LinkNotionZonesMil';
+
+import HeholLink from './HeholLink';
 
 export const metadata = {
     title: 'Puy de dôme Parapente : Espaces / Liens',
@@ -24,6 +25,8 @@ export default async function Page() {
             <SofiaBriefingLink />
             <CantalAirzonesLink />
             <LinkNotionZonesMil />
+
+            <HeholLink />
         </SpacesSubPage>
     );
 }

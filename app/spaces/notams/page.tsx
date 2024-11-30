@@ -18,6 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DateTime } from 'luxon';
 import './notam-page.scss';
 
+import HeholLink from '../links/HeholLink';
+
 export const metadata = {
     title: 'Puy de dôme Parapente : Espaces / Notams',
 };
@@ -37,6 +39,10 @@ export default async function NotamsSpacesPage() {
         >
             <div>
                 <NotamNotice />
+
+                <HeholLink>
+                    Retrouvez ces informations partout en france sur Hehol.fr
+                </HeholLink>
 
                 {/*                 <div className="text-alert">
                     <div className="warn">

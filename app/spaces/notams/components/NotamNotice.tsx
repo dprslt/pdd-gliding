@@ -1,21 +1,22 @@
-import { faFlaskVial } from '@fortawesome/free-solid-svg-icons';
+import { faWarning } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function NotamNotice() {
     return (
         <div className="text-alert">
             <div className="warn">
-                <FontAwesomeIcon icon={faFlaskVial} />
+                <FontAwesomeIcon icon={faWarning} />
             </div>
             <div className="text">
                 <p>
                     <strong>
-                        Cette page est en Beta, merci de vérifier les
-                        informations s&apos;y trouvant. Elles ne sont pas
-                        exhautives et ne suffisent pas à préparer un vol dans le
-                        respect de la réglementation aérienne.
+                        Les informations ci dessous ne sont ni exhautives ni
+                        garanies; elles ne suffisent pas à préparer un vol dans
+                        le respect de la réglementation aérienne.
                         <br />
-                        Vous volez sous votre propre responsabilité.
+                        Vous volez sous votre propre responsabilité et seuls les
+                        sources de données officielles du SIA peuvent garantir
+                        d&apos;obtenir des informations valides.
                     </strong>
                 </p>
 
@@ -36,15 +37,6 @@ export default function NotamNotice() {
                     heure locale, merci de bien vérifier la cohérence des
                     informations.
                 </p>
-
-                {/* <p>
-                    <strong>
-                        Si vous ne comprenez pas l'intégralité du paragraphe
-                        précédent et n'avais pas fait davantage de recherches
-                        avant de partir voler. Je vous conseil fortement de
-                        rester en local sur le site.
-                    </strong>
-                </p> */}
             </div>
         </div>
     );
