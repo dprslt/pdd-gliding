@@ -6,7 +6,7 @@ const nextConfig = {
 
     sassOptions: {
         includePaths: [path.join(import.meta.dirname, './styles')],
-        prependData: `@import "colors.scss";`,
+        prependData: `@use "colors";`,
     },
 
     images: {

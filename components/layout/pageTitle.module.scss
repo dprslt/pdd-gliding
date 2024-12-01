@@ -1,5 +1,3 @@
-@import '../../styles/colors.scss';
-
 h1.page-title {
     text-align: left;
     font-family: 'Baloo 2', cursive;
@@ -31,20 +29,20 @@ h1.page-title {
         padding-left: 1.5rem;
         flex: 1;
 
-        // background-color: $secondaryContainer;
-        // color: $onSecondaryContainer;
+        // background-color: colors.$secondaryContainer;
+        // color: colors.$onSecondaryContainer;
 
-        color: $onPrimary;
-        background-color: $primary;
+        color: colors.$onPrimary;
+        background-color: colors.$primary;
 
         font-size: 1.2em;
     }
 
     .icon {
-        // background-color: $primary;
-        // color: $onPrimary;
-        background-color: $secondaryContainer;
-        color: $onSecondaryContainer;
+        // background-color: colors.$primary;
+        // color: colors.$onPrimary;
+        background-color: colors.$secondaryContainer;
+        color: colors.$onSecondaryContainer;
 
         height: 3em;
         width: 3em;

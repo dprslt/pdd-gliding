@@ -1,8 +1,6 @@
-@import 'styles/colors.scss';
-
 .link-element {
-    background-color: $secondaryContainer;
-    color: $onSecondaryContainer;
+    background-color: colors.$secondaryContainer;
+    color: colors.$onSecondaryContainer;
     padding: 1em;
     display: flex;
     align-items: center;

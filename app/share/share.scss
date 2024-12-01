@@ -1,5 +1,3 @@
-@import '../../styles/colors.scss';
-
 .page-share {
     .url-container {
         display: flex;
@@ -29,8 +27,8 @@
             // font-weight: bold;
             font-size: 2em;
 
-            color: $onSecondaryContainer;
-            background-color: $secondaryContainer;
+            color: colors.$onSecondaryContainer;
+            background-color: colors.$secondaryContainer;
 
             flex: 1;
 
@@ -49,8 +47,8 @@
             justify-content: center;
             align-items: center;
 
-            background-color: $primary;
-            color: $onPrimary;
+            background-color: colors.$primary;
+            color: colors.$onPrimary;
 
             border: none;
             padding: 0em 1em;
@@ -61,7 +59,7 @@
 
             .svg-inline--fa {
                 margin-left: 0.5em;
-                // color: $primary;
+                // color: colors.$primary;
             }
         }
     }

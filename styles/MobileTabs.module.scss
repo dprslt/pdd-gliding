@@ -1,5 +1,3 @@
-@import './colors.scss';
-
 .mobileTabsBox {
     // position: absolute;
     // bottom: 0;
@@ -15,7 +13,7 @@
 .mobileTabs {
     border-radius: 4em;
     // box-shadow: #afafaf 3px 3px 3px 2px;
-    background: $primaryContainer;
+    background: colors.$primaryContainer;
     margin: 0 1.5rem;
     width: 100%;
     display: flex;
@@ -27,18 +25,18 @@
     // border: solid 3px white;
 
     :global(.MuiTabs-indicator) {
-        // background-color: $dark;
+        // background-color: colors.$dark;
         display: none;
     }
 
     :global(a.active) {
-        color: $onPrimary;
-        background-color: $primary;
-        // color: $lava-red;
+        color: colors.$onPrimary;
+        background-color: colors.$primary;
+        // color: colors.$lava-red;
     }
     a {
-        // color: $lava-red;
-        color: $onPrimaryContainer;
+        // color: colors.$lava-red;
+        color: colors.$onPrimaryContainer;
         background-color: transparent;
         height: 4em;
         min-width: 3em;
@@ -55,12 +53,12 @@
     flex-direction: row;
     margin-bottom: -1em;
     :global(.MuiTabs-indicator) {
-        background-color: $lava-red;
+        background-color: colors.$lava-red;
         top: 0;
     }
 
     :global(.MuiTab-root.Mui-selected) {
-        color: $lava-red;
+        color: colors.$lava-red;
         background-color: white;
     }
 }
