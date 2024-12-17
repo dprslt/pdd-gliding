@@ -29,8 +29,7 @@ export const metadata: Metadata = {
 const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Puy de Dôme Parapente',
-    alternateName: 'PDDP',
+    name: 'PDDP',
     url: 'https://pdd.dprslt.fr',
 };
 
