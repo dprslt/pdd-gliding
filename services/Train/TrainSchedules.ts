@@ -5,6 +5,7 @@ moment.locale('fr');
 export type DayType =
     | 'HourlyFiveDays'
     | 'Hourly'
+    | 'HourlyEndAt1530'
     | 'Fourty'
     | 'Twenty'
     | 'TwentyExtended'
@@ -87,6 +88,8 @@ export const getAllTrainsOfADay = (
         case 'TwentyExtended':
         case 'TwentyExtendedOnThursday':
             return generateTwentyExtendedSchedule(day);
+        case 'HourlyEndAt1530':
+            return generateHourlySchedule(day).filter((m) => m.hours() < 15);
         default:
             return [];
     }

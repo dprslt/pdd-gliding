@@ -2,6 +2,8 @@ import moment from 'moment';
 import { PanoSchedule2022 } from '../configs/2022';
 import { PanoSchedule2023 } from '../configs/2023';
 import { PanoSchedule2024 } from '../configs/2024';
+import { PanoSchedule2025 } from '../configs/2025';
+
 import {
     foundCurrentPeriod,
     getDayTypeOfADay,
@@ -223,5 +225,39 @@ describe('Validate all days are filled for 2024', () => {
                 'YYYY MM DD HH:mm'
             )
         ).toBe('2024 07 25 21:00');
+    });
+});
+
+describe('Validate all days are filled for 2025', () => {
+    it('should pass validity check for all periods', () => {
+        PanoSchedule2025.periods.forEach((period) => {
+            expect(period.from.isBefore(period.to)).toBeTruthy();
+        });
+    });
+
+    it('should work for all days', () => {
+        let time = moment('01/01/2025', 'L');
+        while (time.isSameOrBefore(moment('31/12/2025', 'L'))) {
+            getNextTrainForADay(time, PanoSchedule2025);
+            time = time.add(1, 'day');
+        }
+    });
+
+    it('should work during the summer nights ', () => {
+        let time = moment('2025-07-17T20:50:17+02:00');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2025)?.format(
+                'YYYY MM DD HH:mm'
+            )
+        ).toBe('2025 07 17 21:00');
+    });
+
+    it('should work with the new special hours for christmas', () => {
+        let time = moment('2025-12-24T15:50:17+02:00');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2025)?.format(
+                'YYYY MM DD HH:mm'
+            )
+        ).toBe(undefined);
     });
 });
