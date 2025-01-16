@@ -32,6 +32,11 @@ const nextConfig = {
                 hostname: 'meteovergne.fr',
                 port: '443',
             },
+            {
+                protocol: 'http',
+                hostname: '77.158.167.18',
+                port: '8083',
+            },
         ],
     },
     logging: {
@@ -49,6 +54,10 @@ const nextConfig = {
                 source: '/opgc-proxy',
                 destination:
                     'https://wwwobs.univ-bpclermont.fr/observ/chimie/PDD.jpeg',
+            },
+            {
+                source: '/pano-proxy',
+                destination: 'http://77.158.167.18:8083/zm/cgi-bin/nph-zms',
             },
         ];
     },

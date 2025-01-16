@@ -6,8 +6,7 @@ import LiveWebcamImage from './LiveWebcamImage';
 type SommetPanoramiqueProps = {};
 
 const SommetPanoramique: React.FC<SommetPanoramiqueProps> = () => {
-    const baseUrl =
-        'http://77.158.167.18:8083/zm/cgi-bin/nph-zms?scale=50&monitor=';
+    const baseUrl = '/pano-proxy?scale=50&monitor=';
     const monitors = [1, 2, 3, 4];
 
     return (
