@@ -1,5 +1,4 @@
 import Script from 'next/script';
-import { useEffect } from 'react';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '@fontsource/lato/300.css';
@@ -8,6 +7,7 @@ import '@fontsource/lato/700.css';
 import '@fontsource/baloo-2';
 import '../styles/globals.scss';
 import { Metadata } from 'next';
+import ClientPopupManagerWrapper from './_components/popups/ClientPopupManager';
 
 // import { Analytics } from '@vercel/analytics/react';
 // import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -65,6 +65,7 @@ export default function RootLayout({
             </head>
 
             <body>
+                <ClientPopupManagerWrapper />
                 <div className="root-container">{children}</div>
             </body>
             {/* <Analytics /> */}
