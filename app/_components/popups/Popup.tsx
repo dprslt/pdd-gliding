@@ -1,6 +1,15 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material';
+import {
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    IconButton,
+    Slide,
+    useMediaQuery,
+} from '@mui/material';
+import { TransitionProps } from '@mui/material/transitions';
+import React from 'react';
 
 interface PopupProps {
     open: boolean;
@@ -10,6 +19,15 @@ interface PopupProps {
     maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
+const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & {
+        children: React.ReactElement<any, any>;
+    },
+    ref: React.Ref<unknown>
+) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const Popup: React.FC<PopupProps> = ({
     open,
     title,
@@ -17,8 +35,21 @@ const Popup: React.FC<PopupProps> = ({
     children,
     maxWidth = 'sm',
 }) => {
+    const fullScreen = useMediaQuery('(max-width:500px)');
+
     return (
-        <Dialog open={open} maxWidth={maxWidth} onClose={onClose} fullWidth>
+        <Dialog
+            TransitionComponent={Transition}
+            open={open}
+            maxWidth={maxWidth}
+            onClose={onClose}
+            fullWidth
+            fullScreen={fullScreen}
+            sx={{
+                marginTop: fullScreen ? '2rem' : 0,
+                zIndex: 1550,
+            }}
+        >
             {title && (
                 <DialogTitle
                     sx={{
@@ -27,15 +58,16 @@ const Popup: React.FC<PopupProps> = ({
                         fontFamily: "'Baloo 2', cursive;",
                         fontSize: '1.5rem',
                         fontWeight: 500,
-                        letterSpacing: '0.0075em',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
                     }}
                 >
                     {title}
                     <IconButton
                         sx={{
-                            position: 'absolute',
-                            right: 15,
-                            top: 12,
+                            flex: 0,
                             '&:hover': {
                                 backgroundColor: 'rgba(255, 255, 255, 0.08)',
                             },

@@ -11,6 +11,10 @@ const PopupManager: React.FC = () => {
         localStorage.getItem('popup-cad') || '0'
     );
 
+    /*
+        This way to handle the opening / closing of the popup is ugly, i should find a more elegant way
+    */
+
     useEffect(() => {
         localStorage.setItem('popup-cad', `${cadCounter + 1}`);
         // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -18,18 +18,19 @@ const CadPopup: React.FC<CadPopupProps> = ({ onClose }) => {
             open={true}
             onClose={onClose}
         >
-            <p>
-                Découvrez la 1ère soirée de lancement de la saison des vols de
-                distance et CAD.
-            </p>
-            <p>
-                Le but est déjà de se retrouver en ces moments
-                d&apos;hibernation pour échanger sur ces sujets et de se
-                connaître aussi car on est de plus en plus nombreux à voyager au
-                dessus et au delà de nos volcans.
-                <br />
-                <br />À samedi.
-            </p>
+            <div style={{ textAlign: 'justify' }}>
+                <p>
+                    Découvrez la 1ère soirée de lancement de la saison des vols
+                    de distance et CAD.
+                </p>
+                <p>
+                    Le but est déjà de se retrouver en ces moments
+                    d&apos;hibernation pour échanger sur ces sujets et de se
+                    connaître aussi car on est de plus en plus nombreux à
+                    voyager au dessus et au delà de nos volcans.
+                </p>
+                <p style={{ textAlign: 'center' }}>A samedi !</p>
+            </div>
             <LinkElement
                 href={'https://forms.gle/oZBBmvg9ocw2j8vs6'}
                 favicon={CADLogo}
