@@ -32,6 +32,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
         >
             {/* <WarningHelico /> */}
             <SharedMeasure />
+            {/*
             <div>
                 <div className="text-alert">
                     <div className="warn">
@@ -44,6 +45,7 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
                     </div>
                 </div>
             </div>
+            */}
             {/* <HolfuyResume />
             <HolfuyHistory /> */}
             <h2>Balises à proximité</h2>
