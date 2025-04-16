@@ -1,7 +1,7 @@
 import { faCameraRetro } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import CezeauxWebcam from './components/CezeauxWebcam';
-import GolfVolvicWebcam from './components/GolfWebcam';
+import GolfVolcansWebcam from './components/GolfWebcam';
 import LiveWebcam from './components/LiveWebcam';
 import MeteovergneWebcam from './components/MeteovergneWebcam';
 import OrcinesWebcam from './components/OrcinesWebcam';
@@ -28,8 +28,8 @@ const WebcamsPage: React.FC<WebcamsPageProps> = () => {
                 <OrcinesWebcam />
                 <h2>Vue Cézeaux</h2>
                 <CezeauxWebcam />
-                <h2>Golf Volvic</h2>
-                <GolfVolvicWebcam />
+                <h2>Golf des Volcans</h2>
+                <GolfVolcansWebcam />
                 <h2>Sommet</h2>
                 <SommetPanoramique />
                 <SommetWebcam />

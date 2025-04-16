@@ -1,14 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image';
 import React from 'react';
 
-type GolfVolvicWebcamProps = {};
-
-const GolfVolvicWebcam: React.FC<GolfVolvicWebcamProps> = () => {
+const GolfVolcansWebcam: React.FC = () => {
     return (
         <img
             src={`https://www.golfdesvolcans.fr/wp-content/uploads/cam/parcours_n1_golf_des_volcans.jpg?t=${Date.now()}`}
-            alt={'Webcam golf Volvic'}
+            alt={'Webcam golf Volcan'}
             className="webcam"
             width={1920}
             height={720}
@@ -16,4 +13,4 @@ const GolfVolvicWebcam: React.FC<GolfVolvicWebcamProps> = () => {
     );
 };
 
-export default GolfVolvicWebcam;
+export default GolfVolcansWebcam;
