@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
-import logoHehol from './logo-hehol.png';
 import banner from './glider-and-planes.jpeg';
+import HeholLink from 'app/spaces/links/HeholLink';
 
 export type CadPopupProps = {
     onClose: () => void;
@@ -16,7 +16,7 @@ export type CadPopupProps = {
 const HeholJune25Popup: React.FC<CadPopupProps> = ({ onClose }) => {
     return (
         <Popup
-            title="Exercices militaires en approche."
+            title="Exercices militaires en approches."
             open={true}
             onClose={onClose}
         >
@@ -54,9 +54,8 @@ const HeholJune25Popup: React.FC<CadPopupProps> = ({ onClose }) => {
                 qui vous centralise toute l&apos;information sur les espaces
                 aériens dans toute la france.
             </p>
-            <LinkElement href="https://hehol.fr" favicon={logoHehol}>
-                HEHOL
-            </LinkElement>
+
+            <HeholLink>HEHOL.fr</HeholLink>
 
             <p>
                 Si HEHOL vous plait ou que vous souhaitez juste soutenir ce

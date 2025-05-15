@@ -38,8 +38,6 @@ export default async function NotamsSpacesPage() {
             className={spacesStyles['space-tab-page']}
         >
             <div>
-                <NotamNotice />
-
                 <HeholLink>
                     Retrouvez ces informations partout en france sur Hehol.fr
                 </HeholLink>
@@ -101,6 +99,7 @@ export default async function NotamsSpacesPage() {
                         </div>
                     </>
                 )}
+                <NotamNotice />
             </div>
         </SpacesSubPage>
     );
