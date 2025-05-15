@@ -1,7 +1,5 @@
 import React from 'react';
 import AppPage from '../../components/layout/AppPage';
-import HolfuyHistory from './components/MesuresHolfuy/HolfuyHistory';
-import HolfuyResume from './components/MesuresHolfuy/HolfuyResume';
 import ParaveyronLink from './components/Paraveyron';
 import SpotAirLink from './components/SpotAirLink';
 
@@ -10,13 +8,10 @@ import OPGCLink from './components/OPGCLink';
 import SupportPageHeaderLink from 'app/support/SupportPageHeaderLink';
 import MetaJDV from './components/MetaJDV';
 import SharedMeasure from './components/Mesures/SharedMeasures';
-import Link from 'next/link';
-import { faSnowflake } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import WarningHelico from 'app/_components/WarningHelico';
 import FfvlBalisesMetoDotCom from './components/FfvlBalisesMeteoDotCom';
 import FooterThanks from 'app/_components/FooterThank';
-
+import InstallPWAButton from 'components/InstallPWAButton';
+import { ShareIconButton } from 'components/ShareIconButton';
 type BalisesPageProps = {};
 
 export const metadata = {
@@ -29,6 +24,12 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             pageTitle={'Balises'}
             className={balisesPageStyles['mesures-tab-page']}
             pageTitleLeftItem={<SupportPageHeaderLink />}
+            pageTitleRightItem={
+                <>
+                    <InstallPWAButton />
+                    <ShareIconButton />
+                </>
+            }
         >
             {/* <WarningHelico /> */}
             <SharedMeasure />

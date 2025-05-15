@@ -36,9 +36,7 @@ const AppPage: React.FC<AppPageProps> = ({
                     {pageTitle && (
                         <PageTitle
                             rightItem={
-                                pageTitleRightItem === undefined ? (
-                                    <ShareIconButton />
-                                ) : undefined
+                                pageTitleRightItem || <ShareIconButton />
                             }
                             leftItem={pageTitleLeftItem}
                         >
