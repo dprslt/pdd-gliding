@@ -3,12 +3,16 @@
 import { DateTime } from 'luxon';
 import React, { useEffect } from 'react';
 import CadPopup from './cad/CADPopup';
+import HeholJune25Popup from './hehol-june25/HeholJune25Popup';
 
 const PopupManager: React.FC = () => {
     const [seed, setSeed] = React.useState(0);
 
     const cadCounter = Number.parseInt(
         localStorage.getItem('popup-cad') || '0'
+    );
+    const heholCounter = Number.parseInt(
+        localStorage.getItem('popup-hehol') || '0'
     );
 
     /*
@@ -17,6 +21,7 @@ const PopupManager: React.FC = () => {
 
     useEffect(() => {
         localStorage.setItem('popup-cad', `${cadCounter + 1}`);
+        localStorage.setItem('popup-hehol', `${heholCounter + 1}`);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -30,6 +35,22 @@ const PopupManager: React.FC = () => {
                 <CadPopup
                     onClose={() => {
                         localStorage.setItem('popup-cad', `${cadCounter + 1}`);
+                        setSeed(seed + 1);
+                    }}
+                />
+            );
+        }
+    }
+
+    if (DateTime.now() < DateTime.fromISO('2025-06-30T00:00:00.000Z')) {
+        if (heholCounter % 4 === 0) {
+            return (
+                <HeholJune25Popup
+                    onClose={() => {
+                        localStorage.setItem(
+                            'popup-hehol',
+                            `${heholCounter + 1}`
+                        );
                         setSeed(seed + 1);
                     }}
                 />
