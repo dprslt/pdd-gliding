@@ -44,6 +44,11 @@ const OrientationTooltip: React.FunctionComponent<
     );
 };
 
+/**
+ * @deprecated This component is not used since we got SharedMeasureGraph
+ * @param param0
+ * @returns
+ */
 const OPGCChartsFromGrafana: React.FC<OPGCChartsFromGrafanaProps> = ({
     windData,
     orientationData,
