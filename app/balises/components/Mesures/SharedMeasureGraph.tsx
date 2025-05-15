@@ -83,10 +83,6 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                     colors={{ scheme: 'spectral' }}
                     lineWidth={2}
                     pointSize={0}
-                    pointColor={{ theme: 'background' }}
-                    pointBorderWidth={2}
-                    pointBorderColor={{ from: 'serieColor' }}
-                    pointLabelYOffset={-12}
                     enableTouchCrosshair={true}
                     useMesh={true}
                     legends={[
@@ -160,10 +156,8 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                     colors={{ scheme: 'spectral' }}
                     lineWidth={0}
                     pointSize={6}
-                    // pointColor={{ theme: 'background' }}
-                    pointColor={{ from: 'color' }}
-                    pointBorderWidth={2}
-                    pointBorderColor={{ from: 'serieColor' }}
+                    pointColor={({ series }) => series.color}
+                    pointBorderColor={({ seriesColor }) => seriesColor}
                     pointLabelYOffset={-12}
                     enableTouchCrosshair={true}
                     useMesh={true}
