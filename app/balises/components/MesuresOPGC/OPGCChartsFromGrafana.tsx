@@ -1,10 +1,9 @@
 'use client';
 
-import { PointTooltipProps, ResponsiveLine } from '@nivo/line';
+import { LineSeries, PointTooltipProps, ResponsiveLine } from '@nivo/line';
 import { BasicTooltip } from '@nivo/tooltip';
 import React from 'react';
 import { GraphData } from '../../../../services/opgc/apiGrafanaOPGC';
-import { DateTime } from 'luxon';
 import {
     convertDegToOrientation,
     numericHalfWindSegment,
@@ -17,29 +16,29 @@ type OPGCChartsFromGrafanaProps = {
     orientationData?: GraphData;
 };
 
-const SpeedTooltip: React.FunctionComponent<PointTooltipProps> = ({
+const SpeedTooltip: React.FunctionComponent<PointTooltipProps<LineSeries>> = ({
     point,
 }) => {
     return (
         <BasicTooltip
             id={point.data.xFormatted}
             value={`${point.data.yFormatted} km/h`}
-            color={point.serieColor}
+            color={point.seriesColor}
             enableChip
         />
     );
 };
 
-const OrientationTooltip: React.FunctionComponent<PointTooltipProps> = ({
-    point,
-}) => {
+const OrientationTooltip: React.FunctionComponent<
+    PointTooltipProps<LineSeries>
+> = ({ point }) => {
     return (
         <BasicTooltip
             id={point.data.xFormatted}
             value={`${convertDegToOrientation(point.data.y as number)} (${
                 point.data.yFormatted
             } deg)`}
-            color={point.serieColor}
+            color={point.seriesColor}
             enableChip
         />
     );
@@ -94,7 +93,7 @@ const OPGCChartsFromGrafana: React.FC<OPGCChartsFromGrafanaProps> = ({
                     pointSize={8}
                     pointColor={{ theme: 'background' }}
                     pointBorderWidth={2}
-                    pointBorderColor={{ from: 'serieColor' }}
+                    pointBorderColor={{ from: 'seriesColor' }}
                     pointLabelYOffset={-12}
                     enableTouchCrosshair={true}
                     useMesh={true}
@@ -140,7 +139,7 @@ const OPGCChartsFromGrafana: React.FC<OPGCChartsFromGrafanaProps> = ({
                     // pointColor={{ theme: 'background' }}
                     pointColor={{ from: 'color' }}
                     pointBorderWidth={2}
-                    pointBorderColor={{ from: 'serieColor' }}
+                    pointBorderColor={{ from: 'seriesColor' }}
                     pointLabelYOffset={-12}
                     enableTouchCrosshair={true}
                     useMesh={true}
