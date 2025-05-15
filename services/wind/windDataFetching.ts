@@ -45,18 +45,21 @@ export async function fetchAllWindData(): Promise<WindData> {
         labuseGenericData,
     ] = await Promise.all([
         fetchWindHistoryFromGrafana().catch((e) => {
-            console.error(e);
+            console.error('Error fetching wind history from grafana');
             return null;
         }),
         fetchLastValuesFromGrafana().catch((e) => {
+            console.error('Error fetching last values from grafana');
             console.error(e);
             return null;
         }),
         fetchOPGCmaxWind().catch((e) => {
+            console.error('Error fetching OPGC max wind');
             console.error(e);
             return null;
         }),
         fetchHolfuyHistory().catch((e) => {
+            console.error('Error fetching holfuy history');
             console.error(e);
             return null;
         }),

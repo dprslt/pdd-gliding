@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { WindData, fetchAllWindData } from 'services/wind/windDataFetching';
-import { PointTooltipProps, ResponsiveLine } from '@nivo/line';
+import { LineSeries, PointTooltipProps, ResponsiveLine } from '@nivo/line';
 import { GraphData } from 'services/opgc/apiGrafanaOPGC';
 
 import {
@@ -15,29 +15,29 @@ type SharedMeasureGraphProps = {
     windData: WindData;
 };
 
-const SpeedTooltip: React.FunctionComponent<PointTooltipProps> = ({
+const SpeedTooltip: React.FunctionComponent<PointTooltipProps<LineSeries>> = ({
     point,
 }) => {
     return (
         <BasicTooltip
             id={point.data.xFormatted}
             value={`${point.data.yFormatted} km/h  ${point.id}`}
-            color={point.serieColor}
+            color={point.seriesColor}
             enableChip
         />
     );
 };
 
-const OrientationTooltip: React.FunctionComponent<PointTooltipProps> = ({
-    point,
-}) => {
+const OrientationTooltip: React.FunctionComponent<
+    PointTooltipProps<LineSeries>
+> = ({ point }) => {
     return (
         <BasicTooltip
             id={point.data.xFormatted}
             value={`${convertDegToOrientation(point.data.y as number)} (${
                 point.data.yFormatted
             } deg) ${point.id}`}
-            color={point.serieColor}
+            color={point.seriesColor}
             enableChip
         />
     );
