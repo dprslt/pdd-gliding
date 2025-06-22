@@ -20,8 +20,10 @@ const PopupManager: React.FC = () => {
     */
 
     useEffect(() => {
-        localStorage.setItem('popup-cad', `${cadCounter + 1}`);
-        localStorage.setItem('popup-hehol', `${heholCounter + 1}`);
+        // localStorage.setItem('popup-cad', `${cadCounter + 1}`);
+        // localStorage.setItem('popup-hehol', `${heholCounter + 1}`);
+        localStorage.removeItem('popup-cad');
+        localStorage.removeItem('popup-hehol');
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -42,7 +44,7 @@ const PopupManager: React.FC = () => {
         }
     }
 
-    if (DateTime.now() < DateTime.fromISO('2025-06-30T00:00:00.000Z')) {
+    if (DateTime.now() < DateTime.fromISO('2025-06-20T00:00:00.000Z')) {
         if (heholCounter % 4 === 0) {
             return (
                 <HeholJune25Popup
