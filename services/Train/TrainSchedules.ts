@@ -54,11 +54,11 @@ export const getDayTypeOfADay = (time: Moment, config: YearConfig): DayType => {
     }
 
     if (period.status === 'TwentyExtendedOnThursday') {
-        // Closed on Monday and Thuesday
+        // Extended service on thursday for "Les nocturnes"
         if (time.weekday() === 3) {
             return 'TwentyExtended';
         } else {
-            return 'TwentyExtended';
+            return 'Twenty';
         }
     }
 

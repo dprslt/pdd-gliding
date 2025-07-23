@@ -31,18 +31,13 @@ export const PanoSchedule2025: YearConfig = {
         },
         {
             from: moment('01/07/2025', 'DD/MM/YYYY').startOf('day'),
-            to: moment('13/07/2025', 'DD/MM/YYYY').endOf('day'),
+            to: moment('27/07/2025', 'DD/MM/YYYY').endOf('day'),
             status: 'Twenty',
         },
         {
-            from: moment('14/07/2025', 'DD/MM/YYYY').startOf('day'),
-            to: moment('24/08/2025', 'DD/MM/YYYY').endOf('day'),
-            status: 'TwentyExtendedOnThursday',
-        },
-        {
-            from: moment('25/08/2025', 'DD/MM/YYYY').startOf('day'),
+            from: moment('28/07/2025', 'DD/MM/YYYY').startOf('day'),
             to: moment('31/08/2025', 'DD/MM/YYYY').endOf('day'),
-            status: 'Twenty',
+            status: 'TwentyExtendedOnThursday',
         },
         {
             from: moment('01/09/2025', 'DD/MM/YYYY').startOf('day'),

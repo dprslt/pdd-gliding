@@ -244,16 +244,25 @@ describe('Validate all days are filled for 2025', () => {
     });
 
     it('should work during the summer nights ', () => {
-        let time = moment('2025-07-17T20:50:17+02:00');
+        let time = moment('2025-07-31T20:50:17+02:00');
         expect(
             getNextTrainForADay(time, PanoSchedule2025)?.format(
                 'YYYY MM DD HH:mm'
             )
-        ).toBe('2025 07 17 21:00');
+        ).toBe('2025 07 31 21:00');
     });
 
     it('should work with the new special hours for christmas', () => {
         let time = moment('2025-12-24T15:50:17+02:00');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2025)?.format(
+                'YYYY MM DD HH:mm'
+            )
+        ).toBe(undefined);
+    });
+
+    it('should work well on extented hours but not a thursday', () => {
+        let time = moment('2025-07-30T20:50:17+02:00');
         expect(
             getNextTrainForADay(time, PanoSchedule2025)?.format(
                 'YYYY MM DD HH:mm'
