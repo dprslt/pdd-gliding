@@ -13,7 +13,7 @@ function a11yProps(index: number) {
         'aria-controls': `forecast-tab-${index}`,
     };
 }
-export const urls = ['meteoparapente', 'windy', 'meteoblue', 'more'];
+export const urls = ['meteoparapente', 'windy', 'wetter', 'meteoblue', 'more'];
 
 const useCurrentUrlIndex = (): number => {
     const pathname = usePathname();
@@ -42,8 +42,9 @@ const MeteoSubMenu: React.FC<MeteoSubMenu> = () => {
         >
             <Tab label={'MétéoParapente'} {...a11yProps(0)} />
             <Tab label={'Windy'} {...a11yProps(1)} />
-            <Tab label={'Meteogram'} {...a11yProps(2)} />
-            <Tab label={'Plus..'} {...a11yProps(3)} />
+            <Tab label={'Wetter'} {...a11yProps(2)} />
+            <Tab label={'Meteogram'} {...a11yProps(3)} />
+            <Tab label={'Plus..'} {...a11yProps(4)} />
         </Tabs>
     );
 };
