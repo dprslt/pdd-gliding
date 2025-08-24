@@ -24,6 +24,11 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
+                hostname: 'webcam.panoramiquedesdomes.fr',
+                port: '443',
+            },
+            {
+                protocol: 'https',
                 hostname: 'www.panoramiquedesdomes.fr',
                 port: '443',
             },
@@ -57,7 +62,7 @@ const nextConfig = {
             },
             {
                 source: '/pano-proxy',
-                destination: 'http://77.158.167.18:8083/zm/cgi-bin/nph-zms',
+                destination: 'https://webcam.panoramiquedesdomes.fr/nph-zms',
             },
         ];
     },
