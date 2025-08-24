@@ -24,7 +24,6 @@ const PopupManager: React.FC = () => {
         // localStorage.setItem('popup-hehol', `${heholCounter + 1}`);
         localStorage.removeItem('popup-cad');
         localStorage.removeItem('popup-hehol');
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (typeof window === undefined) {
