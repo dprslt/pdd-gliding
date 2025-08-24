@@ -20,12 +20,6 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
     return (
         <div>
             <div className="shared-measure-cards">
-                {windData.opgcLive && (
-                    <div className="meter-columns">
-                        <GenericMeterCardTitle>OPGC</GenericMeterCardTitle>
-                        <GenericMeterCard meterData={windData.opgcLive} />
-                    </div>
-                )}
                 {windData.holfuyLive && (
                     <Link
                         href={'https://holfuy.com/fr/weather/1464'}
@@ -36,6 +30,12 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                         </GenericMeterCardTitle>
                         <GenericMeterCard meterData={windData.holfuyLive} />
                     </Link>
+                )}
+                {windData.opgcLive && (
+                    <div className="meter-columns">
+                        <GenericMeterCardTitle>OPGC</GenericMeterCardTitle>
+                        <GenericMeterCard meterData={windData.opgcLive} />
+                    </div>
                 )}
                 {/* {windData.labuseLive && (
                     <Link
