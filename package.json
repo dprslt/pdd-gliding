@@ -7,7 +7,8 @@
         "build": "next build",
         "start": "next start --port 4004",
         "test": "jest --watch",
-        "lint": "next lint",
+        "lint": "eslint .",
+        "typecheck": "tsc --noEmit",
         "postbuild": "next-sitemap"
     },
     "dependencies": {
@@ -40,6 +41,8 @@
         "uuid": "^11.1.0"
     },
     "devDependencies": {
+        "@eslint/eslintrc": "^3.3.1",
+        "@eslint/js": "^9.34.0",
         "@types/jest": "^29.5.14",
         "@types/luxon": "^3.6.2",
         "@types/node": "22.15.18",
