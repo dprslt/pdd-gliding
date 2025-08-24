@@ -10,7 +10,7 @@ import styled from '@emotion/styled';
 
 const CustomTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
+))(() => ({
     [`& .${tooltipClasses.tooltip}`]: {
         backgroundColor: '#ba1829',
         color: 'white',
@@ -34,7 +34,7 @@ const InstallPWAButton: React.FC = () => {
         }, 5000);
     }, []);
 
-    const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+    const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
     const [isInstallable, setIsInstallable] = useState(false);
 
     useEffect(() => {
@@ -42,7 +42,7 @@ const InstallPWAButton: React.FC = () => {
             // Prevent Chrome 67 and earlier from automatically showing the prompt
             // e.preventDefault();
             // Stash the event so it can be triggered later
-            setDeferredPrompt(e);
+            setDeferredPrompt(e as BeforeInstallPromptEvent);
             setIsInstallable(true);
         };
 
@@ -66,7 +66,7 @@ const InstallPWAButton: React.FC = () => {
         deferredPrompt.prompt();
 
         // Wait for the user to respond to the prompt
-        const { outcome } = await deferredPrompt.userChoice;
+        await deferredPrompt.userChoice;
 
         // We no longer need the prompt. Clear it up
         setDeferredPrompt(null);

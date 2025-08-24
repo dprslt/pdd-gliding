@@ -10,7 +10,6 @@ import {
     faArrowsUpToLine,
     faClock,
     faFlaskVial,
-    faMinus,
 } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { mergeClasses } from 'utils/StyleHelper';

@@ -14,7 +14,7 @@ import { mergeClasses } from 'utils/StyleHelper';
 
 const CustomTooltip = styled(({ className, ...props }: TooltipProps) => (
     <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
+))(() => ({
     [`& .${tooltipClasses.tooltip}`]: {
         backgroundColor: '#ffcb1e',
         // backgroundColor: '#ba1829',

@@ -3,11 +3,6 @@ import GenericMeterCard from '../GenericMeters/GenericMeterCard';
 import { fetchAllWindData } from 'services/wind/windDataFetching';
 import SharedMeasureGraph from './SharedMeasureGraph';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faArrowUpRightFromSquare,
-    faFlaskVial,
-} from '@fortawesome/free-solid-svg-icons';
 
 import './sharedMeasure.scss';
 import GenericMeterCardTitle from '../GenericMeters/GenericMeterCardTitle';

@@ -33,10 +33,10 @@ const PictureFromOPGC: React.FC = () => {
         canvasDate.height = heightDate;
         const ctxDate = canvasDate.getContext('2d');
 
-        var reader = new FileReader();
+        const reader = new FileReader();
         reader.onload = function (e) {
             if (e.target && ctxMeteo && ctxDate) {
-                var img = new Image();
+                const img = new Image();
                 img.onload = function () {
                     ctxMeteo.drawImage(
                         img,
@@ -70,7 +70,7 @@ const PictureFromOPGC: React.FC = () => {
                 }
             }
         };
-        var request = new XMLHttpRequest();
+        const request = new XMLHttpRequest();
         request.open('GET', '/opgc-proxy', true);
         request.responseType = 'blob';
         request.onload = function () {

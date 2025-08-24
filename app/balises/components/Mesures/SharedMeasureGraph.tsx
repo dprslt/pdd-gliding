@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { WindData, fetchAllWindData } from 'services/wind/windDataFetching';
+import { WindData } from 'services/wind/windDataFetching';
 import { LineSeries, PointTooltipProps, ResponsiveLine } from '@nivo/line';
 import { GraphData } from 'services/opgc/apiGrafanaOPGC';
 

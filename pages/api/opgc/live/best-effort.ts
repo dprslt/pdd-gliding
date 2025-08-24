@@ -28,7 +28,7 @@ export default async function FetchOPGC(
         }),
     ]);
 
-    var opgcData = opgcDataFromGrafana;
+    let opgcData = opgcDataFromGrafana;
 
     // First Fallback try to get last file
     if (!opgcData) {

@@ -15,7 +15,7 @@ import {
 import PictureFromOPGC from './PictureFromOPGC';
 import { DateTime } from 'luxon';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkSlash, faWarning } from '@fortawesome/free-solid-svg-icons';
+import { faLinkSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default async function RawMeterOPGC() {
     const [grafanadata, opgcDataFromGrafana, maxWind] = await Promise.all([
@@ -35,7 +35,7 @@ export default async function RawMeterOPGC() {
 
     // const opgcdata = await buildOPGCDataFromFiles();
 
-    var opgcData = opgcDataFromGrafana;
+    let opgcData = opgcDataFromGrafana;
 
     // First Fallback try to get last file
     if (!opgcData) {
