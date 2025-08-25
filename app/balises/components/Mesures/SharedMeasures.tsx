@@ -3,11 +3,6 @@ import GenericMeterCard from '../GenericMeters/GenericMeterCard';
 import { fetchAllWindData } from 'services/wind/windDataFetching';
 import SharedMeasureGraph from './SharedMeasureGraph';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faArrowUpRightFromSquare,
-    faFlaskVial,
-} from '@fortawesome/free-solid-svg-icons';
 
 import './sharedMeasure.scss';
 import GenericMeterCardTitle from '../GenericMeters/GenericMeterCardTitle';
@@ -20,12 +15,6 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
     return (
         <div>
             <div className="shared-measure-cards">
-                {windData.opgcLive && (
-                    <div className="meter-columns">
-                        <GenericMeterCardTitle>OPGC</GenericMeterCardTitle>
-                        <GenericMeterCard meterData={windData.opgcLive} />
-                    </div>
-                )}
                 {windData.holfuyLive && (
                     <Link
                         href={'https://holfuy.com/fr/weather/1464'}
@@ -36,6 +25,12 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                         </GenericMeterCardTitle>
                         <GenericMeterCard meterData={windData.holfuyLive} />
                     </Link>
+                )}
+                {windData.opgcLive && (
+                    <div className="meter-columns">
+                        <GenericMeterCardTitle>OPGC</GenericMeterCardTitle>
+                        <GenericMeterCard meterData={windData.opgcLive} />
+                    </div>
                 )}
                 {/* {windData.labuseLive && (
                     <Link

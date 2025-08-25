@@ -57,6 +57,11 @@ export async function fetchLastValuesFromGrafana(): Promise<OPGCValues | null> {
 
     const serieData = grafanaResponse.results['A'].frames[0].data.values;
 
+    if (!serieData?.[0]?.[0]) {
+        console.error(grafanaResponse);
+        return null;
+    }
+
     const datetime = DateTime.fromMillis(serieData[0][0]);
 
     if (!datetime.isValid) {
@@ -100,7 +105,7 @@ export type OPGCWindHistory = {
     wind: GraphData;
     orientation: GraphData;
 };
-export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory> {
+export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory | null> {
     // Lock query range to the beginning of the last minute to improve cache hit
     const time = DateTime.now().startOf('minute');
     const query = {
@@ -111,6 +116,11 @@ export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory> {
     };
 
     const grafanaResponse = await askGrafana<any>(query);
+
+    if (!grafanaResponse.results['B']?.frames[0]?.data?.values[0]) {
+        console.error(grafanaResponse);
+        return null;
+    }
 
     return {
         wind: {

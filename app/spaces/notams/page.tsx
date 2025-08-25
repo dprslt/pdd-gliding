@@ -1,10 +1,7 @@
 import {
     faCross,
-    faFlaskVial,
-    faPersonDigging,
-    faPlaneCircleCheck,
 } from '@fortawesome/free-solid-svg-icons';
-import React, { useState } from 'react';
+import React from 'react';
 
 import spacesStyles from '../spaces.module.scss';
 import {

@@ -1,4 +1,3 @@
-import { faTrainTram } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import TrainNextOneToday from './components/TrainNextOneToday';
 import TrainScheduleLink from './components/TrainScheduleLink';

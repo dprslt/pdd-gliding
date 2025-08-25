@@ -1,4 +1,3 @@
-import { faPlaneCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import TmaInfos from './TmaInfos';
 

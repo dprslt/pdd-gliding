@@ -1,10 +1,8 @@
 import React from 'react';
 import MeteoSubPage from '../MeteoSubPage';
-import { faEarthEurope } from '@fortawesome/free-solid-svg-icons';
 import MetOfficeLink from '../components/MetOfficeUK';
 import MultiModelLink from '../components/MeteoBlueMultimodel';
 
-import forecastStyle from 'styles/SubPage.module.scss';
 import MetoBlueMapLink from '../components/MetoBlueMapLink';
 
 export const metadata = {

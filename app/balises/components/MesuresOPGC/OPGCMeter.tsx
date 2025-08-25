@@ -3,7 +3,6 @@ import {
     faTemperatureThreeQuarters,
     faDroplet,
     faScaleUnbalanced,
-    faWind,
     faCompass,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

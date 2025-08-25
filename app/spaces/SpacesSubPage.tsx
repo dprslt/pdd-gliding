@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import MainMenu from '../../components/layout/MainMenu';
 import SpacesSubMenu from './SpacesSubMenu';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { mergeClasses } from '../../utils/StyleHelper';
 import PageTitle from '../../components/layout/PageTitle';
 import SubPageStyles from 'styles/SubPage.module.scss';

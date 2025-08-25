@@ -42,7 +42,7 @@ const MeteoSubMenu: React.FC<MeteoSubMenu> = () => {
         >
             <Tab label={'MétéoParapente'} {...a11yProps(0)} />
             <Tab label={'Windy'} {...a11yProps(1)} />
-            <Tab label={'Wetter'} {...a11yProps(2)} />
+            {/* <Tab label={'Wetter'} {...a11yProps(2)} /> */}
             <Tab label={'Meteogram'} {...a11yProps(3)} />
             <Tab label={'Plus..'} {...a11yProps(4)} />
         </Tabs>

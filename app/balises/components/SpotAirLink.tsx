@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 import sportAirLogo from './spotair-logo.png';
 import LinkElement from '../../../components/layout/linkElement/LinkElement';

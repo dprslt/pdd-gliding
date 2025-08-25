@@ -1,6 +1,6 @@
 'use client';
 
-import moment, { Moment } from 'moment';
+import { Moment } from 'moment';
 import { default as ReactMoment } from 'react-moment';
 import React, { useEffect, useState } from 'react';
 import { PanoSchedule2025 } from '../../../services/Train/configs/2025';
@@ -27,7 +27,7 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
     const [nextDay, setNextDay] = useState(false);
 
     useEffect(() => {
-        var momentToUse = nowMoment;
+        let momentToUse = nowMoment;
         if (nextDay) {
             momentToUse = nowMoment.clone().add(1, 'day').startOf('day');
         }

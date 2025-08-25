@@ -1,7 +1,5 @@
 import React from 'react';
 import Popup from '../Popup';
-import LinkElement from 'components/layout/linkElement/LinkElement';
-
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneCircleCheck } from '@fortawesome/free-solid-svg-icons';

@@ -8,7 +8,7 @@ import {
     faCloudSun,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Tabs, Tab } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 
 import styles from '../../styles/MobileTabs.module.scss';

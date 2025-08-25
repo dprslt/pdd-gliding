@@ -1,9 +1,6 @@
-import { faCameraRetro } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import CezeauxWebcam from './components/CezeauxWebcam';
 import GolfVolcansWebcam from './components/GolfWebcam';
-import LiveWebcam from './components/LiveWebcam';
-import MeteovergneWebcam from './components/MeteovergneWebcam';
 import OrcinesWebcam from './components/OrcinesWebcam';
 import SommetWebcam from './components/SommetWebcam';
 import AppPage from '../../components/layout/AppPage';
