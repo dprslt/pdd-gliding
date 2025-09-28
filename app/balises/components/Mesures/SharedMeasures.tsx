@@ -23,7 +23,7 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                         <GenericMeterCardTitle hasLink>
                             Holfuy PDD Nord (1464)
                         </GenericMeterCardTitle>
-                        <GenericMeterCard meterData={windData.holfuyLive} />
+                        <GenericMeterCard meterData={windData.holfuyLive} color={'#ffcb1e'} />
                     </Link>
                 )}
                 {windData.opgcLive && (
