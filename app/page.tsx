@@ -6,4 +6,11 @@ import BalisesPage, { metadata as balisesMeta } from './balises/page';
 export const metadata = {
     ...balisesMeta,
 };
-export default BalisesPage;
+
+export const revalidate = 60; 
+const MainPage = () => {
+    return (
+        <BalisesPage />
+    );
+};
+export default MainPage;
