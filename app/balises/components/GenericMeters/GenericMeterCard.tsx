@@ -17,12 +17,13 @@ import './genericMeterCard.scss';
 
 type GenericMeterCardProps = {
     meterData: GenericWindMeasurement;
+    color?: string;
 };
 
 const convertWindOrientationToIconRotation = (direction: number): number =>
     -45 + direction + 180;
 
-const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData }) => {
+const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData, color }) => {
     return (
         <div className={'balise-infos-card'}>
             <div className={'balise-infos-card--container'}>
@@ -35,6 +36,7 @@ const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData }) => {
                                     meterData.wind.direction
                                 ),
                             }}
+                            style={{ color }}
                         />
                     </div>
                     <div className={'balise-infos-card--wind-min'}>
@@ -42,7 +44,7 @@ const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData }) => {
                             <>min. {Math.round(meterData.wind.min)} km/h</>
                         )}
                     </div>
-                    <div className={'balise-infos-card--wind-speed'}>
+                    <div className={'balise-infos-card--wind-speed'} >
                         {Math.round(meterData.wind.speed)} km/h
                     </div>
                     {meterData.wind.gust !== undefined && (
