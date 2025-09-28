@@ -29,7 +29,7 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
         emptyPathMeanActive: emptyPathMeanActive,
         pathnameLength: pathname?.length,
         startsWithHref: pathname?.startsWith(href),
-        lengthLessThanOne: pathname?.length <= 1,
+        lengthLessThanOne: pathname?.length! <= 1,
         isActive: isActive,
     });
     return (
