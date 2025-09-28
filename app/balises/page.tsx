@@ -12,6 +12,7 @@ import FfvlBalisesMetoDotCom from './components/FfvlBalisesMeteoDotCom';
 import FooterThanks from 'app/_components/FooterThank';
 import InstallPWAButton from 'components/InstallPWAButton';
 import { ShareIconButton } from 'components/ShareIconButton';
+import RefreshButton from 'components/RefreshButton';
 import TrainBrokenBanner from 'app/_components/train-broken-banner';
 type BalisesPageProps = {};
 
@@ -30,6 +31,8 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             pageTitleLeftItem={<SupportPageHeaderLink />}
             pageTitleRightItem={
                 <>
+                
+                    <RefreshButton />
                     <InstallPWAButton />
                     <ShareIconButton />
                 </>
