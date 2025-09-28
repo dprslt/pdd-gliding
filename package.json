@@ -3,8 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --port 4000",
-        "build": "next build",
+        "dev": "next dev --port 4000 --turbopack",
+        "build": "next build --turbopack",
         "start": "next start --port 4004",
         "test": "jest --watch",
         "lint": "eslint .",
