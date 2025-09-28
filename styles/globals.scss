@@ -51,6 +51,7 @@ a {
         display: flex;
         flex-direction: row;
         overflow: hidden;
+        flex-shrink: 0;
         .warn {
             background-color: colors.$primary;
             color: white;
