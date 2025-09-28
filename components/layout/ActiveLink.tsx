@@ -32,6 +32,7 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
         lengthLessThanOne: pathname?.length! <= 1,
         isActive: isActive,
     });
+    console.log("ActiveLink Debug - enabledClass:", enabledClass);
     return (
         <Link
             href={href}
