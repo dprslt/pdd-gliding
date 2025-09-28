@@ -23,12 +23,15 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
         (pathname?.startsWith(href) ||
             (emptyPathMeanActive && pathname?.length <= 1));
 
-    console.log("pathname", pathname);
-    console.log("href", href);
-    console.log("isActive", isActive);
-    console.log("enabledClass", enabledClass);
-    console.log("emptyPathMeanActive", emptyPathMeanActive);
-    console.log("pathname.length", pathname?.length);
+    console.log("ActiveLink Debug:", {
+        pathname: pathname,
+        href: href,
+        emptyPathMeanActive: emptyPathMeanActive,
+        pathnameLength: pathname?.length,
+        startsWithHref: pathname?.startsWith(href),
+        lengthLessThanOne: pathname?.length <= 1,
+        isActive: isActive,
+    });
     return (
         <Link
             href={href}
