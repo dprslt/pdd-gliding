@@ -1,11 +1,12 @@
 import {
     faCross,
 } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 import spacesStyles from '../spaces.module.scss';
 import {
     fetchNOTAMForRoute,
+    NOTAMstructure,
     PDDNorthSouthRoute,
 } from 'services/spaces/sofiaNotam';
 import NotamCard from './components/notamsCard/NotamCard';

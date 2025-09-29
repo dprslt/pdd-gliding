@@ -170,6 +170,27 @@
     }
 }
 
+.notam-card.notam-card__highlighted {
+    // border: solid 1px colors.$gold;
+    // border-radius: 1em;
+
+    border-left: solid 4px colors.$gold;
+
+    .notam-validity-prefix,
+    .fieldD-UTC-badge {
+        background-color: colors.$gold!important;
+        .svg-inline--fa {
+            color: colors.$onPrimary!important;
+        }
+        // color: colors.$onGold;
+    }
+
+    .svg-inline--fa {
+        color: colors.$gold!important;
+    }
+    
+}
+
 .notam-card.notam-card__open {
     .notam-card-action {
         button {

@@ -11,7 +11,7 @@ import {
     faClock,
     faFlaskVial,
 } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { mergeClasses } from 'utils/StyleHelper';
 import { Button } from '@mui/material';
 import { DateTime } from 'luxon';
@@ -26,11 +26,24 @@ export default function NotamCard({ notam }: NotamCardProps) {
 
     const [showLocaleTime, setShowLocaleTime] = useState(false);
 
+    const isHighlighted = useMemo(() => {
+        const upperBody = notam.multiLanguage.itemE.toLocaleUpperCase();
+        return (
+            upperBody.includes('R-68') ||
+            upperBody.includes('R 68') ||
+            upperBody.includes('R68') ||
+            upperBody.includes('R-368') ||
+            upperBody.includes('R 368') ||
+            upperBody.includes('R368')
+        );
+    }, [notam]);
+
     return (
         <div
             className={mergeClasses(
                 'notam-card',
-                isOpen ? 'notam-card__open' : null
+                isOpen ? 'notam-card__open' : null,
+                isHighlighted ? 'notam-card__highlighted' : null
             )}
         >
             <div className="notam-card-container-heading">
@@ -44,11 +57,11 @@ export default function NotamCard({ notam }: NotamCardProps) {
                             <div className="notam-validity-content">
                                 {DateTime.fromISO(notam.startValidity)
                                     .setZone('Europe/Paris')
-                                    .toFormat('dd/MM/yy HH:mm')}
+                                    .toFormat('dd/MM HH:mm')}
                                 <FontAwesomeIcon icon={faArrowRight} />
                                 {DateTime.fromISO(notam.endValidity)
                                     .setZone('Europe/Paris')
-                                    .toFormat('dd/MM/yy HH:mm')}
+                                    .toFormat('dd/MM HH:mm')}
                             </div>
                         </div>
 
@@ -97,11 +110,11 @@ export default function NotamCard({ notam }: NotamCardProps) {
                         <pre>{notam.multiLanguage.itemE}</pre>
                     </div>
                 </div>
-                <div className="notam-card-action">
+                {/* <div className="notam-card-action">
                     <Button onClick={() => setIsOpen(!isOpen)}>
                         <FontAwesomeIcon icon={faAngleDoubleDown} />
                     </Button>
-                </div>
+                </div> */}
             </div>
 
             <div className={mergeClasses('notam-card-container-unroll')}>
