@@ -10,7 +10,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function FetchOPGC(
     req: NextApiRequest,
-    res: NextApiResponse<OPGCValues & OPGCMaxWindValues>
+    res: NextApiResponse<OPGCValues & OPGCMaxWindValues>,
 ) {
     const values = await fetchOPGCValues();
     const vmax = await fetchOPGCmaxWind();

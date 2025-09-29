@@ -67,7 +67,7 @@ export default async function OPGCMeter({ opgcData, maxWind }: OpgcMeterProps) {
                         <FontAwesomeIcon icon={faCompass} />
                         <div className="meter-value">
                             {convertDegToOrientation(
-                                opgcData.windAngularDirection
+                                opgcData.windAngularDirection,
                             )}
                             <span className="meter-unit">
                                 {opgcData.windAngularDirection} &deg;

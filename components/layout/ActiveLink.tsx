@@ -24,7 +24,7 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
     // This ensures the `className` is applied only after the component has fully mounted
     // and the client-side `pathname` is stable.
     const [computedClassName, setComputedClassName] = useState('');
-    
+
     useEffect(() => {
         const isActive =
             pathname &&
@@ -34,11 +34,7 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
     }, [pathname, href, emptyPathMeanActive, enabledClass]);
 
     return (
-        <Link
-            href={href}
-            className={computedClassName}
-            aria-label={ariaLabel}
-        >
+        <Link href={href} className={computedClassName} aria-label={ariaLabel}>
             {children}
         </Link>
     );

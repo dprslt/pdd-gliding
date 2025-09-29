@@ -62,7 +62,7 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
                 <button
                     className={mergeClasses(
                         nextDay ? '' : trainStyle['scedule-button--active'],
-                        trainStyle['next-day-scedule-button']
+                        trainStyle['next-day-scedule-button'],
                     )}
                     onClick={() => setNextDay(false)}
                 >
@@ -71,7 +71,7 @@ const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
                 <button
                     className={mergeClasses(
                         nextDay ? trainStyle['scedule-button--active'] : '',
-                        trainStyle['next-day-scedule-button']
+                        trainStyle['next-day-scedule-button'],
                     )}
                     onClick={() => setNextDay(true)}
                 >

@@ -32,7 +32,7 @@ const CustomTooltip = styled(({ className, ...props }: TooltipProps) => (
 
 const SupportPageHeaderLink: React.FC = () => {
     const [isTooltipOpen, setTooltipStatus] = useState<boolean | undefined>(
-        true
+        true,
     );
     useEffect(() => {
         setTimeout(() => {
@@ -45,7 +45,7 @@ const SupportPageHeaderLink: React.FC = () => {
             className={mergeClasses(
                 pageTitleStyle.icon,
                 pageTitleStyle.headerElement,
-                buttonStyle.supportHeaderLink
+                buttonStyle.supportHeaderLink,
             )}
             id="support-header-button"
         >

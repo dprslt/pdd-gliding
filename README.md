@@ -12,28 +12,27 @@ Ce site est dévellopé en autonomie et n'est pas affilié à la FFVL.
 
 ## Fonctionnalités
 
--   **Données Météo en Temps Réel** :
+- **Données Météo en Temps Réel** :
+    - Station météo OPGC (Observatoire de Physique du Globe de Clermont-Ferrand)
+    - Station Holfuy PDD Nord (1464)
+    - Vitesse et direction du vent, température et conditions atmosphériques
+    - Intégration de différentes sources de prévisions : [MétéoParapente](https://meteo-parapente.com/#/), [Windy](https://www.windy.com/), [MeteoBlue](https://www.meteoblue.com/fr)
 
-    -   Station météo OPGC (Observatoire de Physique du Globe de Clermont-Ferrand)
-    -   Station Holfuy PDD Nord (1464)
-    -   Vitesse et direction du vent, température et conditions atmosphériques
-    -   Intégration de différentes sources de prévisions : [MétéoParapente](https://meteo-parapente.com/#/), [Windy](https://www.windy.com/), [MeteoBlue](https://www.meteoblue.com/fr)
-
--   **Informations de Vol** :
-    -   Horaires du train Panoramique des Dômes
-    -   Flux des webcams
-    -   Réglementation aérienne dans la région
-    -   NOTAM et Supaip
-    -   Stations météo à proximité
+- **Informations de Vol** :
+    - Horaires du train Panoramique des Dômes
+    - Flux des webcams
+    - Réglementation aérienne dans la région
+    - NOTAM et Supaip
+    - Stations météo à proximité
 
 ## Stack Technologique
 
--   **Frontend** : Next.js
--   **Style** : SASS/SCSS
--   **Visualisation de Données** : Nivo charts
--   **Icônes** : Font Awesome
--   **Gestion Date/Heure** : Luxon
--   **Language** : TypeScript
+- **Frontend** : Next.js
+- **Style** : SASS/SCSS
+- **Visualisation de Données** : Nivo charts
+- **Icônes** : Font Awesome
+- **Gestion Date/Heure** : Luxon
+- **Language** : TypeScript
 
 ## Comment installer l'application
 
@@ -51,8 +50,8 @@ Les contributions sont les bienvenues ! N'hésitez pas à soumettre une Pull Req
 
 #### Prérequis
 
--   Node.js
--   npm ou yarn
+- Node.js
+- npm ou yarn
 
 #### Installation
 
@@ -87,16 +86,16 @@ Pour le reste, vous pouvez vous référer à la documentation de [NextJs](https:
 
 Un grand merci à :
 
--   Freedom Parapente pour leur soutien
--   OPGC pour la fourniture des données météorologiques
--   Tous les donateurs qui aident à maintenir ce site en activité
+- Freedom Parapente pour leur soutien
+- OPGC pour la fourniture des données météorologiques
+- Tous les donateurs qui aident à maintenir ce site en activité
 
 ## Contact
 
 Pour toute question ou suggestion, veuillez contacter :
 
--   Email : contact@dprslt.fr
--   Site web : https://pdd.dprslt.fr
+- Email : contact@dprslt.fr
+- Site web : https://pdd.dprslt.fr
 
 ## Ca vous plait ?
 

@@ -84,7 +84,7 @@ export type NotamResponse = {
 };
 
 export async function fetchNOTAMForRoute(
-    config: SofiaNotamRouteParams
+    config: SofiaNotamRouteParams,
 ): Promise<NotamResponse | null> {
     const date = DateTime.now().setZone('Europe/Paris').startOf('hour');
 
@@ -116,13 +116,13 @@ export async function fetchNOTAMForRoute(
     headers.append('Accept', 'application/json, text/javascript, */*; q=0.01');
     headers.append(
         'Referer',
-        'https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/notamform.html'
+        'https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/notamform.html',
     );
     headers.append('X-Requested-With', 'XMLHttpRequest');
     headers.append('Origin', 'https://sofia-briefing.aviation-civile.gouv.fr');
     headers.append(
         'Content-Type',
-        'application/x-www-form-urlencoded; charset=UTF-8'
+        'application/x-www-form-urlencoded; charset=UTF-8',
     );
 
     // get a cookie for the session
@@ -133,7 +133,7 @@ export async function fetchNOTAMForRoute(
             next: {
                 revalidate: 600,
             },
-        }
+        },
     );
 
     const cookie = r.headers.getSetCookie()[0];
@@ -150,7 +150,7 @@ export async function fetchNOTAMForRoute(
             next: {
                 revalidate: 600,
             },
-        }
+        },
     );
 
     try {
@@ -172,9 +172,9 @@ export async function fetchNOTAMForRoute(
                             aerodromes.sortedNotamsByPurpose.forEach(
                                 (purpose: any) => {
                                     FIRNOTAMS.push(...purpose.notam);
-                                }
+                                },
                             );
-                        }
+                        },
                     );
                     // console.log(JSON.stringify(notamImpated, null, 2));
                 });

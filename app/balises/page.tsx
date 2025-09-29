@@ -20,8 +20,7 @@ export const metadata = {
     title: 'Puy de dôme Parapente : Balises',
 };
 
-export const revalidate = 60; 
-
+export const revalidate = 60;
 
 const BalisesPage: React.FC<BalisesPageProps> = () => {
     return (
@@ -31,14 +30,13 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
             pageTitleLeftItem={<SupportPageHeaderLink />}
             pageTitleRightItem={
                 <>
-                
                     <RefreshButton />
                     <InstallPWAButton />
                     <ShareIconButton />
                 </>
             }
         >
-            <TrainBrokenBanner />   
+            <TrainBrokenBanner />
             {/* <WarningHelico /> */}
             <SharedMeasure />
             {/*

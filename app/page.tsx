@@ -7,10 +7,8 @@ export const metadata = {
     ...balisesMeta,
 };
 
-export const revalidate = 60; 
+export const revalidate = 60;
 const MainPage = () => {
-    return (
-        <BalisesPage />
-    );
+    return <BalisesPage />;
 };
 export default MainPage;

@@ -178,17 +178,16 @@
 
     .notam-validity-prefix,
     .fieldD-UTC-badge {
-        background-color: colors.$gold!important;
+        background-color: colors.$gold !important;
         .svg-inline--fa {
-            color: colors.$onPrimary!important;
+            color: colors.$onPrimary !important;
         }
         // color: colors.$onGold;
     }
 
     .svg-inline--fa {
-        color: colors.$gold!important;
+        color: colors.$gold !important;
     }
-    
 }
 
 .notam-card.notam-card__open {

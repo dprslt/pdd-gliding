@@ -26,7 +26,7 @@ export type YearConfig = {
 
 export const foundCurrentPeriod = (
     time: Moment,
-    periods: Array<Period>
+    periods: Array<Period>,
 ): Period => {
     for (let period of periods) {
         if (time.isSameOrAfter(period.from) && time.isBefore(period.to)) {
@@ -67,14 +67,14 @@ export const getDayTypeOfADay = (time: Moment, config: YearConfig): DayType => {
 
 export const getNextTrainForADay = (
     day: Moment,
-    config: YearConfig
+    config: YearConfig,
 ): Moment | null => {
     return getNextTrainsOfADay(day, config)[0] || null;
 };
 
 export const getAllTrainsOfADay = (
     day: Moment,
-    config: YearConfig
+    config: YearConfig,
 ): Array<Moment> => {
     const type = getDayTypeOfADay(day, config);
     switch (type) {
@@ -97,7 +97,7 @@ export const getAllTrainsOfADay = (
 
 export const getNextTrainsOfADay = (
     day: Moment,
-    config: YearConfig
+    config: YearConfig,
 ): Array<Moment> => {
     const scheduleOfDay = getAllTrainsOfADay(day, config);
     return scheduleOfDay.filter((train: Moment) => train.isSameOrAfter(day));
@@ -110,7 +110,7 @@ const generateSchedule = (
     startHour: number,
     startMinutes: number,
     endHour: number,
-    endMinutes: number
+    endMinutes: number,
 ): Array<Moment> => {
     const start = moment(day)
         .hours(startHour)

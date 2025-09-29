@@ -9,10 +9,10 @@ const PopupManager: React.FC = () => {
     const [seed, setSeed] = React.useState(0);
 
     const cadCounter = Number.parseInt(
-        localStorage.getItem('popup-cad') || '0'
+        localStorage.getItem('popup-cad') || '0',
     );
     const heholCounter = Number.parseInt(
-        localStorage.getItem('popup-hehol') || '0'
+        localStorage.getItem('popup-hehol') || '0',
     );
 
     /*
@@ -50,7 +50,7 @@ const PopupManager: React.FC = () => {
                     onClose={() => {
                         localStorage.setItem(
                             'popup-hehol',
-                            `${heholCounter + 1}`
+                            `${heholCounter + 1}`,
                         );
                         setSeed(seed + 1);
                     }}

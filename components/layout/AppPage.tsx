@@ -1,9 +1,7 @@
 'use client';
 
 import React, { ReactNode } from 'react';
-import {
-    IconDefinition,
-} from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import MainMenu from './MainMenu';
 import PageTitle from './PageTitle';
 import { mergeClasses } from '../../utils/StyleHelper';

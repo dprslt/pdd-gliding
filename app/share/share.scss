@@ -15,7 +15,9 @@
         padding: 0;
         cursor: pointer;
 
-        transition: opacity 0.2s, border-radius 0.2s;
+        transition:
+            opacity 0.2s,
+            border-radius 0.2s;
 
         &:active {
             opacity: 0.8;

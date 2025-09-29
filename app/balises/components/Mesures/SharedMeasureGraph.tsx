@@ -69,7 +69,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             // windData.graph.windSpeed.holfuyMax,
                             // windData.graph.windSpeed.holfuyMin,
                         ].filter(
-                            (e) => e != undefined && e.data.length > 0
+                            (e) => e != undefined && e.data.length > 0,
                         ) as Array<GraphData>
                     }
                     margin={{ top: 30, right: 50, bottom: 30, left: 10 }}
@@ -134,7 +134,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             windData.graph.windDirection.holfuy,
                             // windData.graph.windDirection.labuse,
                         ].filter(
-                            (e) => e != undefined && e.data.length > 0
+                            (e) => e != undefined && e.data.length > 0,
                         ) as Array<GraphData>
                     }
                     margin={{ top: 30, right: 50, bottom: 30, left: 10 }}

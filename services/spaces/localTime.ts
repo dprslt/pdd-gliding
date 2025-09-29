@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 export function translateUTCRangetoLocalInMessage(
     message: string,
-    currentTime: DateTime
+    currentTime: DateTime,
 ): ReactNode {
     if (!message) {
         return message;

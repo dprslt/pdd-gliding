@@ -23,7 +23,7 @@ const LinkElement: React.FC<LinkElementProps> = ({
             <div
                 className={mergeClasses(
                     'link-element',
-                    linkElementStyle['link-element']
+                    linkElementStyle['link-element'],
                 )}
             >
                 <Image

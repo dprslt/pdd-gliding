@@ -3,7 +3,7 @@ import qs, { ParsedQs } from 'qs';
 import { usePathname } from 'next/navigation';
 
 export const objectToQueryString = (
-    object: Record<string, string | number | undefined>
+    object: Record<string, string | number | undefined>,
 ): string => `?${qs.stringify(object)}`;
 
 export const queryStringToObject = (queryString: string): ParsedQs => {

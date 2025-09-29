@@ -4,7 +4,7 @@ import { OPGCValues, OPGCMaxWindValues } from './apiGrafanaOPGC';
 export async function fetchOPGCValues(): Promise<OPGCValues> {
     const request = await fetch(
         'https://wwwobs.univ-bpclermont.fr/observ/chimie/pdd.txt',
-        { next: { revalidate: 60 } }
+        { next: { revalidate: 60 } },
     );
 
     const text = await request.text();
@@ -49,7 +49,7 @@ export async function fetchOPGCValues(): Promise<OPGCValues> {
 export async function fetchOPGCmaxWind(): Promise<OPGCMaxWindValues> {
     const request = await fetch(
         'https://wwwobs.univ-bpclermont.fr/observ/chimie/Vmax_pdd.txt',
-        { next: { revalidate: 60 } }
+        { next: { revalidate: 60 } },
     );
 
     const text = await request.text();

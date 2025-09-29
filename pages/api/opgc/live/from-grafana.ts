@@ -10,7 +10,7 @@ type ErrorPayload = {
 
 export default async function FetchOPGC(
     req: NextApiRequest,
-    res: NextApiResponse<OPGCValues | ErrorPayload>
+    res: NextApiResponse<OPGCValues | ErrorPayload>,
 ) {
     const values = await fetchLastValuesFromGrafana();
 

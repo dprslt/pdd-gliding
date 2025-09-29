@@ -1,12 +1,12 @@
 type UserChoice = Promise<{
-outcome: 'accepted' | 'dismissed';
-platform: string;
+    outcome: 'accepted' | 'dismissed';
+    platform: string;
 }>;
-  
+
 interface BeforeInstallPromptEvent extends Event {
     readonly platforms: string[];
     readonly userChoice: Promise<{
-        outcome: "accepted" | "dismissed";
+        outcome: 'accepted' | 'dismissed';
         platform: string;
     }>;
     prompt(): Promise<void>;
@@ -17,4 +17,3 @@ declare global {
         beforeinstallprompt: BeforeInstallPromptEvent;
     }
 }
-  

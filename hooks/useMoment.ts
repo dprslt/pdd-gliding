@@ -7,7 +7,7 @@ export const useMoment = (refreshRateSeconds: number = 5): Moment => {
     useEffect(() => {
         const interval = setInterval(
             () => setTime(moment()),
-            refreshRateSeconds * 1000
+            refreshRateSeconds * 1000,
         );
         return () => clearInterval(interval);
     });

@@ -15,7 +15,7 @@ type ErrorPayload = {
 
 export default async function FetchOPGC(
     req: NextApiRequest,
-    res: NextApiResponse<OPGCValues | ErrorPayload>
+    res: NextApiResponse<OPGCValues | ErrorPayload>,
 ) {
     const [opgcDataFromGrafana, maxWind] = await Promise.all([
         fetchLastValuesFromGrafana().catch((e) => {

@@ -15,7 +15,7 @@ const urlOPGCPdd = 'https://wwwobs.univ-bpclermont.fr/observ/chimie/PDD.jpeg';
 const PictureFromOPGC: React.FC = () => {
     const [imgDate, setImgDate] = useState<string | undefined>(undefined);
     const [croppedUrlMeteo, setCroppedUrl] = useState<string | undefined>(
-        undefined
+        undefined,
     );
 
     /**
@@ -47,7 +47,7 @@ const PictureFromOPGC: React.FC = () => {
                         0,
                         0,
                         widthMeteo,
-                        heightMeteo
+                        heightMeteo,
                     );
                     setCroppedUrl(canvasMeteo.toDataURL('image/png', 100));
                     ctxDate.drawImage(
@@ -59,7 +59,7 @@ const PictureFromOPGC: React.FC = () => {
                         0,
                         0,
                         widthDate,
-                        heightDate
+                        heightDate,
                     );
                     setImgDate(canvasDate.toDataURL('image/png', 80));
                 };

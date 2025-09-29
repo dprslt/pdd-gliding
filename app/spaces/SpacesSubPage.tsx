@@ -24,7 +24,7 @@ const SpacesSubPage: React.FC<MeteoSubPageProps> = ({
                 className={mergeClasses(
                     'mobile-content',
                     SubPageStyles['subpage-tab-page'],
-                    className
+                    className,
                 )}
             >
                 <div className={`pageContent`}>

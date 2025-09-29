@@ -86,7 +86,7 @@ export type GraphData = {
 
 export function convertOpgcMeasureToGeneric(
     measurement: OPGCValues,
-    maxValues?: OPGCMaxWindValues
+    maxValues?: OPGCMaxWindValues,
 ): GenericWindMeasurement {
     return {
         datetime: measurement.datetime,
@@ -132,7 +132,7 @@ export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory | n
                         y: grafanaResponse.results['B'].frames[0].data
                             .values[1][rank],
                     };
-                }
+                },
             ),
         },
         orientation: {
@@ -144,7 +144,7 @@ export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory | n
                         y: grafanaResponse.results['C'].frames[0].data
                             .values[1][rank],
                     };
-                }
+                },
             ),
         },
     };

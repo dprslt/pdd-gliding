@@ -1,6 +1,4 @@
-import {
-    faCross,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCross } from '@fortawesome/free-solid-svg-icons';
 import React, { useCallback, useMemo } from 'react';
 
 import spacesStyles from '../spaces.module.scss';
@@ -27,7 +25,7 @@ export default async function NotamsSpacesPage() {
         (e) => {
             console.error(e);
             return null;
-        }
+        },
     );
 
     return (
@@ -78,7 +76,7 @@ export default async function NotamsSpacesPage() {
                         <div className="notam-list">
                             {notamResponse.notams
                                 .filter((notam) =>
-                                    notam.qLine.code23.startsWith('R')
+                                    notam.qLine.code23.startsWith('R'),
                                 )
                                 .map((n) => {
                                     return <NotamCard key={n.id} notam={n} />;
@@ -89,7 +87,7 @@ export default async function NotamsSpacesPage() {
                             {notamResponse.notams
                                 .filter(
                                     (notam) =>
-                                        !notam.qLine.code23.startsWith('R')
+                                        !notam.qLine.code23.startsWith('R'),
                                 )
                                 .map((n) => {
                                     return <NotamCard key={n.id} notam={n} />;

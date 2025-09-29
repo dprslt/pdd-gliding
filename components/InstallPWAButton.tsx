@@ -25,7 +25,7 @@ const CustomTooltip = styled(({ className, ...props }: TooltipProps) => (
 
 const InstallPWAButton: React.FC = () => {
     const [isTooltipOpen, setTooltipStatus] = useState<boolean | undefined>(
-        true
+        true,
     );
 
     useEffect(() => {
@@ -34,7 +34,8 @@ const InstallPWAButton: React.FC = () => {
         }, 5000);
     }, []);
 
-    const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+    const [deferredPrompt, setDeferredPrompt] =
+        useState<BeforeInstallPromptEvent | null>(null);
     const [isInstallable, setIsInstallable] = useState(false);
 
     useEffect(() => {
@@ -48,13 +49,13 @@ const InstallPWAButton: React.FC = () => {
 
         window.addEventListener(
             'beforeinstallprompt',
-            handleBeforeInstallPrompt
+            handleBeforeInstallPrompt,
         );
 
         return () => {
             window.removeEventListener(
                 'beforeinstallprompt',
-                handleBeforeInstallPrompt
+                handleBeforeInstallPrompt,
             );
         };
     }, []);
@@ -81,7 +82,7 @@ const InstallPWAButton: React.FC = () => {
                 pageTitleStyle.icon,
                 pageTitleStyle['icon-primary'],
 
-                pageTitleStyle.headerElement
+                pageTitleStyle.headerElement,
             )}
             id="install-pwa-button"
         >

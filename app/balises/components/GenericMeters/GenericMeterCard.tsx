@@ -23,7 +23,10 @@ type GenericMeterCardProps = {
 const convertWindOrientationToIconRotation = (direction: number): number =>
     -45 + direction + 180;
 
-const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData, color }) => {
+const GenericMeterCard: React.FC<GenericMeterCardProps> = ({
+    meterData,
+    color,
+}) => {
     return (
         <div className={'balise-infos-card'}>
             <div className={'balise-infos-card--container'}>
@@ -33,7 +36,7 @@ const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData, color })
                             icon={faLocationArrow}
                             transform={{
                                 rotate: convertWindOrientationToIconRotation(
-                                    meterData.wind.direction
+                                    meterData.wind.direction,
                                 ),
                             }}
                             style={{ color }}
@@ -44,7 +47,7 @@ const GenericMeterCard: React.FC<GenericMeterCardProps> = ({ meterData, color })
                             <>min. {Math.round(meterData.wind.min)} km/h</>
                         )}
                     </div>
-                    <div className={'balise-infos-card--wind-speed'} >
+                    <div className={'balise-infos-card--wind-speed'}>
                         {Math.round(meterData.wind.speed)} km/h
                     </div>
                     {meterData.wind.gust !== undefined && (

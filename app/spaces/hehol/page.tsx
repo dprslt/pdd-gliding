@@ -13,7 +13,7 @@ export default async function TMASpacesPage() {
         <SpacesSubPage
             className={mergeClasses(
                 spacesStyles['space-tab-page'],
-                'sub-page-fullscreen'
+                'sub-page-fullscreen',
             )}
         >
             <iframe

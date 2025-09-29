@@ -15,7 +15,7 @@ export async function fetchHolfuyPdd(): Promise<any> {
             next: {
                 revalidate: 60,
             },
-        }
+        },
     );
 
     return results.json();
@@ -42,7 +42,7 @@ export type HolfuyArchiveResponse = {
 };
 
 export function convertHolfuyMeasurementToGeneric(
-    measurement: HolfuyMeasurement
+    measurement: HolfuyMeasurement,
 ): GenericWindMeasurement {
     const datetime = DateTime.fromSQL(measurement.dateTime, {
         zone: 'Europe/Paris',
@@ -76,7 +76,7 @@ export async function fetchHolfuyHistory(): Promise<Array<HolfuyMeasurement>> {
             next: {
                 revalidate: 60,
             },
-        }
+        },
     );
 
     const parsedBody = (await results.json()) as HolfuyArchiveResponse;

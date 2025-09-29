@@ -49,14 +49,14 @@ export const fetchLabuseMeasurements =
                 next: {
                     revalidate: 60 * 5,
                 },
-            }
+            },
         );
 
         return results.json();
     };
 
 export const getLabuseLiveData = async (
-    labuseMeasurement: LabuseMeasurements
+    labuseMeasurement: LabuseMeasurements,
 ): Promise<GenericWindMeasurement | null> => {
     const firstMeasurement = labuseMeasurement[0];
 
@@ -79,7 +79,7 @@ export const getLabuseLiveData = async (
 };
 
 export const getLabuseHistoricalData = async (
-    labuseMeasurement: LabuseMeasurements
+    labuseMeasurement: LabuseMeasurements,
 ): Promise<LabuseGenericWindMeasurement['history']> => {
     const filteredMeasurements = labuseMeasurement.filter((measurement) => {
         const measurementTime = new Date(measurement.timestamp);

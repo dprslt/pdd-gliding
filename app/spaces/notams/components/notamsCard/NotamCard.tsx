@@ -43,7 +43,7 @@ export default function NotamCard({ notam }: NotamCardProps) {
             className={mergeClasses(
                 'notam-card',
                 isOpen ? 'notam-card__open' : null,
-                isHighlighted ? 'notam-card__highlighted' : null
+                isHighlighted ? 'notam-card__highlighted' : null,
             )}
         >
             <div className="notam-card-container-heading">
@@ -89,7 +89,7 @@ export default function NotamCard({ notam }: NotamCardProps) {
                                 <span>
                                     {translateUTCRangetoLocalInMessage(
                                         notam.itemD,
-                                        DateTime.now()
+                                        DateTime.now(),
                                     )}
                                 </span>
                             </div>

@@ -8,36 +8,44 @@ import pageTitleStyle from './layout/pageTitle.module.scss';
 import { mergeClasses } from 'utils/StyleHelper';
 
 const RefreshButton: React.FC = () => {
-  const [isPWA, setIsPWA] = useState(false);
+    const [isPWA, setIsPWA] = useState(false);
 
-  useEffect(() => {
-    const checkPWA = () => {
-      const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-      setIsPWA(isStandalone);
+    useEffect(() => {
+        const checkPWA = () => {
+            const isStandalone = window.matchMedia(
+                '(display-mode: standalone)',
+            ).matches;
+            setIsPWA(isStandalone);
+        };
+
+        checkPWA();
+        window
+            .matchMedia('(display-mode: standalone)')
+            .addEventListener('change', checkPWA);
+
+        return () => {
+            window
+                .matchMedia('(display-mode: standalone)')
+                .removeEventListener('change', checkPWA);
+        };
+    }, []);
+
+    const handleRefresh = () => {
+        window.location.reload();
     };
 
-    checkPWA();
-    window.matchMedia('(display-mode: standalone)').addEventListener('change', checkPWA);
+    if (!isPWA) {
+        return null;
+    }
 
-    return () => {
-      window.matchMedia('(display-mode: standalone)').removeEventListener('change', checkPWA);
-    };
-  }, []);
-
-  const handleRefresh = () => {
-    window.location.reload();
-  };
-
-  if (!isPWA) {
-    return null;
-  }
-
-  return (
-    <button onClick={handleRefresh} className={mergeClasses(pageTitleStyle.icon, 
-        'raw-button')}>
-      <FontAwesomeIcon icon={faRefresh} />
-    </button>
-  );
+    return (
+        <button
+            onClick={handleRefresh}
+            className={mergeClasses(pageTitleStyle.icon, 'raw-button')}
+        >
+            <FontAwesomeIcon icon={faRefresh} />
+        </button>
+    );
 };
 
 export default RefreshButton;
