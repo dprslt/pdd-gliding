@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production
+build/
+dist/
+.next/
+
+# Logs
+*.log
+
+# Lock files
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+
+# Public assets (don't format)
+public/
+
+# Generated files
+tsconfig.tsbuildinfo
+next-env.d.ts
+
+# Certificate files
+certs/
+
+# Yarn
+.yarn/
+
+# Config files
+*.config.*

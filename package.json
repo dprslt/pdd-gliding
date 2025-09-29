@@ -8,6 +8,9 @@
         "start": "next start --port 4004",
         "test": "jest --watch",
         "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
         "typecheck": "tsc --noEmit",
         "postbuild": "next-sitemap"
     },
