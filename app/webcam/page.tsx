@@ -7,6 +7,8 @@ import AppPage from '../../components/layout/AppPage';
 
 import webcamPageModule from './webcam.module.scss';
 import SommetPanoramique from './components/SommetPanoramique';
+import RefreshButton from 'components/RefreshButton';
+import { ShareIconButton } from 'components/ShareIconButton';
 
 type WebcamsPageProps = {};
 
@@ -19,6 +21,12 @@ const WebcamsPage: React.FC<WebcamsPageProps> = () => {
         <AppPage
             pageTitle={'Webcams'}
             className={webcamPageModule['webcam-tab-page']}
+            pageTitleRightItem={
+                <>
+                    <RefreshButton />
+                    <ShareIconButton />
+                </>
+            }
         >
             <div>
                 <h2>Vue Orcines</h2>
