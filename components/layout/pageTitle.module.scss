@@ -57,6 +57,8 @@ h1.page-title {
         color: colors.$onPrimary;
     }
 
+    
+
     button.icon {
         cursor: pointer;
     }
@@ -78,6 +80,11 @@ h1.page-title {
 
         .icon:first-child {
             padding-left: 0.25em;
+        }
+
+        .icon.sneakyOnPhone {
+            background-color: colors.$primary;
+            color: colors.$onPrimary;
         }
     }
 }

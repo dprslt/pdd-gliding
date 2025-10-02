@@ -34,14 +34,18 @@ const RefreshButton: React.FC = () => {
         window.location.reload();
     };
 
-    if (!isPWA) {
-        return null;
-    }
+    // if (!isPWA) {
+    //     return null;
+    // }
 
     return (
         <button
             onClick={handleRefresh}
-            className={mergeClasses(pageTitleStyle.icon, 'raw-button')}
+            className={mergeClasses(
+                pageTitleStyle.icon,
+                pageTitleStyle.sneakyOnPhone,
+                'raw-button',
+            )}
         >
             <FontAwesomeIcon icon={faRefresh} />
         </button>
