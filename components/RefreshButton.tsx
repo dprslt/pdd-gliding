@@ -34,9 +34,9 @@ const RefreshButton: React.FC = () => {
         window.location.reload();
     };
 
-    // if (!isPWA) {
-    //     return null;
-    // }
+    if (!isPWA) {
+        return null;
+    }
 
     return (
         <button
