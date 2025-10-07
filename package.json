@@ -20,7 +20,7 @@
         "@fontsource/baloo-2": "^5.2.6",
         "@fontsource/lato": "^5.2.7",
         "@fortawesome/fontawesome-svg-core": "^7.0.0",
-        "@fortawesome/free-regular-svg-icons": "^7.0.0",
+        "@fortawesome/free-regular-svg-icons": "^7.1.0",
         "@fortawesome/free-solid-svg-icons": "^7.0.0",
         "@fortawesome/react-fontawesome": "^3.0.0",
         "@mui/material": "^7.3.4",
