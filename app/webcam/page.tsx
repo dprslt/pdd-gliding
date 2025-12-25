@@ -29,15 +29,15 @@ const WebcamsPage: React.FC<WebcamsPageProps> = () => {
             }
         >
             <div>
+                <h2>Sommet</h2>
+                <SommetPanoramique />
+                <SommetWebcam />
                 <h2>Vue Orcines</h2>
                 <OrcinesWebcam />
                 <h2>Vue Cézeaux</h2>
                 <CezeauxWebcam />
                 <h2>Golf des Volcans</h2>
                 <GolfVolcansWebcam />
-                <h2>Sommet</h2>
-                <SommetPanoramique />
-                <SommetWebcam />
                 {/* <h2>Live - Sud-Ouest</h2>
             <LiveWebcam /> */}
             </div>
