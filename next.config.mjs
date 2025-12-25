@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
 import path from 'path';
 
+// Set SASS_PATH to include the styles directory
+process.env.SASS_PATH = path.join(import.meta.dirname, 'styles');
+
 const nextConfig = {
     reactStrictMode: true,
 
     sassOptions: {
-        includePaths: [path.join(import.meta.dirname, './styles')],
-        prependData: `@use "colors";`,
+        additionalData: `@use "colors" as colors;`,
     },
 
     images: {
