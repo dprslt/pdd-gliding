@@ -269,4 +269,38 @@ describe('Validate all days are filled for 2025', () => {
             ),
         ).toBe(undefined);
     });
+
+    it('should work with FourtyShort schedule during Dec 26-31', () => {
+        let time = moment('26/12/2025 10:15', 'L LT');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2025)?.format(
+                'YYYY MM DD HH:mm',
+            ),
+        ).toBe('2025 12 26 10:40');
+    });
+
+    it('should return 12 trains for a FourtyShort day (Dec 26-31)', () => {
+        expect(
+            getAllTrainsOfADay(moment('26/12/2025', 'L'), PanoSchedule2025),
+        ).toHaveLength(12);
+    });
+
+    it('should have first train at 10:00 for FourtyShort schedule', () => {
+        expect(
+            getAllTrainsOfADay(
+                moment('26/12/2025', 'L'),
+                PanoSchedule2025,
+            )?.[0].format('YYYY MM DD HH:mm'),
+        ).toBe('2025 12 26 10:00');
+    });
+
+    it('should have last train at 17:20 for FourtyShort schedule', () => {
+        const trains = getAllTrainsOfADay(
+            moment('26/12/2025', 'L'),
+            PanoSchedule2025,
+        );
+        expect(trains[trains.length - 1].format('YYYY MM DD HH:mm')).toBe(
+            '2025 12 26 17:20',
+        );
+    });
 });

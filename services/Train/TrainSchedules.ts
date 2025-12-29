@@ -7,6 +7,7 @@ export type DayType =
     | 'Hourly'
     | 'HourlyEndAt1530'
     | 'Fourty'
+    | 'FourtyShort'
     | 'Twenty'
     | 'TwentyExtended'
     | 'TwentyExtendedOnThursday'
@@ -83,6 +84,8 @@ export const getAllTrainsOfADay = (
             return generateHourlySchedule(day);
         case 'Fourty':
             return generateFourtySchedule(day);
+        case 'FourtyShort':
+            return generateFourtyShortSchedule(day);
         case 'Twenty':
             return generateTwentySchedule(day);
         case 'TwentyExtended':
@@ -138,6 +141,9 @@ export const generateHourlySchedule = (day: Moment): Array<Moment> => {
 };
 export const generateFourtySchedule = (day: Moment): Array<Moment> => {
     return generateSchedule(day, 40, 'minute', 9, 0, 19, 0);
+};
+export const generateFourtyShortSchedule = (day: Moment): Array<Moment> => {
+    return generateSchedule(day, 40, 'minute', 10, 0, 17, 20);
 };
 export const generateTwentySchedule = (day: Moment): Array<Moment> => {
     return generateSchedule(day, 20, 'minutes', 9, 0, 20, 0);
