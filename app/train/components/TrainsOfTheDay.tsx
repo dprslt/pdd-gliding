@@ -1,114 +1,28 @@
-'use client';
+import React from 'react';
+import { PanoSchedule2026 } from '../../../services/Train/configs/2026';
+import { TrainCard } from './TrainCard';
+import { getCurrentDate } from '../../../utils/dateUtils';
 
-import { Moment } from 'moment';
-import { default as ReactMoment } from 'react-moment';
-import React, { useEffect, useState } from 'react';
-import { PanoSchedule2025 } from '../../../services/Train/configs/2025';
-import {
-    getAllTrainsOfADay,
-    getNextTrainForADay,
-} from '../../../services/Train/TrainSchedules';
-import { useMoment } from '../../../hooks/useMoment';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+export const TrainsOfTheDay: React.FC = () => {
+  const today = getCurrentDate();
+  const todaysTrains = PanoSchedule2026.filter(train => train.date === today);
 
-import trainStyle from '../train.module.scss';
-import { mergeClasses } from 'utils/StyleHelper';
-
-type TrainsOfTheDayProps = {};
-
-const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
-    const nowMoment = useMoment();
-
-    const [trains, setAllTrains] = useState<Array<Moment>>([]);
-    const [nextTrain, setNextTrain] = useState<Moment | null>(null);
-
-    const [showMissed, setShowMissed] = useState(false);
-    const [nextDay, setNextDay] = useState(false);
-
-    useEffect(() => {
-        let momentToUse = nowMoment;
-        if (nextDay) {
-            momentToUse = nowMoment.clone().add(1, 'day').startOf('day');
-        }
-        try {
-            setAllTrains(getAllTrainsOfADay(momentToUse, PanoSchedule2025));
-            setNextTrain(getNextTrainForADay(momentToUse, PanoSchedule2025));
-        } catch (e) {
-            console.error(e);
-        }
-    }, [nowMoment, nextDay]);
-
+  if (todaysTrains.length === 0) {
     return (
-        <div className={trainStyle['train-of-day']}>
-            <div className={trainStyle['train-header']}>
-                <h2>Horaire des montées</h2>
-                <button
-                    className={
-                        showMissed
-                            ? trainStyle['missed-on']
-                            : trainStyle['missed-off']
-                    }
-                    onClick={() => setShowMissed(!showMissed)}
-                >
-                    <FontAwesomeIcon icon={showMissed ? faEyeSlash : faEye} />{' '}
-                    {showMissed
-                        ? 'Masquer les trains ratés'
-                        : 'Voir les trains ratés'}
-                </button>
-            </div>
-
-            <div className={trainStyle['next-day-scedule-buttons']}>
-                <button
-                    className={mergeClasses(
-                        nextDay ? '' : trainStyle['scedule-button--active'],
-                        trainStyle['next-day-scedule-button'],
-                    )}
-                    onClick={() => setNextDay(false)}
-                >
-                    Aujourd&apos;hui
-                </button>
-                <button
-                    className={mergeClasses(
-                        nextDay ? trainStyle['scedule-button--active'] : '',
-                        trainStyle['next-day-scedule-button'],
-                    )}
-                    onClick={() => setNextDay(true)}
-                >
-                    Demain
-                </button>
-            </div>
-
-            {!showMissed &&
-                nextTrain === null &&
-                (nextDay ? (
-                    <p>Pas de trains demain</p>
-                ) : (
-                    <p>Plus de trains pour aujourd&apos;hui.</p>
-                ))}
-            <ul>
-                {trains.map((train) => {
-                    const isMissed = nowMoment.isAfter(train);
-
-                    if (isMissed && !showMissed) {
-                        return null;
-                    }
-                    return (
-                        <li
-                            key={train.format('HH:mm')}
-                            className={
-                                isMissed
-                                    ? trainStyle['missed']
-                                    : trainStyle['active']
-                            }
-                        >
-                            <ReactMoment date={train} format={'HH[h]mm'} />
-                        </li>
-                    );
-                })}
-            </ul>
-        </div>
+      <div className="no-trains">
+        <p>No trains scheduled for today</p>
+      </div>
     );
-};
+  }
 
-export default TrainsOfTheDay;
+  return (
+    <div className="trains-of-the-day">
+      <h2>Today's Trains</h2>
+      <div className="train-list">
+        {todaysTrains.map(train => (
+          <TrainCard key={train.id} train={train} />
+        ))}
+      </div>
+    </div>
+  );
+};
