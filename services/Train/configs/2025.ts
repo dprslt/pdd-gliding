@@ -88,7 +88,7 @@ export const PanoSchedule2025: YearConfig = {
         {
             from: moment('26/12/2025', 'DD/MM/YYYY').startOf('day'),
             to: moment('31/12/2025', 'DD/MM/YYYY').endOf('day'),
-            status: 'Hourly',
+            status: 'FourtyShort',
         },
     ],
 };
