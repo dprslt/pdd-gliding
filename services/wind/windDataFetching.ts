@@ -85,7 +85,7 @@ export async function fetchAllWindData(): Promise<WindData> {
     }
 
     // Filter out max wind data if it's too old (more than 15 minutes)
-    var validMaxWind = maxWind;
+    let validMaxWind = maxWind;
     if (
         maxWind &&
         DateTime.fromISO(maxWind.datetime).diffNow('minutes').as('minutes') <
