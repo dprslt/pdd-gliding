@@ -84,8 +84,18 @@ export async function fetchAllWindData(): Promise<WindData> {
         }
     }
 
+    // Filter out max wind data if it's too old (more than 15 minutes)
+    let validMaxWind = maxWind;
+    if (
+        maxWind &&
+        DateTime.fromISO(maxWind.datetime).diffNow('minutes').as('minutes') <
+            -15
+    ) {
+        validMaxWind = null;
+    }
+
     const uOpgcLive = opgcData
-        ? convertOpgcMeasureToGeneric(opgcData, maxWind || undefined)
+        ? convertOpgcMeasureToGeneric(opgcData, validMaxWind || undefined)
         : null;
 
     const uHolfuyLive =
