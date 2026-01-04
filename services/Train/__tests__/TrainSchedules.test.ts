@@ -3,6 +3,7 @@ import { PanoSchedule2022 } from '../configs/2022';
 import { PanoSchedule2023 } from '../configs/2023';
 import { PanoSchedule2024 } from '../configs/2024';
 import { PanoSchedule2025 } from '../configs/2025';
+import { PanoSchedule2026 } from '../configs/2026';
 
 import {
     foundCurrentPeriod,
@@ -10,6 +11,7 @@ import {
     getNextTrainForADay,
     getAllTrainsOfADay,
     getNextTrainsOfADay,
+    isDateCoveredByYearConfig,
 } from '../TrainSchedules';
 
 moment.locale('fr');
@@ -36,6 +38,26 @@ describe('Testing foundCurrentPeriod', () => {
                 PanoSchedule2022.periods,
             ),
         ).toStrictEqual(PanoSchedule2022.periods[6]);
+    });
+});
+
+describe('Testing isDateCoveredByYearConfig', () => {
+    it('should return true for a date inside the config', () => {
+        expect(
+            isDateCoveredByYearConfig(
+                moment('01/01/2022', 'L'),
+                PanoSchedule2022,
+            ),
+        ).toBeTruthy();
+    });
+
+    it('should return false for a date outside the config', () => {
+        expect(
+            isDateCoveredByYearConfig(
+                moment('01/01/2021', 'L'),
+                PanoSchedule2022,
+            ),
+        ).toBeFalsy();
     });
 });
 
@@ -302,5 +324,48 @@ describe('Validate all days are filled for 2025', () => {
         expect(trains[trains.length - 1].format('YYYY MM DD HH:mm')).toBe(
             '2025 12 26 17:20',
         );
+    });
+});
+
+describe('Validate all days are filled for 2026', () => {
+    it('should pass validity check for all periods', () => {
+        PanoSchedule2026.periods.forEach((period) => {
+            expect(period.from.isBefore(period.to)).toBeTruthy();
+        });
+    });
+
+    it('should work for all days', () => {
+        let time = moment('01/01/2026', 'L');
+        while (time.isSameOrBefore(moment('31/12/2026', 'L'))) {
+            getNextTrainForADay(time, PanoSchedule2026);
+            time = time.add(1, 'day');
+        }
+    });
+
+    it('should work during the summer nights ', () => {
+        let time = moment('2026-07-30T20:50:17+02:00');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2026)?.format(
+                'YYYY MM DD HH:mm',
+            ),
+        ).toBe('2026 07 30 21:00');
+    });
+
+    it('should work with the new special hours for christmas', () => {
+        let time = moment('2026-12-24T15:50:17+02:00');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2026)?.format(
+                'YYYY MM DD HH:mm',
+            ),
+        ).toBe('2026 12 24 15:20');
+    });
+
+    it('should work well on extented hours but not a thursday', () => {
+        let time = moment('2026-07-29T20:50:17+02:00');
+        expect(
+            getNextTrainForADay(time, PanoSchedule2026)?.format(
+                'YYYY MM DD HH:mm',
+            ),
+        ).toBe(undefined);
     });
 });
