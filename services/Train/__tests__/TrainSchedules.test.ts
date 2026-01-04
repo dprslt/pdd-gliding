@@ -336,7 +336,7 @@ describe('Validate all days are filled for 2026', () => {
             getNextTrainForADay(time, PanoSchedule2026)?.format(
                 'YYYY MM DD HH:mm',
             ),
-        ).toBe(undefined);
+        ).toBe('2026 12 24 15:20');
     });
 
     it('should work well on extented hours but not a thursday', () => {

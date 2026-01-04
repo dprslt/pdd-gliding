@@ -77,14 +77,8 @@ export const PanoSchedule2026: YearConfig = {
             status: 'Closed',
         },
         {
-            // 21–22 nov : Toutes les heures – Tous les jours
+            // 21 nov – 4 déc : Toutes les heures – 5 jours/semaine
             from: moment('21/11/2026', 'DD/MM/YYYY').startOf('day'),
-            to: moment('22/11/2026', 'DD/MM/YYYY').endOf('day'),
-            status: 'Hourly',
-        },
-        {
-            // 23 nov – 4 déc : Toutes les heures – 5 jours/semaine
-            from: moment('23/11/2026', 'DD/MM/YYYY').startOf('day'),
             to: moment('04/12/2026', 'DD/MM/YYYY').endOf('day'),
             status: 'HourlyFiveDays',
         },
