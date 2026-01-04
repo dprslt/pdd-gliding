@@ -1,4 +1,17 @@
 .support-page {
+    .github-link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5em;
+        background-color: colors.$primary;
+        color: colors.$onPrimary;
+        border-radius: 1.75em;
+        padding: 1em 1.5em;
+        &:hover {
+            background-color: darken(colors.$primary, 10%);
+        }
+    }
     ov .support-button {
         background-color: colors.$primary;
         color: colors.$onPrimary;

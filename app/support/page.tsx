@@ -3,6 +3,8 @@ import './support.scss';
 import KofiIframe from './KofiIframe';
 import { GoBackIconButton } from 'components/GoBackIconButton';
 import PageTitle from 'components/layout/PageTitle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export const metadata = {
     title: 'Puy de dôme Parapente : Soutien',
@@ -40,11 +42,11 @@ export default function SupportPage() {
                             }}
                         >
                             <p>
-                                Je développe bénévolement ce site depuis deux
-                                ans pour centraliser l&apos;accés aux
-                                informations sur les conditions de vols en
-                                parapente au sommet du Puy de Dôme et permettre
-                                à tous une pratique plus simple et plus sûre.
+                                Je développe bénévolement ce site depuis 2022
+                                pour centraliser l&apos;accès aux informations
+                                sur les conditions de vols en parapente au
+                                sommet du Puy de Dôme et permettre à tous une
+                                pratique plus simple et plus sûre.
                             </p>
                             <p>
                                 Ce site se base essentiellement sur des outils
@@ -64,7 +66,32 @@ export default function SupportPage() {
                                 <br /> Pour m&apos;acheter un café ou une bière
                                 au prochain débiefing.
                             </p>
+                            <p>
+                                Si vous avez des idées d'améliorations ou des
+                                suggestions, n'hésitez pas à me contacter ou à
+                                contribuer directement au projet sur{' '}
+                                <a
+                                    href="  https://github.com/dprslt/pdd-gliding"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    GitHub
+                                </a>
+                                .
+                            </p>
+                            <p>
+                                <a
+                                    href="  https://github.com/dprslt/pdd-gliding"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="github-link"
+                                >
+                                    <FontAwesomeIcon icon={faGithub} />{' '}
+                                    Contribuer sur GitHub
+                                </a>
+                            </p>
                         </div>
+                        <br />
                         <KofiIframe />
                     </div>
 
