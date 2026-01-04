@@ -25,6 +25,18 @@ export type YearConfig = {
 
 // export const computeNextTrainForDayType = (dayType: DayType): Moment => {};
 
+export const isDateCoveredByYearConfig = (
+    time: Moment,
+    config: YearConfig,
+): boolean => {
+    for (let period of config.periods) {
+        if (time.isSameOrAfter(period.from) && time.isBefore(period.to)) {
+            return true;
+        }
+    }
+    return false;
+};
+
 export const foundCurrentPeriod = (
     time: Moment,
     periods: Array<Period>,

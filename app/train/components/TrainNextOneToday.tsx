@@ -1,31 +1,34 @@
 'use client';
 
-import moment, { Moment } from 'moment';
-import React, { useEffect, useState } from 'react';
+import moment from 'moment';
+import React, { useMemo } from 'react';
 import { default as ReactMoment } from 'react-moment';
 import { useMoment } from '../../../hooks/useMoment';
-import { getNextTrainForADay } from '../../../services/Train/TrainSchedules';
+import {
+    getNextTrainForADay,
+    YearConfig,
+} from '../../../services/Train/TrainSchedules';
 import 'moment/locale/fr';
-import { PanoSchedule2026 } from '../../../services/Train/configs';
 
 import trainStyle from '../train.module.scss';
 
 moment.locale('fr');
 
-type TrainNextOneTodayProps = {};
+type TrainNextOneTodayProps = {
+    config: YearConfig;
+};
 
-const TrainNextOneToday: React.FC<TrainNextOneTodayProps> = () => {
+const TrainNextOneToday: React.FC<TrainNextOneTodayProps> = ({ config }) => {
     const nowMoment = useMoment();
 
-    const [nextTrain, setNextTrain] = useState<Moment | null>(null);
-
-    useEffect(() => {
+    const nextTrain = useMemo(() => {
         try {
-            setNextTrain(getNextTrainForADay(nowMoment, PanoSchedule2026));
+            return getNextTrainForADay(nowMoment, config);
         } catch (e) {
             console.error(e);
+            return null;
         }
-    }, [nowMoment]);
+    }, [nowMoment, config]);
 
     return (
         <div className={trainStyle['next-train']}>

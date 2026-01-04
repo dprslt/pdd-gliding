@@ -2,11 +2,11 @@
 
 import { Moment } from 'moment';
 import { default as ReactMoment } from 'react-moment';
-import React, { useEffect, useState } from 'react';
-import { PanoSchedule2026 } from '../../../services/Train/configs';
+import React, { useMemo, useState } from 'react';
 import {
     getAllTrainsOfADay,
     getNextTrainForADay,
+    YearConfig,
 } from '../../../services/Train/TrainSchedules';
 import { useMoment } from '../../../hooks/useMoment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,29 +15,34 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import trainStyle from '../train.module.scss';
 import { mergeClasses } from 'utils/StyleHelper';
 
-type TrainsOfTheDayProps = {};
+type TrainsOfTheDayProps = {
+    config: YearConfig;
+};
 
-const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = () => {
+const TrainsOfTheDay: React.FC<TrainsOfTheDayProps> = ({ config }) => {
     const nowMoment = useMoment();
-
-    const [trains, setAllTrains] = useState<Array<Moment>>([]);
-    const [nextTrain, setNextTrain] = useState<Moment | null>(null);
 
     const [showMissed, setShowMissed] = useState(false);
     const [nextDay, setNextDay] = useState(false);
 
-    useEffect(() => {
-        let momentToUse = nowMoment;
+    const momentToUse = useMemo(() => {
         if (nextDay) {
-            momentToUse = nowMoment.clone().add(1, 'day').startOf('day');
+            return nowMoment.clone().add(1, 'day').startOf('day');
         }
+        return nowMoment;
+    }, [nowMoment, nextDay]);
+
+    const { trains, nextTrain } = useMemo(() => {
         try {
-            setAllTrains(getAllTrainsOfADay(momentToUse, PanoSchedule2026));
-            setNextTrain(getNextTrainForADay(momentToUse, PanoSchedule2026));
+            return {
+                trains: getAllTrainsOfADay(momentToUse, config),
+                nextTrain: getNextTrainForADay(momentToUse, config),
+            };
         } catch (e) {
             console.error(e);
+            return { trains: [], nextTrain: null };
         }
-    }, [nowMoment, nextDay]);
+    }, [momentToUse, config]);
 
     return (
         <div className={trainStyle['train-of-day']}>

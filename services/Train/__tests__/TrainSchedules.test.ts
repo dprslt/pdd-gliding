@@ -11,6 +11,7 @@ import {
     getNextTrainForADay,
     getAllTrainsOfADay,
     getNextTrainsOfADay,
+    isDateCoveredByYearConfig,
 } from '../TrainSchedules';
 
 moment.locale('fr');
@@ -37,6 +38,26 @@ describe('Testing foundCurrentPeriod', () => {
                 PanoSchedule2022.periods,
             ),
         ).toStrictEqual(PanoSchedule2022.periods[6]);
+    });
+});
+
+describe('Testing isDateCoveredByYearConfig', () => {
+    it('should return true for a date inside the config', () => {
+        expect(
+            isDateCoveredByYearConfig(
+                moment('01/01/2022', 'L'),
+                PanoSchedule2022,
+            ),
+        ).toBeTruthy();
+    });
+
+    it('should return false for a date outside the config', () => {
+        expect(
+            isDateCoveredByYearConfig(
+                moment('01/01/2021', 'L'),
+                PanoSchedule2022,
+            ),
+        ).toBeFalsy();
     });
 });
 
