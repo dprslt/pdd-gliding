@@ -4,9 +4,15 @@ import React from 'react';
 type LiveWebcamProps = {};
 
 const LiveWebcam: React.FC<LiveWebcamProps> = () => {
+    const liveWebcamUrl = process.env.NEXT_PUBLIC_LIVE_WEBCAM_URL;
+
+    if (!liveWebcamUrl) {
+        return null;
+    }
+
     return (
         <img
-            src={'/webcam-proxy/live'}
+            src={liveWebcamUrl}
             className="webcam"
             alt="live webcam"
             width={640}

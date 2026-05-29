@@ -22,5 +22,6 @@ export default async function FetchOPGC(
         throw new Error('Unable to get data from grafana server');
     }
 
+    res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate=60');
     res.status(200).json(values);
 }

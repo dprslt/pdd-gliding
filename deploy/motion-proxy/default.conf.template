@@ -1,0 +1,22 @@
+server {
+    listen 8080;
+    server_name _;
+
+    location = /healthz {
+        access_log off;
+        add_header Content-Type text/plain;
+        return 200 'ok';
+    }
+
+    location = /live {
+        proxy_pass ${UPSTREAM_MJPEG_URL};
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_buffering off;
+        proxy_request_buffering off;
+        proxy_cache off;
+        proxy_read_timeout 1d;
+        add_header Cache-Control "no-store";
+        add_header X-Accel-Buffering "no";
+    }
+}

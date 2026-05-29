@@ -53,5 +53,6 @@ export default async function FetchOPGC(
 
     const dict = { ...maxWind, ...opgcData };
 
+    res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate=60');
     res.status(200).json(dict);
 }

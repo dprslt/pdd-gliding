@@ -82,6 +82,14 @@ L'application sera disponible sur `http://localhost:4000`
 
 Pour le reste, vous pouvez vous référer à la documentation de [NextJs](https://nextjs.org/docs) avec l'App Routeur.
 
+#### Webcam live MJPEG
+
+Le flux MJPEG live ne doit pas transiter par les rewrites Next.js/Vercel.
+
+- Configurez `NEXT_PUBLIC_LIVE_WEBCAM_URL` avec l'URL publique du flux MJPEG ou d'un proxy dédié.
+- Un exemple de proxy Docker Compose est fourni dans `/tmp/workspace/dprslt/pdd-gliding/deploy/motion-proxy`.
+- Exemple : `NEXT_PUBLIC_LIVE_WEBCAM_URL=https://webcam-proxy.example.com/live`
+
 ## Remerciements
 
 Un grand merci à :

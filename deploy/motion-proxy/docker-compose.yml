@@ -1,0 +1,11 @@
+services:
+  motion-proxy:
+    image: nginx:1.27-alpine
+    container_name: motion-proxy
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8080}:8080"
+    environment:
+      UPSTREAM_MJPEG_URL: "${UPSTREAM_MJPEG_URL:-http://77.158.167.18:8080/mjpg/video.mjpg}"
+    volumes:
+      - ./default.conf.template:/etc/nginx/templates/default.conf.template:ro
