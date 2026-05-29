@@ -87,7 +87,7 @@ Pour le reste, vous pouvez vous référer à la documentation de [NextJs](https:
 Le flux MJPEG live ne doit pas transiter par les rewrites Next.js/Vercel.
 
 - Configurez `NEXT_PUBLIC_LIVE_WEBCAM_URL` avec l'URL publique du flux MJPEG ou d'un proxy dédié.
-- Un exemple de proxy Docker Compose est fourni dans `/tmp/workspace/dprslt/pdd-gliding/deploy/motion-proxy`.
+- Un exemple de proxy Docker Compose est fourni dans `deploy/motion-proxy`.
 - Exemple : `NEXT_PUBLIC_LIVE_WEBCAM_URL=https://webcam-proxy.example.com/live`
 
 ## Remerciements
