@@ -7,7 +7,7 @@ const LiveWebcam: React.FC<LiveWebcamProps> = () => {
     const liveWebcamUrl = process.env.NEXT_PUBLIC_LIVE_WEBCAM_URL;
 
     if (!liveWebcamUrl) {
-        return null;
+        return <p>Le flux webcam live n&apos;est pas configuré.</p>;
     }
 
     return (

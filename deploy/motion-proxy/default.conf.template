@@ -15,7 +15,7 @@ server {
         proxy_buffering off;
         proxy_request_buffering off;
         proxy_cache off;
-        proxy_read_timeout 1d;
+        proxy_read_timeout 2h;
         add_header Cache-Control "no-store";
         add_header X-Accel-Buffering "no";
     }
