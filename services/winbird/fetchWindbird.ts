@@ -12,11 +12,13 @@ export const WINBIRD_STATIONS = [
         id: 2001,
         name: 'Décollage Mont Chouvé 1450m',
         shortName: 'Mont Chouvé',
+        detailUrl: 'https://www.openwindmap.org/windbird-2001',
     },
     {
         id: 2039,
         name: 'Cornillon JOB 1130m',
         shortName: 'Cornillon JOB',
+        detailUrl: 'https://www.openwindmap.org/windbird-2039',
     },
 ] as const;
 

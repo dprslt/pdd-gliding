@@ -7,7 +7,6 @@ import Link from 'next/link';
 import './sharedMeasure.scss';
 import GenericMeterCardTitle from '../GenericMeters/GenericMeterCardTitle';
 import {
-    OPEN_WIND_MAP_URL,
     WINBIRD_COLORS,
     WINBIRD_STATIONS,
 } from 'services/winbird/fetchWindbird';
@@ -48,7 +47,7 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                     return (
                         <Link
                             key={station.id}
-                            href={OPEN_WIND_MAP_URL}
+                            href={station.detailUrl}
                             className="meter-columns"
                         >
                             <GenericMeterCardTitle hasLink>
