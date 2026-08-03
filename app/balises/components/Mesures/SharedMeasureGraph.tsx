@@ -26,7 +26,7 @@ const getColorById = (series: { id: string }) => {
             return '#ffcb1e'; // Green for Holfuy average
         default:
             const winbirdIndex = WINBIRD_STATIONS.findIndex(
-                (station) => station.name === series.id,
+                (station) => station.shortName === series.id,
             );
             if (winbirdIndex !== -1) {
                 return WINBIRD_COLORS[winbirdIndex];
@@ -82,7 +82,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             (e) => e != undefined && e.data.length > 0,
                         ) as Array<GraphData>
                     }
-                    margin={{ top: 30, right: 50, bottom: 30, left: 10 }}
+                    margin={{ top: 60, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
                     xFormat="time:%Hh%M"
                     yScale={{ type: 'linear' }}
@@ -114,10 +114,10 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             direction: 'row',
                             justify: false,
                             translateX: 0,
-                            translateY: -25,
-                            itemsSpacing: 0,
+                            translateY: -35,
+                            itemsSpacing: 8,
                             itemDirection: 'left-to-right',
-                            itemWidth: 100,
+                            itemWidth: 80,
                             itemHeight: 20,
                             itemOpacity: 0.75,
                             symbolSize: 12,
@@ -148,7 +148,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             (e) => e != undefined && e.data.length > 0,
                         ) as Array<GraphData>
                     }
-                    margin={{ top: 30, right: 50, bottom: 30, left: 10 }}
+                    margin={{ top: 60, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
                     xFormat="time:%Hh%M"
                     yScale={{
@@ -193,10 +193,10 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             direction: 'row',
                             justify: false,
                             translateX: 0,
-                            translateY: -25,
-                            itemsSpacing: 0,
+                            translateY: -35,
+                            itemsSpacing: 8,
                             itemDirection: 'left-to-right',
-                            itemWidth: 100,
+                            itemWidth: 80,
                             itemHeight: 20,
                             itemOpacity: 0.75,
                             symbolSize: 12,

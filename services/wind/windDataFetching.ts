@@ -233,7 +233,7 @@ async function fetchAllWinbirdData(): Promise<AllWinbirdData> {
                     : [];
 
             return {
-                name: station.name,
+                shortName: station.shortName,
                 live: live
                     ? convertWindbirdLiveToGeneric(live)
                     : null,
@@ -245,14 +245,14 @@ async function fetchAllWinbirdData(): Promise<AllWinbirdData> {
     return {
         live: stationsData.map((station) => station.live),
         graphWindSpeed: stationsData.map((station) => ({
-            id: station.name,
+            id: station.shortName,
             data: station.history.map((measurement) => ({
                 x: measurement.datetime,
                 y: measurement.wind.speed,
             })),
         })),
         graphWindDirection: stationsData.map((station) => ({
-            id: station.name,
+            id: station.shortName,
             data: station.history.map((measurement) => ({
                 x: measurement.datetime,
                 y: measurement.wind.direction,

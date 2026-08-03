@@ -7,10 +7,12 @@ export const WINBIRD_STATIONS = [
     {
         id: 2001,
         name: 'Décollage Mont Chouvé 1450m',
+        shortName: 'Mont Chouvé',
     },
     {
         id: 2039,
         name: 'Cornillon JOB 1130m',
+        shortName: 'Cornillon JOB',
     },
 ] as const;
 
