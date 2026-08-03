@@ -1,4 +1,4 @@
 scripts:
-  setup: |
-    node scripts/setup-worktree.mjs
-    yarn install
+    setup: |
+        node scripts/setup-worktree.mjs
+        yarn install
