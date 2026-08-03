@@ -8,6 +8,7 @@ import './sharedMeasure.scss';
 import GenericMeterCardTitle from '../GenericMeters/GenericMeterCardTitle';
 import {
     OPEN_WIND_MAP_URL,
+    WINBIRD_COLORS,
     WINBIRD_STATIONS,
 } from 'services/winbird/fetchWindbird';
 
@@ -55,7 +56,7 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                             </GenericMeterCardTitle>
                             <GenericMeterCard
                                 meterData={liveData}
-                                color={'#3f9fff'}
+                                color={WINBIRD_COLORS[index]}
                             />
                         </Link>
                     );

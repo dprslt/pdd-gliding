@@ -10,13 +10,14 @@ import {
     numericHalfWindSegment,
 } from 'services/wind/OrientationMapper';
 import { BasicTooltip } from '@nivo/tooltip';
-import { WINBIRD_STATIONS } from 'services/winbird/fetchWindbird';
+import {
+    WINBIRD_COLORS,
+    WINBIRD_STATIONS,
+} from 'services/winbird/fetchWindbird';
 
 type SharedMeasureGraphProps = {
     windData: WindData;
 };
-
-const WINBIRD_COLORS = ['#3f9fff', '#8f7fff'];
 
 const getColorById = (series: { id: string }) => {
     switch (series.id) {
@@ -115,9 +116,9 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             justify: false,
                             translateX: 0,
                             translateY: -35,
-                            itemsSpacing: 8,
+                            itemsSpacing: 6,
                             itemDirection: 'left-to-right',
-                            itemWidth: 80,
+                            itemWidth: 95,
                             itemHeight: 20,
                             itemOpacity: 0.75,
                             symbolSize: 12,
@@ -194,9 +195,9 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             justify: false,
                             translateX: 0,
                             translateY: -35,
-                            itemsSpacing: 8,
+                            itemsSpacing: 6,
                             itemDirection: 'left-to-right',
-                            itemWidth: 80,
+                            itemWidth: 95,
                             itemHeight: 20,
                             itemOpacity: 0.75,
                             symbolSize: 12,

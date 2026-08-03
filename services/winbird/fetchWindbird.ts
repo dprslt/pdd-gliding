@@ -3,6 +3,10 @@ import { GenericWindMeasurement } from 'services/wind/GenericWindMeasurement';
 
 export const OPEN_WIND_MAP_URL = 'https://openwindmap.org';
 
+export const WINBIRD_COLORS = ['#3f9fff', '#8f7fff'] as const;
+
+export const WINBIRD_HISTORY_HOURS = 6;
+
 export const WINBIRD_STATIONS = [
     {
         id: 2001,
@@ -61,22 +65,39 @@ export type WindbirdArchiveResponse = {
     >;
 };
 
-export async function fetchWindbirdLive(
-    stationId: number,
-): Promise<WindbirdLiveResponse> {
-    const results = await fetch(
-        `https://api.pioupiou.fr/v1/live/${stationId}`,
-        {
+async function fetchWithRetry(url: string, attempts = 3): Promise<Response> {
+    let lastError: Error | null = null;
+
+    for (let attempt = 0; attempt < attempts; attempt++) {
+        if (attempt > 0) {
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+        }
+
+        const results = await fetch(url, {
             method: 'GET',
             next: {
                 revalidate: 60,
             },
-        },
-    );
+        });
 
-    if (!results.ok) {
-        throw new Error(`Error fetching winbird live data: ${results.status}`);
+        if (results.ok) {
+            return results;
+        }
+
+        lastError = new Error(
+            `Error fetching winbird data: ${results.status}`,
+        );
     }
+
+    throw lastError;
+}
+
+export async function fetchWindbirdLive(
+    stationId: number,
+): Promise<WindbirdLiveResponse> {
+    const results = await fetchWithRetry(
+        `https://api.pioupiou.fr/v1/live/${stationId}`,
+    );
 
     return results.json();
 }
@@ -84,21 +105,15 @@ export async function fetchWindbirdLive(
 export async function fetchWindbirdHistory(
     stationId: number,
 ): Promise<WindbirdArchiveResponse> {
-    const results = await fetch(
-        `https://api.pioupiou.fr/v1/archive/${stationId}?start=last-day&stop=now`,
-        {
-            method: 'GET',
-            next: {
-                revalidate: 60,
-            },
-        },
-    );
+    const start = DateTime.now()
+        .toUTC()
+        .minus({ hours: WINBIRD_HISTORY_HOURS })
+        .toISO();
+    const stop = DateTime.now().toUTC().toISO();
 
-    if (!results.ok) {
-        throw new Error(
-            `Error fetching winbird archive data: ${results.status}`,
-        );
-    }
+    const results = await fetchWithRetry(
+        `https://api.pioupiou.fr/v1/archive/${stationId}?start=${start}&stop=${stop}`,
+    );
 
     return results.json();
 }
