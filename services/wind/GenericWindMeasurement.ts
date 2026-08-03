@@ -6,7 +6,7 @@ export type GenericWindMeasurement = {
         min?: number;
         direction: number;
     };
-    temperature: number;
+    temperature?: number;
     humidity?: number;
     pressure?: number;
 };

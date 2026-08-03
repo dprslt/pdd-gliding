@@ -6,6 +6,10 @@ import Link from 'next/link';
 
 import './sharedMeasure.scss';
 import GenericMeterCardTitle from '../GenericMeters/GenericMeterCardTitle';
+import {
+    OPEN_WIND_MAP_URL,
+    WINBIRD_STATIONS,
+} from 'services/winbird/fetchWindbird';
 
 type SharedMeasureProps = {};
 
@@ -35,6 +39,27 @@ const SharedMeasure: React.FC<SharedMeasureProps> = async () => {
                         <GenericMeterCard meterData={windData.opgcLive} />
                     </div>
                 )}
+                {WINBIRD_STATIONS.map((station, index) => {
+                    const liveData = windData.winbirdLive[index];
+                    if (!liveData) {
+                        return null;
+                    }
+                    return (
+                        <Link
+                            key={station.id}
+                            href={OPEN_WIND_MAP_URL}
+                            className="meter-columns"
+                        >
+                            <GenericMeterCardTitle hasLink>
+                                {station.name}
+                            </GenericMeterCardTitle>
+                            <GenericMeterCard
+                                meterData={liveData}
+                                color={'#3f9fff'}
+                            />
+                        </Link>
+                    );
+                })}
                 {/* {windData.labuseLive && (
                     <Link
                         href={'https://labuse.uiguig.ovh/devices/2'}

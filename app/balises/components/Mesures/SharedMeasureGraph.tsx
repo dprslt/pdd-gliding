@@ -10,10 +10,13 @@ import {
     numericHalfWindSegment,
 } from 'services/wind/OrientationMapper';
 import { BasicTooltip } from '@nivo/tooltip';
+import { WINBIRD_STATIONS } from 'services/winbird/fetchWindbird';
 
 type SharedMeasureGraphProps = {
     windData: WindData;
 };
+
+const WINBIRD_COLORS = ['#3f9fff', '#8f7fff'];
 
 const getColorById = (series: { id: string }) => {
     switch (series.id) {
@@ -22,6 +25,12 @@ const getColorById = (series: { id: string }) => {
         case 'Holfuy':
             return '#ffcb1e'; // Green for Holfuy average
         default:
+            const winbirdIndex = WINBIRD_STATIONS.findIndex(
+                (station) => station.name === series.id,
+            );
+            if (winbirdIndex !== -1) {
+                return WINBIRD_COLORS[winbirdIndex];
+            }
             return '#' + Math.floor(Math.random() * 16777215).toString(16); // Random color fallback
     }
 };
@@ -65,6 +74,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                         [
                             windData.graph.windSpeed.opgc,
                             windData.graph.windSpeed.holfuy,
+                            ...(windData.graph.windSpeed.winbird || []),
                             // windData.graph.windSpeed.labuse,
                             // windData.graph.windSpeed.holfuyMax,
                             // windData.graph.windSpeed.holfuyMin,
@@ -132,6 +142,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                         [
                             windData.graph.windDirection.opgc,
                             windData.graph.windDirection.holfuy,
+                            ...(windData.graph.windDirection.winbird || []),
                             // windData.graph.windDirection.labuse,
                         ].filter(
                             (e) => e != undefined && e.data.length > 0,
