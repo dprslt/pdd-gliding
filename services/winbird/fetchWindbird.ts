@@ -9,17 +9,11 @@ export const WINBIRD_HISTORY_HOURS = 6;
 
 export const WINBIRD_STATIONS = [
     {
-        id: 2001,
-        name: 'Décollage Mont Chouvé 1450m',
-        shortName: 'Mont Chouvé',
-        detailUrl: 'https://www.openwindmap.org/windbird-2001',
-    },
-    {
-        id: 2039,
-        name: 'Cornillon JOB 1130m',
-        shortName: 'Cornillon JOB',
-        detailUrl: 'https://www.openwindmap.org/windbird-2039',
-    },
+        id: 2208,
+        name: 'Puy de Dôme Déco Nord 1450m',
+        shortName: 'PDD Nord',
+        detailUrl: 'https://www.openwindmap.org/windbird-2208',
+    }
 ] as const;
 
 export type WindbirdLiveResponse = {
