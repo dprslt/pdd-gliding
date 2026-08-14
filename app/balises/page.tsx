@@ -37,6 +37,12 @@ const BalisesPage: React.FC<BalisesPageProps> = () => {
         >
             {/* <WarningHelico /> */}
             <SharedMeasure />
+            <p className={balisesPageStyles['wind-data-attribution']}>
+                Données vent (c) contributeurs du réseau OpenWindMap{' '}
+                <a href="https://openwindmap.org" target="_blank">
+                    openwindmap.org
+                </a>
+            </p>
             {/*
             <div>
                 <div className="text-alert">

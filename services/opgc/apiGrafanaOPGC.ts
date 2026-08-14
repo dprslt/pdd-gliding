@@ -111,7 +111,7 @@ export async function fetchWindHistoryFromGrafana(): Promise<OPGCWindHistory | n
     const query = {
         // See the attached file to edit the queries
         queries: grafanaHistoryQueries,
-        from: `${time.minus({ hours: 3 }).toMillis()}`,
+        from: `${time.minus({ hours: 6 }).toMillis()}`,
         to: `${time.toMillis()}`,
     };
 

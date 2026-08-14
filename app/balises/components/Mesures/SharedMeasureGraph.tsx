@@ -10,6 +10,10 @@ import {
     numericHalfWindSegment,
 } from 'services/wind/OrientationMapper';
 import { BasicTooltip } from '@nivo/tooltip';
+import {
+    WINBIRD_COLORS,
+    WINBIRD_STATIONS,
+} from 'services/winbird/fetchWindbird';
 
 type SharedMeasureGraphProps = {
     windData: WindData;
@@ -22,6 +26,12 @@ const getColorById = (series: { id: string }) => {
         case 'Holfuy':
             return '#ffcb1e'; // Green for Holfuy average
         default:
+            const winbirdIndex = WINBIRD_STATIONS.findIndex(
+                (station) => station.shortName === series.id,
+            );
+            if (winbirdIndex !== -1) {
+                return WINBIRD_COLORS[winbirdIndex];
+            }
             return '#' + Math.floor(Math.random() * 16777215).toString(16); // Random color fallback
     }
 };
@@ -65,6 +75,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                         [
                             windData.graph.windSpeed.opgc,
                             windData.graph.windSpeed.holfuy,
+                            ...(windData.graph.windSpeed.winbird || []),
                             // windData.graph.windSpeed.labuse,
                             // windData.graph.windSpeed.holfuyMax,
                             // windData.graph.windSpeed.holfuyMin,
@@ -72,7 +83,7 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             (e) => e != undefined && e.data.length > 0,
                         ) as Array<GraphData>
                     }
-                    margin={{ top: 30, right: 50, bottom: 30, left: 10 }}
+                    margin={{ top: 60, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
                     xFormat="time:%Hh%M"
                     yScale={{ type: 'linear' }}
@@ -104,10 +115,10 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             direction: 'row',
                             justify: false,
                             translateX: 0,
-                            translateY: -25,
-                            itemsSpacing: 0,
+                            translateY: -35,
+                            itemsSpacing: 6,
                             itemDirection: 'left-to-right',
-                            itemWidth: 100,
+                            itemWidth: 95,
                             itemHeight: 20,
                             itemOpacity: 0.75,
                             symbolSize: 12,
@@ -132,12 +143,13 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                         [
                             windData.graph.windDirection.opgc,
                             windData.graph.windDirection.holfuy,
+                            ...(windData.graph.windDirection.winbird || []),
                             // windData.graph.windDirection.labuse,
                         ].filter(
                             (e) => e != undefined && e.data.length > 0,
                         ) as Array<GraphData>
                     }
-                    margin={{ top: 30, right: 50, bottom: 30, left: 10 }}
+                    margin={{ top: 60, right: 50, bottom: 30, left: 10 }}
                     xScale={{ format: '%Y-%m-%dT%H:%M:%S.%L%Z', type: 'time' }}
                     xFormat="time:%Hh%M"
                     yScale={{
@@ -182,10 +194,10 @@ const SharedMeasureGraph: React.FC<SharedMeasureGraphProps> = ({
                             direction: 'row',
                             justify: false,
                             translateX: 0,
-                            translateY: -25,
-                            itemsSpacing: 0,
+                            translateY: -35,
+                            itemsSpacing: 6,
                             itemDirection: 'left-to-right',
-                            itemWidth: 100,
+                            itemWidth: 95,
                             itemHeight: 20,
                             itemOpacity: 0.75,
                             symbolSize: 12,
