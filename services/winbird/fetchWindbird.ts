@@ -13,6 +13,12 @@ export const WINBIRD_STATIONS = [
         name: 'Puy de Dôme Déco Nord 1450m',
         shortName: 'PDD Nord',
         detailUrl: 'https://www.openwindmap.org/windbird-2208',
+    },
+{
+        id: 2209,
+        name: 'Puy de Dôme Déco Sud 1400m',
+        shortName: 'PDD Sud',
+        detailUrl: 'https://www.openwindmap.org/windbird-2209',
     }
 ] as const;
 
