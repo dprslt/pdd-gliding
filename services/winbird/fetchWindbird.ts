@@ -10,13 +10,13 @@ export const WINBIRD_HISTORY_HOURS = 6;
 export const WINBIRD_STATIONS = [
     {
         id: 2208,
-        name: 'Puy de Dôme Déco Nord 1450m',
+        name: 'Déco Nord 1450m',
         shortName: 'PDD Nord',
         detailUrl: 'https://www.openwindmap.org/windbird-2208',
     },
 {
         id: 2209,
-        name: 'Puy de Dôme Déco Sud 1400m',
+        name: 'Déco Sud 1400m',
         shortName: 'PDD Sud',
         detailUrl: 'https://www.openwindmap.org/windbird-2209',
     }
