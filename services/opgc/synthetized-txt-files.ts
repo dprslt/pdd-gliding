@@ -38,7 +38,7 @@ export async function fetchOPGCValues(): Promise<OPGCValues> {
     }
 
     return {
-        datetime: dt.toISO(),
+        datetime: dt.toISO()!,
         temperature,
         humidity,
         pressure,
@@ -72,7 +72,7 @@ export async function fetchOPGCmaxWind(): Promise<OPGCMaxWindValues> {
     }
 
     return {
-        datetime: dt.toISO(),
+        datetime: dt.toISO()!,
         windSpeedMax: windSpeedMax * 3.6,
     };
 }

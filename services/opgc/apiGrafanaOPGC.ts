@@ -70,7 +70,7 @@ export async function fetchLastValuesFromGrafana(): Promise<OPGCValues | null> {
     }
 
     return {
-        datetime: datetime.toISO(),
+        datetime: datetime.toISO()!,
         windSpeed: Math.round(serieData[1][0] * 3.6),
         windAngularDirection: Math.round(serieData[2][0]),
         temperature: Math.round(serieData[3][0] * 10) / 10,
