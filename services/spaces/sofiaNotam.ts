@@ -97,7 +97,7 @@ export async function fetchNOTAMForRoute(
         valid_from: date.toUTC().toISO({
             suppressMilliseconds: true,
             extendedZone: false,
-        }),
+        })!,
         departure_date: date.toFormat('dd-MM-yyyy'),
         departure_time: date.toFormat('HHmm'),
         // uuid: v4(),

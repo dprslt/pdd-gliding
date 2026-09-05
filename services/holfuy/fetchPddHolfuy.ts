@@ -53,7 +53,7 @@ export function convertHolfuyMeasurementToGeneric(
         throw new Error('Invalid timestamp');
     }
     return {
-        datetime: datetime.toISO(),
+        datetime: datetime.toISO()!,
         wind: {
             speed: measurement.wind.speed,
             gust: measurement.wind.gust,
