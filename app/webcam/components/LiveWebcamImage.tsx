@@ -16,7 +16,7 @@ const LiveWebcamImage: React.FC<LiveWebcamImageProps> = ({
     width,
     height,
 }) => {
-    const [mode, setMode] = useState('single');
+    const [mode, setMode] = useState('jpeg');
 
     const toggleMode = () => {
         setMode((prevMode) => (prevMode === 'single' ? 'jpeg' : 'single'));
