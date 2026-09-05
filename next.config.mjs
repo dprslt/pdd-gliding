@@ -26,11 +26,6 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'webcam.panoramiquedesdomes.fr',
-                port: '443',
-            },
-            {
-                protocol: 'https',
                 hostname: 'www.panoramiquedesdomes.fr',
                 port: '443',
             },
@@ -38,11 +33,6 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'meteovergne.fr',
                 port: '443',
-            },
-            {
-                protocol: 'http',
-                hostname: '77.158.167.18',
-                port: '8083',
             },
         ],
     },
@@ -61,10 +51,6 @@ const nextConfig = {
                 source: '/opgc-proxy',
                 destination:
                     'https://wwwobs.univ-bpclermont.fr/observ/chimie/PDD.jpeg',
-            },
-            {
-                source: '/pano-proxy',
-                destination: 'https://webcam.panoramiquedesdomes.fr/nph-zms',
             },
         ];
     },
