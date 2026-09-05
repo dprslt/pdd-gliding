@@ -5,7 +5,7 @@ type SommetPanoramiqueProps = {};
 
 const SommetPanoramique: React.FC<SommetPanoramiqueProps> = () => {
     const baseUrl = '/pano-proxy?scale=50&monitor=';
-    const monitors = [1, 2, 3, 4];
+    const monitors = [3, 5, 4, 2];
 
     return (
         <>
