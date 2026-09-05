@@ -132,7 +132,7 @@ export function convertWindbirdLiveToGeneric(
     }
 
     return {
-        datetime: datetime.toISO(),
+        datetime: datetime.toISO()!,
         wind: {
             speed: measurements.wind_speed_avg as number,
             gust: measurements.wind_speed_max as number,
@@ -164,7 +164,7 @@ export function convertWindbirdArchiveToGeneric(
         }
 
         return {
-            datetime: datetime.toISO(),
+            datetime: datetime.toISO()!,
             wind: {
                 speed: entry[windSpeedAvgIndex] as number,
                 gust: entry[windSpeedMaxIndex] as number,
