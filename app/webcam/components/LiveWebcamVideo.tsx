@@ -24,6 +24,7 @@ const LiveWebcamVideo: React.FC<LiveWebcamVideoProps> = ({ camera }) => {
             autoPlay
             muted
             playsInline
+            loop
             preload="none"
             controlsList="nodownload"
             aria-label={`Webcam N°${camera} du Panoramique des Dômes`}
