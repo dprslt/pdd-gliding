@@ -14,12 +14,12 @@ export const WINBIRD_STATIONS = [
         shortName: 'PDD Nord',
         detailUrl: 'https://www.openwindmap.org/windbird-2208',
     },
-    // {
-    //     id: 2209,
-    //     name: 'Déco Sud 1400m',
-    //     shortName: 'PDD Sud',
-    //     detailUrl: 'https://www.openwindmap.org/windbird-2209',
-    // }
+    {
+        id: 2209,
+        name: 'Déco Sud 1400m',
+        shortName: 'PDD Sud',
+        detailUrl: 'https://www.openwindmap.org/windbird-2209',
+    }
 ] as const;
 
 export type WindbirdLiveResponse = {
