@@ -37,11 +37,9 @@ export default async function NotamsSpacesPage() {
                         <FontAwesomeIcon icon={faPersonDigging} />
                     </div>
                     <div className="text">
-                        Le site Sofia Briefing est actuellement en maintenance
+                        Le site Hehol est actuellement en maintenance
                         et ne permet pas de recupérer les NOTAMS ...{' '}
-                        <a href="https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/homepage.html">
-                            https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/homepage.html
-                        </a>
+                        <a href="https://hehol.fr">https://hehol.fr</a>
                     </div>
                 </div> */}
 
