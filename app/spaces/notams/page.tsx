@@ -2,11 +2,7 @@ import { faCross } from '@fortawesome/free-solid-svg-icons';
 import React, { useCallback, useMemo } from 'react';
 
 import spacesStyles from '../spaces.module.scss';
-import {
-    fetchNOTAMForRoute,
-    NOTAMstructure,
-    PDDNorthSouthRoute,
-} from 'services/spaces/sofiaNotam';
+import { fetchPDDNotams } from 'services/spaces/notams';
 import NotamCard from './components/notamsCard/NotamCard';
 import SpacesSubPage from '../SpacesSubPage';
 import NotamNotice from './components/NotamNotice';
@@ -21,12 +17,10 @@ export const metadata = {
 };
 
 export default async function NotamsSpacesPage() {
-    const notamResponse = await fetchNOTAMForRoute(PDDNorthSouthRoute).catch(
-        (e) => {
-            console.error(e);
-            return null;
-        },
-    );
+    const notamResponse = await fetchPDDNotams().catch((e) => {
+        console.error(e);
+        return null;
+    });
 
     return (
         <SpacesSubPage
