@@ -1,6 +1,6 @@
 'use client';
 
-import { NOTAMstructure } from 'services/spaces/sofiaNotam';
+import { Notam } from 'services/spaces/notams';
 import './notamCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -17,7 +17,7 @@ import { DateTime } from 'luxon';
 import { translateUTCRangetoLocalInMessage } from 'services/spaces/localTime';
 
 type NotamCardProps = {
-    notam: NOTAMstructure;
+    notam: Notam;
 };
 
 export default function NotamCard({ notam }: NotamCardProps) {
@@ -26,7 +26,7 @@ export default function NotamCard({ notam }: NotamCardProps) {
     const [showLocaleTime, setShowLocaleTime] = useState(false);
 
     const isHighlighted = useMemo(() => {
-        const upperBody = notam.multiLanguage.itemE.toLocaleUpperCase();
+        const upperBody = notam.itemE.toLocaleUpperCase();
         return (
             upperBody.includes('R-68') ||
             upperBody.includes('R 68') ||
@@ -106,7 +106,7 @@ export default function NotamCard({ notam }: NotamCardProps) {
                         ))}
 
                     <div className="notam-card-fieldE">
-                        <pre>{notam.multiLanguage.itemE}</pre>
+                        <pre>{notam.itemE}</pre>
                     </div>
                 </div>
                 {/* <div className="notam-card-action">

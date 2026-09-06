@@ -2,11 +2,7 @@ import { faCross } from '@fortawesome/free-solid-svg-icons';
 import React, { useCallback, useMemo } from 'react';
 
 import spacesStyles from '../spaces.module.scss';
-import {
-    fetchNOTAMForRoute,
-    NOTAMstructure,
-    PDDNorthSouthRoute,
-} from 'services/spaces/sofiaNotam';
+import { fetchPDDNotams } from 'services/spaces/notams';
 import NotamCard from './components/notamsCard/NotamCard';
 import SpacesSubPage from '../SpacesSubPage';
 import NotamNotice from './components/NotamNotice';
@@ -21,12 +17,10 @@ export const metadata = {
 };
 
 export default async function NotamsSpacesPage() {
-    const notamResponse = await fetchNOTAMForRoute(PDDNorthSouthRoute).catch(
-        (e) => {
-            console.error(e);
-            return null;
-        },
-    );
+    const notamResponse = await fetchPDDNotams().catch((e) => {
+        console.error(e);
+        return null;
+    });
 
     return (
         <SpacesSubPage
@@ -43,11 +37,9 @@ export default async function NotamsSpacesPage() {
                         <FontAwesomeIcon icon={faPersonDigging} />
                     </div>
                     <div className="text">
-                        Le site Sofia Briefing est actuellement en maintenance
+                        Le site Hehol est actuellement en maintenance
                         et ne permet pas de recupérer les NOTAMS ...{' '}
-                        <a href="https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/homepage.html">
-                            https://sofia-briefing.aviation-civile.gouv.fr/sofia/pages/homepage.html
-                        </a>
+                        <a href="https://hehol.fr">https://hehol.fr</a>
                     </div>
                 </div> */}
 

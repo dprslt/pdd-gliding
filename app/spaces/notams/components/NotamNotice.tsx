@@ -22,7 +22,7 @@ export default function NotamNotice() {
 
                 <p>
                     Les NOTAM ci-dessus sont directement récupérés depuis
-                    <strong> Sofia Briefing</strong> en cherchant une navigation
+                    <strong> Hehol</strong> en cherchant une navigation
                     entre Montlucon et Aurillac du FL 0 au FL 115 avec un
                     couloir de 15 Nautiques de large.
                     <br /> La recherche est faite pour une validité de 24h avec
