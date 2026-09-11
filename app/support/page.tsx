@@ -67,9 +67,10 @@ export default function SupportPage() {
                                 au prochain débiefing.
                             </p>
                             <p>
-                                Si vous avez des idées d'améliorations ou des
-                                suggestions, n'hésitez pas à me contacter ou à
-                                contribuer directement au projet sur{' '}
+                                Si vous avez des idées d&apos;améliorations ou
+                                des suggestions, n&apos;hésitez pas à me
+                                contacter ou à contribuer directement au projet
+                                sur{' '}
                                 <a
                                     href="  https://github.com/dprslt/pdd-gliding"
                                     target="_blank"

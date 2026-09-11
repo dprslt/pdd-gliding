@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useSyncExternalStore } from 'react';
 
 type ActiveLinkProps = {
     href: string;
@@ -9,6 +9,8 @@ type ActiveLinkProps = {
     emptyPathMeanActive?: boolean;
     ariaLabel?: string;
 };
+
+const subscribe = () => () => {};
 
 const ActiveLink: React.FC<ActiveLinkProps> = ({
     href,
@@ -20,18 +22,20 @@ const ActiveLink: React.FC<ActiveLinkProps> = ({
     const pathname = usePathname();
 
     // To prevent hydration mismatches on Vercel, especially for the root route ('/'),
-    // we manage the active class on the client side using useState and useEffect.
-    // This ensures the `className` is applied only after the component has fully mounted
+    // the active class is applied only after the component has fully mounted
     // and the client-side `pathname` is stable.
-    const [computedClassName, setComputedClassName] = useState('');
+    const mounted = useSyncExternalStore(
+        subscribe,
+        () => true,
+        () => false,
+    );
 
-    useEffect(() => {
-        const isActive =
-            pathname &&
-            (pathname?.startsWith(href) ||
-                (emptyPathMeanActive && pathname?.length! <= 1));
-        setComputedClassName(isActive ? enabledClass : '');
-    }, [pathname, href, emptyPathMeanActive, enabledClass]);
+    const isActive =
+        mounted &&
+        !!pathname &&
+        (pathname.startsWith(href) ||
+            (emptyPathMeanActive && pathname.length <= 1));
+    const computedClassName = isActive ? enabledClass : '';
 
     return (
         <Link href={href} className={computedClassName} aria-label={ariaLabel}>

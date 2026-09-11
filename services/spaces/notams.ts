@@ -29,14 +29,11 @@ export type NotamsListResponse = {
 };
 
 export async function fetchPDDNotams(): Promise<NotamsListResponse> {
-    const response = await fetch(
-        'https://hehol.fr/api/notams/pdd-route',
-        {
-            next: {
-                revalidate: 600,
-            },
+    const response = await fetch('https://hehol.fr/api/notams/pdd-route', {
+        next: {
+            revalidate: 600,
         },
-    );
+    });
 
     if (!response.ok) {
         throw new Error(`Unable to fetch PDD notams: ${response.status}`);

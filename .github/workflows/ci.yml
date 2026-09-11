@@ -1,0 +1,46 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+jobs:
+    checks:
+        name: Checks
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: yarn
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Check formatting
+              run: yarn format:check
+
+            - name: Lint
+              run: yarn lint
+
+            - name: Typecheck
+              run: yarn typecheck
+
+            - name: Test
+              run: yarn test:ci
+
+            - name: Build
+              run: yarn build

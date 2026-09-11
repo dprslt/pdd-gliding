@@ -19,7 +19,7 @@ export const WINBIRD_STATIONS = [
         name: 'Déco Sud 1400m',
         shortName: 'PDD Sud',
         detailUrl: 'https://www.openwindmap.org/windbird-2209',
-    }
+    },
 ] as const;
 
 export type WindbirdLiveResponse = {
@@ -54,16 +54,7 @@ export type WindbirdArchiveResponse = {
     legend: Array<string>;
     units: Array<string>;
     data: Array<
-        [
-            string,
-            number,
-            number,
-            number,
-            number,
-            number,
-            number,
-            number | null,
-        ]
+        [string, number, number, number, number, number, number, number | null]
     >;
 };
 
@@ -86,9 +77,7 @@ async function fetchWithRetry(url: string, attempts = 3): Promise<Response> {
             return results;
         }
 
-        lastError = new Error(
-            `Error fetching winbird data: ${results.status}`,
-        );
+        lastError = new Error(`Error fetching winbird data: ${results.status}`);
     }
 
     throw lastError;
@@ -145,15 +134,9 @@ export function convertWindbirdLiveToGeneric(
 export function convertWindbirdArchiveToGeneric(
     archiveResponse: WindbirdArchiveResponse,
 ): Array<GenericWindMeasurement> {
-    const windSpeedAvgIndex = archiveResponse.legend.indexOf(
-        'wind_speed_avg',
-    );
-    const windSpeedMaxIndex = archiveResponse.legend.indexOf(
-        'wind_speed_max',
-    );
-    const windSpeedMinIndex = archiveResponse.legend.indexOf(
-        'wind_speed_min',
-    );
+    const windSpeedAvgIndex = archiveResponse.legend.indexOf('wind_speed_avg');
+    const windSpeedMaxIndex = archiveResponse.legend.indexOf('wind_speed_max');
+    const windSpeedMinIndex = archiveResponse.legend.indexOf('wind_speed_min');
     const windHeadingIndex = archiveResponse.legend.indexOf('wind_heading');
 
     return archiveResponse.data.map((entry) => {

@@ -212,9 +212,7 @@ async function fetchAllWinbirdData(): Promise<AllWinbirdData> {
         WINBIRD_STATIONS.map(async (station) => {
             const [live, archive] = await Promise.all([
                 fetchWindbirdLive(station.id).catch((e) => {
-                    console.error(
-                        `Error fetching winbird ${station.id} live`,
-                    );
+                    console.error(`Error fetching winbird ${station.id} live`);
                     console.error(e);
                     return null;
                 }),
@@ -234,9 +232,7 @@ async function fetchAllWinbirdData(): Promise<AllWinbirdData> {
 
             return {
                 shortName: station.shortName,
-                live: live
-                    ? convertWindbirdLiveToGeneric(live)
-                    : null,
+                live: live ? convertWindbirdLiveToGeneric(live) : null,
                 history,
             };
         }),

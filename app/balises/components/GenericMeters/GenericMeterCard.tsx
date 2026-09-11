@@ -59,7 +59,9 @@ const GenericMeterCard: React.FC<GenericMeterCardProps> = ({
                 <div className={'balise-infos-card--metering'}>
                     {meterData.temperature !== undefined && (
                         <div className="balise-infos-card--meter">
-                            <FontAwesomeIcon icon={faTemperatureThreeQuarters} />
+                            <FontAwesomeIcon
+                                icon={faTemperatureThreeQuarters}
+                            />
                             <div className="meter-value">
                                 {meterData.temperature}
                                 <span className="meter-unit">&deg;C</span>
