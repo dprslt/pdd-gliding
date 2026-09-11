@@ -17,12 +17,14 @@ jobs:
         name: Checks
         runs-on: ubuntu-latest
         timeout-minutes: 15
+        env:
+            TZ: Europe/Paris
         steps:
             - name: Checkout
               uses: actions/checkout@v5
 
             - name: Setup Node.js
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v5
               with:
                   node-version: 24
                   cache: yarn
