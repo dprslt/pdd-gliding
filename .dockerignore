@@ -1,0 +1,25 @@
+.git
+.gitignore
+.github
+.vscode
+orca.yaml
+
+# Dependencies and build output are produced inside the image
+node_modules
+.next
+out
+build
+coverage
+
+# Local config, never needed in the image (runtime vars come from Swarm env)
+.env
+.env.*
+!.env.example
+
+# Not used at runtime
+certs
+copy-certs.js
+
+# Docs
+*.md
+README.md
