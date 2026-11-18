@@ -82,6 +82,38 @@ L'application sera disponible sur `http://localhost:4000`
 
 Pour le reste, vous pouvez vous référer à la documentation de [NextJs](https://nextjs.org/docs) avec l'App Routeur.
 
+#### Variables d'environnement
+
+Copier `.env.example` vers `.env.local` et renseigner `HOLFUY_PASSWD`
+(mot de passe du capteur Holfuy, sans lui les balises Holfuy ne renvoient
+aucune donnée). `SITE_URL` est optionnel (sitemap / robots.txt).
+
+## Déploiement
+
+Le site est hébergé sur le serveur **bigwhale.tily.fr**, dans un stack Docker
+Swarm `pdd` (défini dans le dépôt d'infra `dprslt/hehol-airspace`, dossier
+`deploy/stacks/pdd/`). Traefik y termine le TLS pour `pdd.dprslt.fr`.
+
+```
+push sur main
+   └─▶ .github/workflows/build-image.yml
+         build l'image Docker (sortie standalone) et pousse
+         ghcr.io/dprslt/pdd-gliding:{sha-<short>,latest}
+            └─▶ WUD détecte le nouveau tag
+                  └─▶ docker service update --image … pdd_pdd-app
+```
+
+Le site tourne donc sans Vercel. Pour reproduire l'image en local :
+
+```bash
+docker build -t pdd-gliding .
+docker run --rm -p 3000:3000 -e HOLFUY_PASSWD=… pdd-gliding
+# http://localhost:3000/api/health → {"status":"ok"}
+```
+
+`/api/health` est le endpoint de liveness utilisé par le healthcheck du
+conteneur : il ne dépend d'aucune API externe.
+
 ## Remerciements
 
 Un grand merci à :
