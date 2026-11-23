@@ -1,0 +1,85 @@
+name: Build image
+
+# Builds the production Docker image of the site and pushes it to GHCR on
+# every push to `main`. The `pdd-app` Docker Swarm service on bigwhale.tily.fr
+# references ghcr.io/dprslt/pdd-gliding, and WUD rolls it forward when a new
+# `sha-<short>` tag appears (see hehol-airspace/deploy/stacks/pdd).
+#
+# Pull requests only build the image (no push): that catches Dockerfile and
+# standalone-output regressions before merge.
+
+on:
+    push:
+        branches: [main]
+        paths:
+            - 'app/**'
+            - 'components/**'
+            - 'hooks/**'
+            - 'pages/**'
+            - 'public/**'
+            - 'services/**'
+            - 'styles/**'
+            - 'utils/**'
+            - 'package.json'
+            - 'yarn.lock'
+            - 'next.config.mjs'
+            - 'tsconfig.json'
+            - 'Dockerfile'
+            - '.dockerignore'
+            - '.github/workflows/build-image.yml'
+    pull_request:
+        paths:
+            - 'Dockerfile'
+            - '.dockerignore'
+            - 'next.config.mjs'
+            - 'package.json'
+            - 'yarn.lock'
+            - '.github/workflows/build-image.yml'
+    workflow_dispatch:
+
+concurrency:
+    group: build-image-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+    packages: write
+
+env:
+    IMAGE: ghcr.io/${{ github.repository }}
+
+jobs:
+    build:
+        name: Build ${{ github.event_name == 'pull_request' && '(no push)' || 'and push' }}
+        runs-on: ubuntu-latest
+        timeout-minutes: 25
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            - name: Log in to GHCR
+              if: github.event_name != 'pull_request'
+              uses: docker/login-action@v3
+              with:
+                  registry: ghcr.io
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Derive image tags
+              id: meta
+              run: echo "sha_tag=sha-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+            - name: Build and push
+              uses: docker/build-push-action@v6
+              with:
+                  context: .
+                  file: ./Dockerfile
+                  push: ${{ github.event_name != 'pull_request' }}
+                  tags: |
+                      ${{ env.IMAGE }}:latest
+                      ${{ env.IMAGE }}:${{ steps.meta.outputs.sha_tag }}
+                  cache-from: type=gha
+                  cache-to: ${{ github.event_name != 'pull_request' && 'type=gha,mode=max' || '' }}

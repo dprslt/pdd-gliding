@@ -7,6 +7,24 @@ process.env.SASS_PATH = path.join(import.meta.dirname, 'styles');
 const nextConfig = {
     reactStrictMode: true,
 
+    // Opt-in standalone output for the Docker image (`Dockerfile` sets
+    // BUILD_STANDALONE=true). Left off by default so Vercel keeps its own
+    // build output and local `yarn build` stays unchanged.
+    output: process.env.BUILD_STANDALONE === 'true' ? 'standalone' : undefined,
+
+    // `sharp` backs the next/image optimizer. Next's file tracing copies only
+    // part of it (and of its dependencies) into `.next/standalone`, so
+    // `/_next/image` silently falls back to serving full-size originals.
+    // Include the package, its platform binary and its dependency tree.
+    outputFileTracingIncludes: {
+        '/**': [
+            './node_modules/sharp/**/*',
+            './node_modules/@img/**/*',
+            './node_modules/semver/**/*',
+            './node_modules/detect-libc/**/*',
+        ],
+    },
+
     sassOptions: {
         additionalData: `@use "colors" as colors;`,
     },
